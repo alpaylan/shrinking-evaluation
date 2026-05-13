@@ -127,6 +127,20 @@ jobs:
           cp "tests/${NAME}.json" "${{ steps.etna.outputs.exp_dir }}/tests/"
           echo "name=$NAME" >> "$GITHUB_OUTPUT"
 
+      # Restore the most recent cache for this task (offset + partial
+      # store). restore-keys does a prefix match, so the highest-keyed
+      # entry wins — which is the most recent save thanks to the
+      # `<offset>` suffix we encode at save time.
+      - name: Restore Lean state from cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            state/lean/${{ inputs.workload }}/${{ matrix.mutation }}_${{ matrix.property }}.txt
+            partial-stores/lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}.jsonl
+          key: lean-state-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}-restore-${{ github.run_id }}
+          restore-keys: |
+            lean-state-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}-
+
       - name: Read prior checkpoint
         id: ckpt
         run: |
@@ -137,61 +151,93 @@ jobs:
           echo "path=$CKPT"    >> "$GITHUB_OUTPUT"
           echo "Resuming from index $VAL"
 
-      - name: Run incremental Lean
+      # Run etna in the background and have a watchdog loop save the
+      # latest checkpoint + partial store to GH Actions Cache every
+      # 60s via scripts/cache_save.sh (which talks the same internal
+      # REST API as actions/cache/save@v4, but can be invoked
+      # mid-step). Spot-instance reclamation kills the runner without
+      # giving post-steps a chance to run, so the only state that
+      # survives is what's been pushed to a remote system before SIGTERM.
+      - name: Run incremental Lean (with mid-run cache saves)
         env:
           ETNA_LEAN_RESUME:     ${{ steps.ckpt.outputs.resume }}
           ETNA_LEAN_CHECKPOINT: ${{ steps.ckpt.outputs.path }}
         run: |
+          set +e
           mkdir -p "$GITHUB_WORKSPACE/partial-stores"
-          STORE="$GITHUB_WORKSPACE/partial-stores/lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}.jsonl"
+          STORE_REL="partial-stores/lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}.jsonl"
+          CKPT_REL="state/lean/${{ inputs.workload }}/${{ matrix.mutation }}_${{ matrix.property }}.txt"
+          STORE="$GITHUB_WORKSPACE/$STORE_REL"
+          KEY_BASE="lean-state-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}"
+
+          # Sanity check: the cache REST API needs these.
+          if [ -z "${ACTIONS_RUNTIME_TOKEN:-}" ] || [ -z "${ACTIONS_CACHE_URL:-}" ]; then
+            echo "::warning::ACTIONS_RUNTIME_TOKEN / ACTIONS_CACHE_URL not exposed; mid-run saves will be skipped."
+            CACHE_OK=no
+          else
+            CACHE_OK=yes
+          fi
+
           cd "${{ steps.etna.outputs.exp_dir }}"
-          # `|| true`: timeout exit codes shouldn't fail the job;
-          # whether anything got stored is the indicator.
           etna experiment run \
             --tests "${{ steps.task.outputs.name }}" \
             --store "$STORE" \
-            --short-circuit || true
+            --short-circuit &
+          ETNA_PID=$!
+
+          # Background watchdog: each 60s, if the checkpoint advanced,
+          # push the (offset-stamped) cache entry. The offset in the
+          # key ensures uniqueness; restore-keys prefix-matches and
+          # GitHub returns the most recent by key.
+          LAST=""
+          while kill -0 "$ETNA_PID" 2>/dev/null; do
+            sleep 60
+            if [ "$CACHE_OK" = "yes" ] && [ -f "$ETNA_LEAN_CHECKPOINT" ]; then
+              CUR=$(cat "$ETNA_LEAN_CHECKPOINT" 2>/dev/null || echo "")
+              if [ -n "$CUR" ] && [ "$CUR" != "$LAST" ]; then
+                # Pad offset so lexicographic restore-keys ordering
+                # tracks numeric ordering up to 10**12 tests.
+                PADDED=$(printf '%012d' "$CUR")
+                bash "$GITHUB_WORKSPACE/scripts/cache_save.sh" \
+                  "${KEY_BASE}-${PADDED}" "$CKPT_REL" "$STORE_REL" \
+                  || echo "::warning::cache_save failed; will retry next iteration"
+                LAST="$CUR"
+              fi
+            fi
+          done
+
+          wait "$ETNA_PID" || true
+
+          # One more save after etna exits cleanly, with a -final tag
+          # so we can tell completed runs from mid-flight snapshots.
+          if [ "$CACHE_OK" = "yes" ] && [ -f "$ETNA_LEAN_CHECKPOINT" ]; then
+            CUR=$(cat "$ETNA_LEAN_CHECKPOINT")
+            PADDED=$(printf '%012d' "$CUR")
+            bash "$GITHUB_WORKSPACE/scripts/cache_save.sh" \
+              "${KEY_BASE}-${PADDED}-final" "$CKPT_REL" "$STORE_REL" \
+              || true
+          fi
+
           echo "--- store rows produced ---"
           wc -l "$STORE" || true
 
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}
-          path: |
-            state/lean/${{ inputs.workload }}/${{ matrix.mutation }}_${{ matrix.property }}.txt
-            partial-stores/lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}.jsonl
-          if-no-files-found: warn
-          retention-days: 30
-
-  consolidate:
+  # Consolidate is intentionally a no-op in this workflow now: per-task
+  # state lives in GH Actions Cache (saved mid-run by the watchdog so
+  # spot reclamation doesn't lose it). To merge cached partial stores
+  # into the master `store.<wl>.det.jsonl` and commit, run
+  # `scripts/lean_pull_caches.py` locally; that script lists the
+  # `lean-state-<wl>-*` caches via the GH REST API and reassembles
+  # state without going through Actions.
+  summary:
     needs: lean
     if: always() && needs.discover.outputs.empty == 'false'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
-        with:
-          path: artifacts/
-
-      - name: Merge checkpoints and append partial stores
+      - name: Summarise lean matrix outcomes
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          set -e
-          WL="${{ inputs.workload }}"
-          # Move every per-task checkpoint file into state/lean/<wl>/
-          mkdir -p "state/lean/${WL}"
-          find artifacts -path "*/state/lean/${WL}/*.txt" -exec cp -t "state/lean/${WL}" {} +
-          # Append every per-task store fragment onto the master store,
-          # then dedupe by (strategy, property, mutations, trial).
-          MASTER="store.${WL}.det.jsonl"
-          touch "$MASTER"
-          find artifacts -name 'lean-*.jsonl' -print0 | xargs -0 -I{} cat {} >> "$MASTER" || true
-          python3 scripts/lean_dedup_store.py "$MASTER"
-
-      - name: Commit and push
-        run: |
-          git config user.name  'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add "state/lean/${{ inputs.workload }}" "store.${{ inputs.workload }}.det.jsonl"
-          git diff --staged --quiet || git commit -m "lean(${{ inputs.workload }}): incremental ${GITHUB_RUN_ID}"
-          git push
+          gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" \
+            --paginate \
+            --jq '.jobs[] | select(.name | startswith("lean")) | "\(.conclusion // "?")  \(.name)"' \
+            | sort | uniq -c | sort -rn || true
