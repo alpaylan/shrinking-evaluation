@@ -1,0 +1,168 @@
+name = "fsub-haskell"
+language = "Haskell"
+description = "System F-sub workload for Etna. Note: steps.json was seeded from BST and likely needs tuning before runs."
+strategies = [
+  "Correct",
+  "Falsify",
+  "Hedgehog",
+  "Lean",
+  "LeanRev",
+  "Quick",
+  "QuickIndex",
+  "Small",
+  "SmallRev",
+]
+
+mutations = [
+  "shift_abs_no_incr",
+  "shift_typ_tabs_no_incr",
+  "shift_var_all",
+  "shift_var_no_incr",
+  "subst_abs_no_incr",
+  "subst_abs_no_shift",
+  "subst_tabs_no_shift",
+  "subst_typ_tabs_no_incr",
+  "subst_typ_tabs_no_shift",
+  "subst_var_flip",
+  "subst_var_no_decr",
+  "tshift_all_no_incr",
+  "tshift_tvar_all",
+  "tshift_tvar_no_incr",
+  "tsubst_all_no_tshift",
+  "tsubst_tvar_flip",
+  "tsubst_tvar_no_shift",
+  "tsubst_tvar_over_shift",
+]
+
+# Each variant is a term-level or type-level mistake in System F-sub's
+# shift/subst machinery. The two properties below hold for the correct
+# implementation: single-step and multi-step evaluation must preserve the
+# type of a well-typed term. Any of these 18 mutations should break at
+# least one. Witnesses not yet catalogued — leave empty rather than
+# invent; add them as counterexamples get discovered by actual runs.
+
+[[tasks]]
+mutations = ["shift_abs_no_incr"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["shift_typ_tabs_no_incr"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["shift_var_all"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["shift_var_no_incr"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["subst_abs_no_incr"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["subst_abs_no_shift"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["subst_tabs_no_shift"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["subst_typ_tabs_no_incr"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["subst_typ_tabs_no_shift"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["subst_var_flip"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["subst_var_no_decr"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["tshift_all_no_incr"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["tshift_tvar_all"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["tshift_tvar_no_incr"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["tsubst_all_no_tshift"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["tsubst_tvar_flip"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["tsubst_tvar_no_shift"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]
+
+[[tasks]]
+mutations = ["tsubst_tvar_over_shift"]
+tasks = [
+  { property = "SinglePreserve" },
+  { property = "MultiPreserve" },
+]

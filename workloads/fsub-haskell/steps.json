@@ -1,0 +1,30 @@
+{
+  "setup_steps": [],
+  "build_steps": [
+    {
+      "Command": {
+        "command": "stack",
+        "args": [
+          "install",
+          "--ghc-options=\"-optc-std=c99\"",
+          "--no-system-ghc",
+          "--local-bin-path",
+          "./bin"
+        ]
+      }
+    }
+  ],
+  "capabilities": {
+    "solve": [
+      {
+        "Command": {
+          "command": "./bin/fsub",
+          "args": [
+            "{\"workload\": \"${workload}\", \"strategy\": \"${strategy}\", \"property\": \"prop_${property}\", \"timeout\": ${timeout}}"
+          ],
+          "run_at": "${workload_path}"
+        }
+      }
+    ]
+  }
+}

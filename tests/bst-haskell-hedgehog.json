@@ -1,0 +1,1970 @@
+[
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "property": "InsertPost",
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "Hedgehog"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE",
+        "property": "UnionDeleteInsert"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_3"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "property": "InsertDelete"
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "property": "InsertDelete"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE",
+        "property": "InsertUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Hedgehog"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogGbE"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "delete_4"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "DeletePost"
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "InsertDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE",
+        "property": "UnionDeleteInsert"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "delete_5"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "property": "DeleteModel",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "DeletePost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "HedgehogCBC",
+        "property": "DeletePost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "HedgehogCBC2",
+        "property": "DeletePost"
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "HedgehogCBC",
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteDelete"
+      },
+      {
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Hedgehog"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogGbE"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "union_6"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "UnionValid"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "Hedgehog"
+      },
+      {
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "strategy": "HedgehogCBC",
+        "property": "DeleteUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE",
+        "property": "InsertUnion"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "union_7"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "strategy": "HedgehogCBC",
+        "property": "UnionValid"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "strategy": "HedgehogCBC2",
+        "property": "UnionValid"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "property": "UnionValid",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "strategy": "HedgehogGbE",
+        "property": "DeleteUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "union_8"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "property": "UnionPost",
+        "strategy": "Hedgehog"
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "HedgehogCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC2"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc",
+        "strategy": "HedgehogGbE"
+      }
+    ]
+  }
+]

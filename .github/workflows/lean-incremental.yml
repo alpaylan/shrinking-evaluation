@@ -1,0 +1,163 @@
+name: Lean incremental ground truth
+
+on:
+  workflow_dispatch:
+    inputs:
+      workload:
+        description: "Workload short name (matches store.<workload>.det.jsonl)"
+        required: true
+        default: "rbt"
+      per_task_minutes:
+        description: "Wall-clock budget per task per run (minutes; max ~340 for free public runner)"
+        required: true
+        default: "300"
+      etna-version:
+        description: "etna-cli release tag to install (e.g. v0.1.10). Empty = latest release."
+        required: false
+        default: ""
+
+# Allow the consolidate job to push back to the repo.
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.list.outputs.matrix }}
+      empty:  ${{ steps.list.outputs.empty }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: list
+        run: |
+          python3 scripts/lean_pending_tasks.py "${{ inputs.workload }}" > tasks.json
+          cat tasks.json
+          echo "matrix=$(cat tasks.json)" >> "$GITHUB_OUTPUT"
+          if [ "$(jq '.include | length' tasks.json)" = "0" ]; then
+            echo "empty=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "empty=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  lean:
+    needs: discover
+    if: needs.discover.outputs.empty == 'false'
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJson(needs.discover.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: haskell-actions/setup@v2
+        with:
+          enable-stack: true
+          stack-version: '2.15.7'
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.stack
+            workloads/${{ inputs.workload }}-haskell/.stack-work
+          key: stack-${{ runner.os }}-${{ inputs.workload }}-${{ hashFiles(format('workloads/{0}-haskell/**/stack.yaml*', inputs.workload), format('workloads/{0}-haskell/**/*.cabal', inputs.workload)) }}
+          restore-keys: |
+            stack-${{ runner.os }}-${{ inputs.workload }}-
+
+      # Pattern lifted from alpaylan/etna-cli's run-and-publish.yml: pull
+      # the etna-installer.sh from the chosen release tag, drop the binary
+      # into ~/.cargo/bin, and append that to PATH.
+      - name: Install etna-cli
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.etna-version }}" ]; then
+            url="https://github.com/alpaylan/etna-cli/releases/download/${{ inputs.etna-version }}/etna-installer.sh"
+          else
+            url="https://github.com/alpaylan/etna-cli/releases/latest/download/etna-installer.sh"
+          fi
+          curl -LsSf "$url" | sh
+          echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+          "$HOME/.cargo/bin/etna" --version || true
+
+      - name: Compose single-task test JSON
+        id: task
+        run: |
+          MUT="${{ matrix.mutation }}"
+          PROP="${{ matrix.property }}"
+          # Reserve 90s of the runner budget for setup/teardown.
+          BUDGET=$(( ${{ inputs.per_task_minutes }} * 60 - 90 ))
+          NAME="lean-${{ inputs.workload }}-${MUT}-${PROP}"
+          python3 scripts/lean_compose_task.py \
+            --workload "${{ inputs.workload }}" \
+            --mutation "$MUT" --property "$PROP" \
+            --timeout "$BUDGET" --out-name "$NAME"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Read prior checkpoint
+        id: ckpt
+        run: |
+          CKPT="state/lean/${{ inputs.workload }}/${{ matrix.mutation }}_${{ matrix.property }}.txt"
+          mkdir -p "$(dirname "$CKPT")"
+          if [ -f "$CKPT" ]; then VAL=$(cat "$CKPT"); else VAL=0; fi
+          echo "resume=$VAL"   >> "$GITHUB_OUTPUT"
+          echo "path=$CKPT"    >> "$GITHUB_OUTPUT"
+          echo "Resuming from index $VAL"
+
+      - name: Run incremental Lean
+        env:
+          ETNA_LEAN_RESUME:     ${{ steps.ckpt.outputs.resume }}
+          ETNA_LEAN_CHECKPOINT: ${{ steps.ckpt.outputs.path }}
+        run: |
+          mkdir -p partial-stores
+          STORE="partial-stores/lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}.jsonl"
+          # `|| true`: timeout exit codes shouldn't fail the job;
+          # whether anything got stored is the indicator.
+          etna experiment run \
+            --tests "${{ steps.task.outputs.name }}" \
+            --store "$STORE" \
+            --short-circuit || true
+          echo "--- store rows produced ---"
+          wc -l "$STORE" || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}
+          path: |
+            state/lean/${{ inputs.workload }}/${{ matrix.mutation }}_${{ matrix.property }}.txt
+            partial-stores/lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}.jsonl
+          if-no-files-found: warn
+          retention-days: 30
+
+  consolidate:
+    needs: lean
+    if: always() && needs.discover.outputs.empty == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+
+      - name: Merge checkpoints and append partial stores
+        run: |
+          set -e
+          WL="${{ inputs.workload }}"
+          # Move every per-task checkpoint file into state/lean/<wl>/
+          mkdir -p "state/lean/${WL}"
+          find artifacts -path "*/state/lean/${WL}/*.txt" -exec cp -t "state/lean/${WL}" {} +
+          # Append every per-task store fragment onto the master store,
+          # then dedupe by (strategy, property, mutations, trial).
+          MASTER="store.${WL}.det.jsonl"
+          touch "$MASTER"
+          find artifacts -name 'lean-*.jsonl' -print0 | xargs -0 -I{} cat {} >> "$MASTER" || true
+          python3 scripts/lean_dedup_store.py "$MASTER"
+
+      - name: Commit and push
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add "state/lean/${{ inputs.workload }}" "store.${{ inputs.workload }}.det.jsonl"
+          git diff --staged --quiet || git commit -m "lean(${{ inputs.workload }}): incremental ${GITHUB_RUN_ID}"
+          git push

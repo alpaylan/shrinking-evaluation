@@ -1,0 +1,704 @@
+[
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "delete_4"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 1 0 E) 2 0 (T R E 3 0 E)) 2 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "insert_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 6 6 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "insert_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "insert_3"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 0 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 9 0 E) 8 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 0 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 1)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "delete_5"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 (T R E 1 1 E)) 1 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 1 0 E) 2 2 E) 2 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "miscolor_insert"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 8 7 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "miscolor_delete"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 1)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "miscolor_balLeft"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E 1 0 E) 2 0 (T R (T B E 3 0 E) 4 0 (T B E 5 0 E))) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E 3 0 E) 4 0 (T R (T B E 5 0 E) 6 0 (T B E 15 0 E))) 15 3)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "miscolor_balRight"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E 0 0 E) 1 0 (T B E 2 0 E)) 3 0 (T B E 34 0 E)) 34)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E 1 0 E) 2 0 (T B E 3 0 E)) 4 0 (T B E 10 0 E)) 10 1)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "miscolor_join_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R (T B E -2 0 E) -1 0 (T B E 0 0 E)) 1 0 (T R (T B E 2 0 (T R E 3 0 E)) 4 0 (T B E 5 0 E))) 6 0 (T B (T B E 7 0 E) 8 0 (T B E 9 0 E))) 1)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "miscolor_join_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 (T R E 0 0 E)) 1 0 (T B E 2 0 (T R E 3 0 E))) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -6 0 E) 0 0 (T B E 1 0 E)) 4 0 (T B (T R E 5 0 E) 6 0 E)) -6 4)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "no_balance_insert_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E 0 0 E) 1 0 (T B E 2 0 (T R E 3 0 E))) 5 0 (T B E 51 0 E)) 51 4 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E 0 0 (T R E 2 0 E)) 3 0 (T B E 4 0 E)) 5 0 (T B E 34 0 E)) 1 34 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "no_balance_insert_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "swap_bc"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 0 (T R (T B E 106 0 E) 333 0 (T B E 335 0 E))) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -19 0 E) 0 0 (T R (T B E 1 0 E) 16 0 (T B E 19 0 E))) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 (T R E 0 0 E)) 2 0 (T B E 524 0 (T R E 526 0 E))) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T B E 0 0 E) 1 0 (T B E 2 0 E)) 3 0 (T B (T R (T B E 4 0 E) 5 0 (T B E 6 0 E)) 7 0 (T B E 8 0 E))) 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T B E 0 0 E) 1 0 (T B E 2 0 E)) 3 0 (T B (T R (T B E 4 0 E) 5 0 (T B E 47 0 E)) 48 0 (T B E 49 0 E))) 0 47)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T B E 0 0 E) 1 0 (T B E 2 0 E)) 3 0 (T B (T R (T B E 4 0 E) 5 0 (T B E 6 0 E)) 7 0 (T B E 8 0 E))) 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T B E -723 0 E) 0 0 (T B E 1 0 E)) 5 0 (T B (T R (T B E 6 0 E) 7 0 (T B E 8 0 E)) 9 0 (T B E 10 0 E))) 4 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 0 (T R (T B E 34 0 E) 65 0 (T B E 76 0 E))) 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 0 (T R (T B E 80 0 E) 86 0 (T B E 92 0 E))) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 0 (T B E 18 0 (T R E 69 0 E))) 1 19 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 1,
+    "timeout": 30.0,
+    "mutations": [
+      "swap_cd"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Lean",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E 54 0 (T R E 76 0 E)) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 (T R E 84 0 E)) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 1 0 E) 2 0 (T R E 6 0 E)) 0 6 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R E -409 0 E) -1 0 (T R E 0 0 E)) 1 0 (T B E 872 0 E)) 871)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R E -3 0 E) 0 4 (T R E 1 5 E)) 2 -1 (T B E 5 -5 E)) 5 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R E 0 0 E) 1 0 (T R E 2 0 E)) 3 0 (T B E 22 0 E)) 22)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R E -2 0 E) -1 0 (T R E 0 0 E)) 1 0 (T B E 4 0 E)) 4 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 0 0 E) 263 0 E) 0 -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 0 0 E) 1 0 E) -1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "((T B E -96 0 E) -97 1 0 0)"
+          }
+        ]
+      }
+    ]
+  }
+]

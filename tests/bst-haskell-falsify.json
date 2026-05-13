@@ -1,0 +1,1970 @@
+[
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertPost",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "InsertInsert"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "InsertPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "property": "InsertPost",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "property": "InsertPost",
+        "strategy": "FalsifyCBC2"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "FalsifyCBC2"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "property": "InsertDelete"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "InsertInsert",
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "InsertInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC2",
+        "property": "InsertInsert"
+      },
+      {
+        "property": "InsertInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC2"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyGbE"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_3"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "strategy": "FalsifyGbE",
+        "property": "InsertDelete"
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "InsertInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC2",
+        "property": "InsertInsert"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "InsertUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC2",
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "delete_4"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "strategy": "Falsify",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "DeletePost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC2",
+        "property": "DeletePost"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "DeletePost"
+      },
+      {
+        "property": "DeleteDelete",
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "Falsify"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC2"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "strategy": "Falsify",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyCBC2"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyGbE"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "delete_5"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "FalsifyCBC2"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "strategy": "FalsifyGbE",
+        "property": "DeleteModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "DeletePost"
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ]
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ]
+      },
+      {
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "FalsifyCBC2",
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "FalsifyGbE",
+        "property": "DeleteDelete"
+      },
+      {
+        "strategy": "Falsify",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "FalsifyCBC2"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "FalsifyCBC2"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC2"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "union_6"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "UnionPost",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "FalsifyCBC2",
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "Falsify"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "union_7"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "property": "UnionValid",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ]
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "strategy": "FalsifyGbE",
+        "property": "UnionValid"
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "property": "UnionModel"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "DeleteUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "strategy": "FalsifyCBC2",
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC2",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "union_8"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC2"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc",
+        "strategy": "Falsify"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "FalsifyCBC2",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "numBuckets": 6,
+  "chartNames": [
+    "QuickCBC",
+    "HedgehogCBC",
+    "HedgehogCBC2",
+    "FalsifyCBC",
+    "FalsifyCBC2"
+  ],
+  "chartColors": [
+    "#1b7837",
+    "#2166ac",
+    "#2166ac",
+    "#b35806",
+    "#b35806"
+  ],
+  "barStyles": [
+    "solid",
+    "solid",
+    "hatched",
+    "solid",
+    "hatched"
+  ],
+  "bucketValues": [
+    [
+      "44",
+      "6",
+      "2",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "48",
+      "3",
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "44",
+      "3",
+      "5",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "43",
+      "1",
+      "7",
+      "0",
+      "1",
+      "0"
+    ],
+    [
+      "43",
+      "2",
+      "5",
+      "1",
+      "1",
+      "0"
+    ]
+  ]
+}

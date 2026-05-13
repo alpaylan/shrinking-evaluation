@@ -1,0 +1,1748 @@
+[
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "delete_4"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 3 (T B E 3 0 E)) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 3 (T B E 3 0 E)) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 3 (T B E 3 0 E)) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) -3 -3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) -3 -3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) -3 -3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 1 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_3"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 3 3 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 3 3 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 3 3 0 1)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "delete_5"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 1 E) 0 0 (T B E 1 4 E)) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 1 E) 0 0 (T B E 1 4 E)) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 1 E) 0 0 (T B E 1 4 E)) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 3 0 (T R E 4 0 E)) 4 4)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 3 0 (T R E 4 0 E)) 4 4)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 3 0 (T R E 4 0 E)) 4 4)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B E -4 6 (T R E 9 0 E)) 9 -4)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B E -4 6 (T R E 9 0 E)) 9 -4)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B E -4 6 (T R E 9 0 E)) 9 -4)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 1 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_insert"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_delete"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 (T R E 1 1 E)) 2)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 (T R E 1 1 E)) 2)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 (T R E 1 1 E)) 2)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_balLeft"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 E) 0 0 (T R (T B E 2 2 E) 5 6 (T B E 6 1 E))) -5)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 E) 0 0 (T R (T B E 2 2 E) 5 6 (T B E 6 1 E))) -5)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 E) 0 0 (T R (T B E 2 2 E) 5 6 (T B E 6 1 E))) -5)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 6 E) -1 0 (T R (T B E 0 0 E) 3 0 (T B E 5 8 E))) 5 -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 6 E) -1 0 (T R (T B E 0 0 E) 3 0 (T B E 5 8 E))) 5 -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 6 E) -1 0 (T R (T B E 0 0 E) 3 0 (T B E 5 8 E))) 5 -2)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_balRight"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) -2 0 (T B E 0 0 E)) 6 0 (T B E 7 6 E)) 7)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) -2 0 (T B E 0 0 E)) 6 0 (T B E 7 6 E)) 7)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) -2 0 (T B E 0 0 E)) 6 0 (T B E 7 6 E)) 7)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -9 1 E) -8 0 (T B E 0 0 E)) 3 0 (T B E 6 5 E)) -9 6)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -9 1 E) -8 0 (T B E 0 0 E)) 3 0 (T B E 6 5 E)) -9 6)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -9 1 E) -8 0 (T B E 0 0 E)) 3 0 (T B E 6 5 E)) -9 6)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_join_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R (T B E -12 2 E) -6 0 (T B E -3 0 E)) -2 0 (T R (T B (T R E 0 0 E) 3 0 E) 4 0 (T B E 5 4 E))) 6 3 (T B (T B E 8 8 E) 9 0 (T B E 10 0 E))) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R (T B E -12 2 E) -6 0 (T B E -3 0 E)) -2 0 (T R (T B (T R E 0 0 E) 3 0 E) 4 0 (T B E 5 4 E))) 6 3 (T B (T B E 8 8 E) 9 0 (T B E 10 0 E))) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R (T B E -12 2 E) -6 0 (T B E -3 0 E)) -2 0 (T R (T B (T R E 0 0 E) 3 0 E) 4 0 (T B E 5 4 E))) 6 3 (T B (T B E 8 8 E) 9 0 (T B E 10 0 E))) -2)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_join_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 (T R E -4 1 E)) -1 0 (T B (T R E 2 0 E) 4 0 E)) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 (T R E -4 1 E)) -1 0 (T B (T R E 2 0 E) 4 0 E)) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 (T R E -4 1 E)) -1 0 (T B (T R E 2 0 E) 4 0 E)) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T (B) (T (B) (E) 0 0 (E)) 1 0 (T (R) (T (B) (E) 2 0 (T (R) (E) 3 0 (E))) 4 0 (T (B) (E) 5 0 (E)))) 4 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T (B) (T (B) (E) 0 0 (E)) 1 0 (T (R) (T (B) (E) 2 0 (T (R) (E) 3 0 (E))) 4 0 (T (B) (E) 5 0 (E)))) 4 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T (B) (T (B) (E) 0 0 (E)) 1 0 (T (R) (T (B) (E) 2 0 (T (R) (E) 3 0 (E))) 4 0 (T (B) (E) 5 0 (E)))) 4 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "no_balance_insert_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 1 1 E) 2 2 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 1 1 E) 2 2 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 1 1 E) 2 2 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) 0 0 (T B E 1 0 (T R E 4 2 E))) 5 3 (T B E 7 4 E)) 7 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) 0 0 (T B E 1 0 (T R E 4 2 E))) 5 3 (T B E 7 4 E)) 7 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) 0 0 (T B E 1 0 (T R E 4 2 E))) 5 3 (T B E 7 4 E)) 7 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "no_balance_insert_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 3 3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 3 3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 3 3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "swap_bc"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "swap_cd"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Quick",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      }
+    ]
+  }
+]

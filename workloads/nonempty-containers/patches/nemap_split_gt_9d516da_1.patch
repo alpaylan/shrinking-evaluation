@@ -1,0 +1,13 @@
+diff --git a/src/Data/Map/NonEmpty.hs b/src/Data/Map/NonEmpty.hs
+index b848d61..8bb57f5 100644
+--- a/src/Data/Map/NonEmpty.hs
++++ b/src/Data/Map/NonEmpty.hs
+@@ -1898,7 +1898,7 @@ split k n@(NEMap k0 v m0) = case compare k k0 of
+   EQ -> That <$> nonEmptyMap m0
+   GT -> Just $ case (nonEmptyMap m1, nonEmptyMap m2) of
+     (Nothing, Nothing) -> This (singleton k0 v)
+-    (Just _, Nothing) -> This (insertMapMin k0 v m1)
++    (Just _, Nothing) -> This n
+     (Nothing, Just n2) -> These (singleton k0 v) n2
+     (Just _, Just n2) -> These (insertMapMin k0 v m1) n2
+   where

@@ -1,0 +1,13 @@
+diff --git a/src/Data/HashPSQ/Internal.hs b/src/Data/HashPSQ/Internal.hs
+index 1a3a922..cfad37b 100644
+--- a/src/Data/HashPSQ/Internal.hs
++++ b/src/Data/HashPSQ/Internal.hs
+@@ -181,7 +181,7 @@ insert k p v (HashPSQ ipsq) =
+         | k' == k                       =
+             -- Tricky: p might have less priority than an item in 'os'.
+             Just (mkBucket k p v os)
+-        | p' < p || (p == p' && k' < k) =
++        | p' <= p                       =
+             Just (p', B k' v' (OrdPSQ.insert k  p  v  os))
+         | OrdPSQ.member k os            =
+             -- This is a bit tricky: k might already be present in 'os' and we

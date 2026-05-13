@@ -1,0 +1,2270 @@
+[
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "delete_4"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 3 (T B E 3 0 E)) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 3 (T B E 3 0 E)) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 3 (T B E 3 0 E)) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -1 0 E) 0 3 (T B E 3 0 E)) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) -3 -3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) -3 -3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) -3 -3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) -3 -3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 1 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_3"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T B E 0 1 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T B E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 3 3 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 3 3 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 3 3 0 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 3 3 0 1)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "delete_5"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 1 E) 0 0 (T B E 1 4 E)) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 1 E) 0 0 (T B E 1 4 E)) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 1 E) 0 0 (T B E 1 4 E)) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 1 E) 0 0 (T B E 1 4 E)) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 3 0 (T R E 4 0 E)) 4 4)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 3 0 (T R E 4 0 E)) 4 4)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 3 0 (T R E 4 0 E)) 4 4)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T B E 3 0 (T R E 4 0 E)) 4 4)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B E -4 6 (T R E 9 0 E)) 9 -4)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B E -4 6 (T R E 9 0 E)) 9 -4)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B E -4 6 (T R E 9 0 E)) 9 -4)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B E -4 6 (T R E 9 0 E)) 9 -4)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 1 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_insert"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 1 0 E) 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_delete"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 (T R E 1 1 E)) 2)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 (T R E 1 1 E)) 2)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 (T R E 1 1 E)) 2)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 (T R E 1 1 E)) 2)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_balLeft"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 E) 0 0 (T R (T B E 2 2 E) 5 6 (T B E 6 1 E))) -5)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 E) 0 0 (T R (T B E 2 2 E) 5 6 (T B E 6 1 E))) -5)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 E) 0 0 (T R (T B E 2 2 E) 5 6 (T B E 6 1 E))) -5)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 E) 0 0 (T R (T B E 2 2 E) 5 6 (T B E 6 1 E))) -5)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 6 E) -1 0 (T R (T B E 0 0 E) 3 0 (T B E 5 8 E))) 5 -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 6 E) -1 0 (T R (T B E 0 0 E) 3 0 (T B E 5 8 E))) 5 -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 6 E) -1 0 (T R (T B E 0 0 E) 3 0 (T B E 5 8 E))) 5 -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -2 6 E) -1 0 (T R (T B E 0 0 E) 3 0 (T B E 5 8 E))) 5 -2)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_balRight"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) -2 0 (T B E 0 0 E)) 6 0 (T B E 7 6 E)) 7)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) -2 0 (T B E 0 0 E)) 6 0 (T B E 7 6 E)) 7)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) -2 0 (T B E 0 0 E)) 6 0 (T B E 7 6 E)) 7)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) -2 0 (T B E 0 0 E)) 6 0 (T B E 7 6 E)) 7)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -9 1 E) -8 0 (T B E 0 0 E)) 3 0 (T B E 6 5 E)) -9 6)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -9 1 E) -8 0 (T B E 0 0 E)) 3 0 (T B E 6 5 E)) -9 6)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -9 1 E) -8 0 (T B E 0 0 E)) 3 0 (T B E 6 5 E)) -9 6)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -9 1 E) -8 0 (T B E 0 0 E)) 3 0 (T B E 6 5 E)) -9 6)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_join_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R (T B E -12 2 E) -6 0 (T B E -3 0 E)) -2 0 (T R (T B (T R E 0 0 E) 3 0 E) 4 0 (T B E 5 4 E))) 6 3 (T B (T B E 8 8 E) 9 0 (T B E 10 0 E))) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R (T B E -12 2 E) -6 0 (T B E -3 0 E)) -2 0 (T R (T B (T R E 0 0 E) 3 0 E) 4 0 (T B E 5 4 E))) 6 3 (T B (T B E 8 8 E) 9 0 (T B E 10 0 E))) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R (T B E -12 2 E) -6 0 (T B E -3 0 E)) -2 0 (T R (T B (T R E 0 0 E) 3 0 E) 4 0 (T B E 5 4 E))) 6 3 (T B (T B E 8 8 E) 9 0 (T B E 10 0 E))) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B (T R (T B E -12 2 E) -6 0 (T B E -3 0 E)) -2 0 (T R (T B (T R E 0 0 E) 3 0 E) 4 0 (T B E 5 4 E))) 6 3 (T B (T B E 8 8 E) 9 0 (T B E 10 0 E))) -2)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "miscolor_join_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 (T R E -4 1 E)) -1 0 (T B (T R E 2 0 E) 4 0 E)) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 (T R E -4 1 E)) -1 0 (T B (T R E 2 0 E) 4 0 E)) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 (T R E -4 1 E)) -1 0 (T B (T R E 2 0 E) 4 0 E)) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "((T B (T B E -5 0 (T R E -4 1 E)) -1 0 (T B (T R E 2 0 E) 4 0 E)) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T (B) (T (B) (E) 0 0 (E)) 1 0 (T (R) (T (B) (E) 2 0 (T (R) (E) 3 0 (E))) 4 0 (T (B) (E) 5 0 (E)))) 4 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T (B) (T (B) (E) 0 0 (E)) 1 0 (T (R) (T (B) (E) 2 0 (T (R) (E) 3 0 (E))) 4 0 (T (B) (E) 5 0 (E)))) 4 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T (B) (T (B) (E) 0 0 (E)) 1 0 (T (R) (T (B) (E) 2 0 (T (R) (E) 3 0 (E))) 4 0 (T (B) (E) 5 0 (E)))) 4 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T (B) (T (B) (E) 0 0 (E)) 1 0 (T (R) (T (B) (E) 2 0 (T (R) (E) 3 0 (E))) 4 0 (T (B) (E) 5 0 (E)))) 4 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "no_balance_insert_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 1 1 E) 2 2 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 1 1 E) 2 2 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 1 1 E) 2 2 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B (T R E 1 1 E) 2 2 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) 0 0 (T B E 1 0 (T R E 4 2 E))) 5 3 (T B E 7 4 E)) 7 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) 0 0 (T B E 1 0 (T R E 4 2 E))) 5 3 (T B E 7 4 E)) 7 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) 0 0 (T B E 1 0 (T R E 4 2 E))) 5 3 (T B E 7 4 E)) 7 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B (T R (T B E -8 0 E) 0 0 (T B E 1 0 (T R E 4 2 E))) 5 3 (T B E 7 4 E)) 7 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "no_balance_insert_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "((T B E -1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 3 3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 3 3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 3 3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T B E 0 0 E) 3 3 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "swap_bc"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "rbt-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "swap_cd"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertValid",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteValid",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "(E 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 0 0)"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,96 @@
+name = "stlc-haskell"
+language = "Haskell"
+description = "Simply-typed lambda calculus workload for Etna, with QuickCheck/SmallCheck/LeanCheck generators."
+strategies = [
+  "Correct",
+  "Falsify",
+  "Hedgehog",
+  "Lean",
+  "LeanRev",
+  "Quick",
+  "Small",
+  "SmallRev",
+]
+
+mutations = [
+  "shift_var_none",
+  "shift_var_all",
+  "shift_var_leq",
+  "shift_abs_no_incr",
+  "subst_var_all",
+  "subst_var_none",
+  "subst_abs_no_shift",
+  "subst_abs_no_incr",
+  "substTop_no_shift",
+  "substTop_no_shift_back",
+]
+
+[[tasks]]
+mutations = ["shift_var_none"]
+tasks = [
+  { property = "SinglePreserve", witnesses = [{ input = "(Abs TBool (App (Abs TBool (Var 1)) (Bool #t)))" }] },
+  { property = "MultiPreserve", witnesses = [{ input = "(Abs TBool (App (Abs TBool (Var 1)) (Bool #t)))" }] },
+]
+
+[[tasks]]
+mutations = ["shift_var_all"]
+tasks = [
+  { property = "SinglePreserve", witnesses = [{ input = "(App (Abs TBool (Abs TBool (Var 0))) (Bool #t))" }] },
+  { property = "MultiPreserve", witnesses = [{ input = "(App (Abs TBool (Abs TBool (Var 0))) (Bool #t))" }] },
+]
+
+[[tasks]]
+mutations = ["shift_var_leq"]
+tasks = [
+  { property = "SinglePreserve", witnesses = [{ input = "(App (Abs TBool (App (Abs TBool (Abs (TFun TBool TBool) (Var 1))) (Var 0))) (Bool #t))" }] },
+  { property = "MultiPreserve", witnesses = [{ input = "(App (Abs TBool (App (Abs TBool (Abs (TFun TBool TBool) (Var 1))) (Var 0))) (Bool #t))" }] },
+]
+
+[[tasks]]
+mutations = ["shift_abs_no_incr"]
+tasks = [
+  { property = "SinglePreserve", witnesses = [{ input = "(App (Abs TBool (Abs TBool (Var 0))) (Bool #t))" }] },
+  { property = "MultiPreserve", witnesses = [{ input = "(App (Abs TBool (Abs TBool (Var 0))) (Bool #t))" }] },
+]
+
+[[tasks]]
+mutations = ["subst_var_all"]
+tasks = [
+  { property = "SinglePreserve", witnesses = [{ input = "(Abs (TFun TBool TBool) (App (Abs TBool (Var 1)) (Bool #t)))" }] },
+  { property = "MultiPreserve", witnesses = [{ input = "(Abs (TFun TBool TBool) (App (Abs TBool (Var 1)) (Bool #t)))" }] },
+]
+
+[[tasks]]
+mutations = ["subst_var_none"]
+tasks = [
+  { property = "SinglePreserve", witnesses = [{ input = "(App (Abs TBool (Var 0)) (Bool #t))" }] },
+  { property = "MultiPreserve", witnesses = [{ input = "(App (Abs TBool (Var 0)) (Bool #t))" }] },
+]
+
+[[tasks]]
+mutations = ["subst_abs_no_shift"]
+tasks = [
+  { property = "SinglePreserve", witnesses = [{ input = "(App (Abs TBool (App (Abs TBool (Abs (TFun TBool TBool) (Var 1))) (Var 0))) (Bool #t))" }] },
+  { property = "MultiPreserve", witnesses = [{ input = "(App (Abs TBool (App (Abs TBool (Abs (TFun TBool TBool) (Var 1))) (Var 0))) (Bool #t))" }] },
+]
+
+[[tasks]]
+mutations = ["subst_abs_no_incr"]
+tasks = [
+  { property = "SinglePreserve", witnesses = [{ input = "(App (Abs TBool (Abs (TFun TBool TBool) (Var 1))) (Bool #t))" }] },
+  { property = "MultiPreserve", witnesses = [{ input = "(App (Abs TBool (Abs (TFun TBool TBool) (Var 1))) (Bool #t))" }] },
+]
+
+[[tasks]]
+mutations = ["substTop_no_shift"]
+tasks = [
+  { property = "SinglePreserve", witnesses = [{ input = "(Abs TBool (App (Abs TBool (Var 1)) (Bool #t)))" }] },
+  { property = "MultiPreserve", witnesses = [{ input = "(Abs TBool (App (Abs TBool (Var 1)) (Bool #t)))" }] },
+]
+
+[[tasks]]
+mutations = ["substTop_no_shift_back"]
+tasks = [
+  { property = "SinglePreserve", witnesses = [{ input = "(Abs TBool (App (Abs TBool (Var 0)) (Var 0)))" }] },
+  { property = "MultiPreserve", witnesses = [{ input = "(Abs TBool (App (Abs TBool (Var 0)) (Var 0)))" }] },
+]

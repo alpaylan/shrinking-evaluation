@@ -1,0 +1,25 @@
+name: etna-fsub
+
+dependencies:
+    - base >= 4.7 && < 5
+    - etna-lib
+    - QuickCheck
+    - generic-random
+    - smallcheck
+    - leancheck
+    - hedgehog
+    - falsify
+
+library:
+    source-dirs: src
+
+executables:
+    fsub:
+        main: Main.hs
+        source-dirs: app
+        ghc-options:
+            - -threaded
+            - -rtsopts
+            - -with-rtsopts=-N
+        dependencies:
+            - etna-fsub

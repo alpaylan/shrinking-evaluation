@@ -1,0 +1,6650 @@
+[
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_1"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertPost",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "strategy": "Size"
+      },
+      {
+        "strategy": "Small",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) 0 2 0)"
+          }
+        ],
+        "property": "InsertPost",
+        "strategy": "SmallRev"
+      },
+      {
+        "strategy": "Falsify",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "LeanRev"
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "QuickCBC",
+        "property": "InsertModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "QuickGbE"
+      },
+      {
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "Small"
+      },
+      {
+        "strategy": "SmallRev",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "Lean"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 1 0 E) 0 0 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "SmallRev"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "InsertInsert"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "strategy": "Lean"
+      },
+      {
+        "strategy": "LeanRev",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "strategy": "Quick",
+        "property": "InsertInsert"
+      },
+      {
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "strategy": "Size",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "(E 1 0 0 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "strategy": "LeanRev"
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "strategy": "Size",
+        "property": "InsertUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "strategy": "Small",
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 1 1 E) 0 0)"
+          }
+        ],
+        "strategy": "SmallRev"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Lean"
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "QuickGbE"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "Size"
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) E 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_2"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "InsertPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "property": "InsertPost",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "property": "InsertPost",
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "InsertPost",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "property": "InsertPost",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "property": "InsertPost",
+        "strategy": "QuickGbE"
+      },
+      {
+        "strategy": "Size",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ],
+        "strategy": "Small"
+      },
+      {
+        "strategy": "SmallRev",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 1 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "strategy": "Lean",
+        "property": "InsertModel"
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "QuickGbE"
+      },
+      {
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "property": "InsertDelete"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "strategy": "Lean",
+        "property": "InsertDelete"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "strategy": "Quick",
+        "property": "InsertDelete"
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "QuickGbE"
+      },
+      {
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "property": "InsertDelete"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T E 0 2 (T E 1 0 E)) 0 0 0)"
+          }
+        ],
+        "strategy": "SmallRev"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC",
+        "property": "DeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "Quick"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "strategy": "Small"
+      },
+      {
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "property": "InsertInsert",
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "InsertInsert"
+      },
+      {
+        "property": "InsertInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "Hedgehog"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "strategy": "LeanRev",
+        "property": "InsertInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "strategy": "Quick",
+        "property": "InsertInsert"
+      },
+      {
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "QuickGbE"
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "strategy": "Size"
+      },
+      {
+        "property": "InsertInsert",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "SmallRev"
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "QuickGbE",
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "Size"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "Small",
+        "property": "InsertUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "SmallRev"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Lean"
+      },
+      {
+        "strategy": "LeanRev",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "QuickGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Size"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "SmallRev"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "insert_3"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ]
+      },
+      {
+        "property": "InsertPost",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "property": "InsertPost"
+      },
+      {
+        "property": "InsertPost",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "strategy": "QuickCBC",
+        "property": "InsertPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "strategy": "QuickGbE",
+        "property": "InsertPost"
+      },
+      {
+        "property": "InsertPost",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "strategy": "Size"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ],
+        "property": "InsertPost",
+        "strategy": "Small"
+      },
+      {
+        "property": "InsertPost",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 3 0 E) 3 3 1)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "InsertModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel",
+        "strategy": "Quick"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "strategy": "QuickCBC",
+        "property": "InsertModel"
+      },
+      {
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ],
+        "property": "InsertModel"
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertModel",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "strategy": "FalsifyGbE",
+        "property": "InsertDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "property": "InsertDelete"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "strategy": "Lean"
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "strategy": "LeanRev"
+      },
+      {
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "property": "InsertDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "QuickCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "strategy": "QuickGbE",
+        "property": "InsertDelete"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "strategy": "Small"
+      },
+      {
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T (T E 0 0 E) 2 0 E) 2 2 0)"
+          }
+        ],
+        "property": "InsertDelete"
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "InsertInsert"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "property": "InsertInsert",
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "strategy": "LeanRev"
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "strategy": "Quick"
+      },
+      {
+        "property": "InsertInsert",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "property": "InsertInsert",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "strategy": "Small"
+      },
+      {
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "(E 0 0 1 0)"
+          }
+        ],
+        "property": "InsertInsert"
+      },
+      {
+        "strategy": "Falsify",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE",
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "Lean"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "LeanRev"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "SmallRev",
+        "property": "InsertUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Hedgehog"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Size",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E -2 2 E) E -2 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "delete_4"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "property": "DeleteModel",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "LeanRev"
+      },
+      {
+        "property": "DeleteModel",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "QuickGbE"
+      },
+      {
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "Size"
+      },
+      {
+        "strategy": "Small",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteModel",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "DeletePost"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "DeletePost"
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "DeletePost"
+      },
+      {
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "DeletePost"
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "DeletePost"
+      },
+      {
+        "strategy": "Quick",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "DeletePost"
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "DeletePost",
+        "strategy": "SmallRev"
+      },
+      {
+        "property": "DeleteDelete",
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "DeleteDelete",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteDelete",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteDelete",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete",
+        "strategy": "QuickGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "property": "DeleteDelete",
+        "strategy": "Size"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ],
+        "strategy": "Small",
+        "property": "DeleteDelete"
+      },
+      {
+        "strategy": "SmallRev",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T (T (T E 0 0 E) 3 5 E) 5 0 E) 5 3)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "Falsify"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "QuickGbE"
+      },
+      {
+        "strategy": "Size",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "Small"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "SmallRev"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "strategy": "QuickCBC",
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "Size",
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "strategy": "Small",
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T E 0 1 E) -1)"
+          }
+        ],
+        "strategy": "SmallRev"
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "InsertDelete"
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "LeanRev"
+      },
+      {
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "Quick"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "QuickCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "strategy": "QuickGbE",
+        "property": "InsertDelete"
+      },
+      {
+        "property": "InsertDelete",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Small",
+        "property": "InsertDelete",
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E 0 1 0)"
+          }
+        ],
+        "property": "InsertDelete",
+        "strategy": "SmallRev"
+      },
+      {
+        "strategy": "Falsify",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "Lean",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "LeanRev",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Quick"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "strategy": "QuickGbE",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Small"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 1 0 E) 0 0)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "delete_5"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "strategy": "FalsifyGbE",
+        "property": "DeleteModel"
+      },
+      {
+        "property": "DeleteModel",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "strategy": "Lean"
+      },
+      {
+        "property": "DeleteModel",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel",
+        "strategy": "Quick"
+      },
+      {
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "property": "DeleteModel",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "strategy": "Size"
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T (T E 1 0 E) 3 0 E) 1)"
+          }
+        ],
+        "property": "DeleteModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "DeletePost"
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ]
+      },
+      {
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "DeletePost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "HedgehogCBC",
+        "property": "DeletePost"
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ]
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "property": "DeletePost",
+        "strategy": "Quick"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "property": "DeletePost",
+        "strategy": "QuickCBC"
+      },
+      {
+        "property": "DeletePost",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "Size",
+        "property": "DeletePost"
+      },
+      {
+        "property": "DeletePost",
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "strategy": "Small"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 2 0 E) 4 1 E) 2 2)"
+          }
+        ],
+        "property": "DeletePost",
+        "strategy": "SmallRev"
+      },
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "FalsifyGbE",
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "HedgehogCBC",
+        "property": "DeleteDelete"
+      },
+      {
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "Lean",
+        "property": "DeleteDelete"
+      },
+      {
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "strategy": "LeanRev"
+      },
+      {
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "property": "DeleteDelete",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteDelete",
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ]
+      },
+      {
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "property": "DeleteDelete"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -4 0 (T E 4 4 E)) 4 -4)"
+          }
+        ],
+        "property": "DeleteDelete",
+        "strategy": "SmallRev"
+      },
+      {
+        "strategy": "Falsify",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "DeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteInsert",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "strategy": "Quick"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "strategy": "QuickCBC",
+        "property": "DeleteInsert"
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "DeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "property": "DeleteInsert",
+        "strategy": "Size"
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "property": "DeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 0 E) -2 -2 0)"
+          }
+        ],
+        "strategy": "SmallRev",
+        "property": "DeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "QuickGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Size"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Small"
+      },
+      {
+        "strategy": "SmallRev",
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 (T E 0 0 E)) (T E -2 2 E) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Hedgehog"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "QuickGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "Size",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "SmallRev",
+        "property": "UnionDeleteInsert"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "union_6"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "UnionValid"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "property": "UnionValid",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "UnionValid",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid",
+        "strategy": "Size"
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionValid",
+        "strategy": "SmallRev"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "UnionPost",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "LeanRev"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "Quick",
+        "property": "UnionPost"
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "UnionPost",
+        "strategy": "Size"
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 (T E 1 1 E)) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "Hedgehog"
+      },
+      {
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "Lean"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "LeanRev"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "Quick"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "QuickCBC",
+        "property": "UnionModel"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "Size",
+        "property": "UnionModel"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "SmallRev",
+        "property": "UnionModel"
+      },
+      {
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "strategy": "HedgehogCBC",
+        "property": "DeleteUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Lean"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ]
+      },
+      {
+        "strategy": "Size",
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Small"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 0 E) -1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "Falsify"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE",
+        "property": "InsertUnion"
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "Quick",
+        "property": "InsertUnion"
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "QuickGbE",
+        "property": "InsertUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "Size"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 0 E) 1 0)"
+          }
+        ],
+        "strategy": "SmallRev"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Lean",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "strategy": "Quick"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "QuickCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "strategy": "QuickGbE",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "Size"
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 0 0 E) 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "SmallRev"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "Falsify",
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "SmallRev"
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "union_7"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "property": "UnionValid",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "strategy": "FalsifyGbE",
+        "property": "UnionValid"
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "strategy": "HedgehogCBC",
+        "property": "UnionValid"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "property": "UnionValid",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "strategy": "LeanRev",
+        "property": "UnionValid"
+      },
+      {
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "property": "UnionValid"
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ]
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ]
+      },
+      {
+        "property": "UnionValid",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ],
+        "strategy": "Small"
+      },
+      {
+        "property": "UnionValid",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "(E (T E 0 2 (T E 0 0 E)))"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "strategy": "LeanRev",
+        "property": "UnionPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "strategy": "Quick",
+        "property": "UnionPost"
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "property": "UnionPost",
+        "strategy": "QuickGbE"
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "strategy": "Size"
+      },
+      {
+        "strategy": "Small",
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E 0 0 E) -2)"
+          }
+        ],
+        "strategy": "SmallRev"
+      },
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "property": "UnionModel"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "Quick"
+      },
+      {
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "QuickGbE"
+      },
+      {
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "property": "UnionModel"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 0 E) (T (T E -2 1 E) 0 0 E))"
+          }
+        ],
+        "strategy": "SmallRev",
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Falsify"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "strategy": "HedgehogGbE",
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "strategy": "Lean"
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "QuickGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Size"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ],
+        "property": "DeleteUnion",
+        "strategy": "Small"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T (T E 0 0 E) 2 0 E) 2)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "Hedgehog"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "strategy": "LeanRev",
+        "property": "InsertUnion"
+      },
+      {
+        "strategy": "Quick",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion"
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "strategy": "Small"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 1 E) 1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "SmallRev"
+      },
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "strategy": "FalsifyCBC",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "QuickCBC"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T (T E -1 0 E) 0 0 E) E 0 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ],
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc",
+        "strategy": "LeanRev"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 0 0 E) (T E 1 0 E) (T E 1 1 E))"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "workload": "bst-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "union_8"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ]
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "property": "UnionPost",
+        "strategy": "Hedgehog"
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "property": "UnionPost"
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "strategy": "Lean"
+      },
+      {
+        "property": "UnionPost",
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "strategy": "Quick",
+        "property": "UnionPost"
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "strategy": "QuickGbE"
+      },
+      {
+        "property": "UnionPost",
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "strategy": "Size"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "strategy": "Small",
+        "property": "UnionPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E 4 4 E) 2147483647 0 E) (T E 4 0 E) 4)"
+          }
+        ],
+        "strategy": "SmallRev",
+        "property": "UnionPost"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "FalsifyGbE"
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "Hedgehog",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "Lean"
+      },
+      {
+        "strategy": "LeanRev",
+        "property": "UnionModel",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionModel",
+        "strategy": "QuickCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "strategy": "Size",
+        "property": "UnionModel"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "Small"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 2 0 E) (T E -2 1 E))"
+          }
+        ],
+        "property": "UnionModel",
+        "strategy": "SmallRev"
+      },
+      {
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "Falsify"
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "DeleteUnion",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "HedgehogCBC",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "HedgehogGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "Lean",
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "LeanRev",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "property": "DeleteUnion",
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "QuickCBC",
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "QuickGbE",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "property": "DeleteUnion"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T (T E -2 0 E) 1 0 E) (T E 0 0 E) 1)"
+          }
+        ],
+        "strategy": "SmallRev",
+        "property": "DeleteUnion"
+      },
+      {
+        "strategy": "Falsify",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "FalsifyCBC"
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ],
+        "strategy": "HedgehogCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Lean",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "LeanRev"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ],
+        "property": "InsertUnion",
+        "strategy": "Quick"
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Small",
+        "property": "InsertUnion",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "property": "InsertUnion",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E 2 2 E) (T E -1 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Falsify",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ],
+        "strategy": "Hedgehog",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ],
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Lean",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ],
+        "strategy": "LeanRev",
+        "property": "UnionDeleteInsert"
+      },
+      {
+        "strategy": "Quick",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ],
+        "property": "UnionDeleteInsert",
+        "strategy": "QuickCBC"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ],
+        "strategy": "QuickGbE"
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "strategy": "Small",
+        "property": "UnionDeleteInsert",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "property": "UnionDeleteInsert",
+        "strategy": "SmallRev",
+        "witnesses": [
+          {
+            "input": "((T E -1 3 E) (T E 3 1 E) -1 0)"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc",
+        "strategy": "Falsify"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "FalsifyCBC",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "FalsifyGbE",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc",
+        "strategy": "HedgehogGbE"
+      },
+      {
+        "strategy": "Lean",
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "LeanRev"
+      },
+      {
+        "strategy": "Quick",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ],
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "QuickCBC"
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "QuickGbE",
+        "property": "UnionUnionAssoc"
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "Size",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "property": "UnionUnionAssoc",
+        "strategy": "Small",
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ]
+      },
+      {
+        "witnesses": [
+          {
+            "input": "((T E 2 1 E) (T E 2 0 E) (T E 0 0 E))"
+          }
+        ],
+        "strategy": "SmallRev",
+        "property": "UnionUnionAssoc"
+      }
+    ]
+  }
+]

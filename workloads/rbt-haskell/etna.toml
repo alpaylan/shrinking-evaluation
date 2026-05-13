@@ -1,0 +1,176 @@
+name = "rbt-haskell"
+language = "Haskell"
+description = "Red-black tree workload for Etna, with QuickCheck/SmallCheck/LeanCheck generators."
+strategies = [
+  "Correct",
+  "Falsify",
+  "FalsifyCBC",
+  "FalsifyCBC2",
+  "FalsifyGbE",
+  "Hedgehog",
+  "HedgehogCBC",
+  "HedgehogGbE",
+  "Lean",
+  "LeanRev",
+  "Quick",
+  "QuickCBC",
+  "Small",
+  "SmallRev",
+]
+
+mutations = [
+  "delete_4",
+  "insert_1",
+  "insert_2",
+  "insert_3",
+  "delete_5",
+  "miscolor_insert",
+  "miscolor_delete",
+  "miscolor_balLeft",
+  "miscolor_balRight",
+  "miscolor_join_1",
+  "miscolor_join_2",
+  "no_balance_insert_1",
+  "no_balance_insert_2",
+  "swap_bc",
+  "swap_cd",
+]
+
+[[tasks]]
+mutations = ["delete_4"]
+tasks = [
+  { property = "DeleteDelete", witnesses = [{ input = "((T B (T B E -1 0 E) 0 3 (T B E 3 0 E)) -1 0)" }] },
+  { property = "DeleteModel", witnesses = [{ input = "((T B E 1 0 E) 0)" }] },
+  { property = "DeletePost", witnesses = [{ input = "((T B E 0 0 E) 1 0)" }] },
+  { property = "DeleteInsert", witnesses = [{ input = "(E 0 1 0)" }] },
+  { property = "InsertDelete", witnesses = [{ input = "(E 0 0 0)" }] },
+]
+
+[[tasks]]
+mutations = ["insert_1"]
+tasks = [
+  { property = "InsertPost", witnesses = [{ input = "((T B E -1 1 E) 0 -1 0)" }] },
+  { property = "InsertModel", witnesses = [{ input = "((T B E 1 0 E) 0 0)" }] },
+  { property = "DeleteInsert", witnesses = [{ input = "((T B E 0 0 E) -3 -3 0)" }] },
+  { property = "InsertInsert", witnesses = [{ input = "(E 0 1 0 0)" }] },
+]
+
+[[tasks]]
+mutations = ["insert_2"]
+tasks = [
+  { property = "InsertPost", witnesses = [{ input = "((T B E -1 1 E) 0 0 0)" }] },
+  { property = "InsertModel", witnesses = [{ input = "((T B E 0 0 E) 1 0)" }] },
+  { property = "InsertDelete", witnesses = [{ input = "(E 0 0 0)" }] },
+  { property = "DeleteInsert", witnesses = [{ input = "((T B E -1 0 E) 0 0 1)" }] },
+  { property = "InsertInsert", witnesses = [{ input = "(E 1 0 1 0)" }] },
+]
+
+[[tasks]]
+mutations = ["insert_3"]
+tasks = [
+  { property = "InsertPost", witnesses = [{ input = "((T B E 0 1 E) 0 0 0)" }] },
+  { property = "InsertModel", witnesses = [{ input = "((T B E -1 1 E) -1 0)" }] },
+  { property = "InsertDelete", witnesses = [{ input = "(E 0 0 0)" }] },
+  { property = "InsertInsert", witnesses = [{ input = "(E 3 3 0 1)" }] },
+]
+
+[[tasks]]
+mutations = ["delete_5"]
+tasks = [
+  { property = "DeleteModel", witnesses = [{ input = "((T B (T B E -2 1 E) 0 0 (T B E 1 4 E)) 1)" }] },
+  { property = "DeletePost", witnesses = [{ input = "((T B E 3 0 (T R E 4 0 E)) 4 4)" }] },
+  { property = "DeleteDelete", witnesses = [{ input = "((T B E -4 6 (T R E 9 0 E)) 9 -4)" }] },
+  { property = "DeleteInsert", witnesses = [{ input = "((T B E 0 0 E) 1 1 0)" }] },
+]
+
+[[tasks]]
+mutations = ["miscolor_insert"]
+tasks = [
+  { property = "InsertValid", witnesses = [{ input = "((T B E 0 0 E) 1 0)" }] },
+  { property = "DeleteInsert", witnesses = [{ input = "((T B E 1 0 E) 0 0 0)" }] },
+]
+
+[[tasks]]
+mutations = ["miscolor_delete"]
+tasks = [
+  { property = "DeleteValid", witnesses = [{ input = "((T B E 0 0 (T R E 1 1 E)) 2)" }] },
+]
+
+[[tasks]]
+mutations = ["miscolor_balLeft"]
+tasks = [
+  { property = "DeleteValid", witnesses = [{ input = "((T B (T B E -5 0 E) 0 0 (T R (T B E 2 2 E) 5 6 (T B E 6 1 E))) -5)" }] },
+  { property = "DeleteDelete", witnesses = [{ input = "((T B (T B E -2 6 E) -1 0 (T R (T B E 0 0 E) 3 0 (T B E 5 8 E))) 5 -2)" }] },
+]
+
+[[tasks]]
+mutations = ["miscolor_balRight"]
+tasks = [
+  { property = "DeleteValid", witnesses = [{ input = "((T B (T R (T B E -8 0 E) -2 0 (T B E 0 0 E)) 6 0 (T B E 7 6 E)) 7)" }] },
+  { property = "DeleteDelete", witnesses = [{ input = "((T B (T R (T B E -9 1 E) -8 0 (T B E 0 0 E)) 3 0 (T B E 6 5 E)) -9 6)" }] },
+]
+
+[[tasks]]
+mutations = ["miscolor_join_1"]
+tasks = [
+  { property = "DeleteValid", witnesses = [{ input = "((T B (T B (T R (T B E -12 2 E) -6 0 (T B E -3 0 E)) -2 0 (T R (T B (T R E 0 0 E) 3 0 E) 4 0 (T B E 5 4 E))) 6 3 (T B (T B E 8 8 E) 9 0 (T B E 10 0 E))) -2)" }] },
+]
+
+[[tasks]]
+mutations = ["miscolor_join_2"]
+tasks = [
+  { property = "DeleteValid", witnesses = [{ input = "((T B (T B E -5 0 (T R E -4 1 E)) -1 0 (T B (T R E 2 0 E) 4 0 E)) -1)" }] },
+  { property = "DeleteDelete", witnesses = [{ input = "((T (B) (T (B) (E) 0 0 (E)) 1 0 (T (R) (T (B) (E) 2 0 (T (R) (E) 3 0 (E))) 4 0 (T (B) (E) 5 0 (E)))) 4 0)" }] },
+]
+
+[[tasks]]
+mutations = ["no_balance_insert_1"]
+tasks = [
+  { property = "InsertValid", witnesses = [{ input = "((T B (T R E 1 1 E) 2 2 E) 0 0)" }] },
+  { property = "DeleteInsert", witnesses = [{ input = "((T B (T R (T B E -8 0 E) 0 0 (T B E 1 0 (T R E 4 2 E))) 5 3 (T B E 7 4 E)) 7 2 0)" }] },
+  { property = "InsertDelete", witnesses = [{ input = "(E 0 0 0)" }] },
+]
+
+[[tasks]]
+mutations = ["no_balance_insert_2"]
+tasks = [
+  { property = "InsertValid", witnesses = [{ input = "((T B E -1 0 E) 0 0)" }] },
+  { property = "DeleteInsert", witnesses = [{ input = "((T B E 0 0 E) 3 3 0)" }] },
+  { property = "InsertDelete", witnesses = [{ input = "(E 0 0 0)" }] },
+]
+
+# swap_bc / swap_cd were in the original ETNA paper task set (each with all 10
+# properties) but were dropped from etna2's canonical templates. Restoring them
+# here to bring rbt-haskell up to the paper's 58 (mutation, property) pairs.
+# Witnesses are placeholders (etna2 driver treats them as metadata only:
+# https://github.com/.../driver.rs:102 "witnesses are metadata, not template params").
+
+[[tasks]]
+mutations = ["swap_bc"]
+tasks = [
+  { property = "InsertValid",  witnesses = [{ input = "(E 0 0)" }] },
+  { property = "InsertModel",  witnesses = [{ input = "(E 0 0)" }] },
+  { property = "InsertPost",   witnesses = [{ input = "(E 0 0 0)" }] },
+  { property = "DeleteValid",  witnesses = [{ input = "(E 0)" }] },
+  { property = "DeletePost",   witnesses = [{ input = "(E 0 0)" }] },
+  { property = "DeleteModel",  witnesses = [{ input = "(E 0)" }] },
+  { property = "DeleteDelete", witnesses = [{ input = "(E 0 0)" }] },
+  { property = "DeleteInsert", witnesses = [{ input = "(E 0 0 0)" }] },
+  { property = "InsertDelete", witnesses = [{ input = "(E 0 0 0)" }] },
+  { property = "InsertInsert", witnesses = [{ input = "(E 0 0 0 0)" }] },
+]
+
+[[tasks]]
+mutations = ["swap_cd"]
+tasks = [
+  { property = "InsertValid",  witnesses = [{ input = "(E 0 0)" }] },
+  { property = "InsertModel",  witnesses = [{ input = "(E 0 0)" }] },
+  { property = "InsertPost",   witnesses = [{ input = "(E 0 0 0)" }] },
+  { property = "DeleteValid",  witnesses = [{ input = "(E 0)" }] },
+  { property = "DeletePost",   witnesses = [{ input = "(E 0 0)" }] },
+  { property = "DeleteModel",  witnesses = [{ input = "(E 0)" }] },
+  { property = "DeleteDelete", witnesses = [{ input = "(E 0 0)" }] },
+  { property = "DeleteInsert", witnesses = [{ input = "(E 0 0 0)" }] },
+  { property = "InsertDelete", witnesses = [{ input = "(E 0 0 0)" }] },
+  { property = "InsertInsert", witnesses = [{ input = "(E 0 0 0 0)" }] },
+]
