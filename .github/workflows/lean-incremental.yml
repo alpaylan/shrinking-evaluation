@@ -79,6 +79,15 @@ jobs:
           echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
           "$HOME/.cargo/bin/etna" --version || true
 
+      # The per-workload upstream repos declare etna-lib as a
+      # submodule with a `git@github.com:` URL. CI runners don't carry
+      # SSH keys, so rewrite all `git@github.com:` URLs to https://
+      # globally before any submodule clone runs.
+      - name: Rewrite SSH submodule URLs to HTTPS
+        shell: bash
+        run: |
+          git config --global url."https://github.com/".insteadOf "git@github.com:"
+
       # etna requires a global config + an experiment dir before
       # `experiment run` works. Mirror the alpaylan/etna-cli reference
       # workflow: setup config, create the experiment, then clone the
