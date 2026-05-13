@@ -131,6 +131,10 @@ jobs:
       # authenticates with CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID
       # (the token needs Workers R2 Storage:Edit). Each task has a
       # fixed object path so puts overwrite cleanly.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
       - name: Install wrangler
         run: npm install -g wrangler@latest
 
