@@ -1,18 +1,3 @@
-[submodule "workloads/stlc-haskell"]
-	path = workloads/stlc-haskell
-	url = https://github.com/alpaylan/etna-haskell-stlc
-[submodule "workloads/rbt-haskell"]
-	path = workloads/rbt-haskell
-	url = https://github.com/alpaylan/etna-haskell-rbt
-[submodule "workloads/bst-haskell"]
-	path = workloads/bst-haskell
-	url = https://github.com/alpaylan/etna-haskell-bst
-[submodule "workloads/nonempty-containers"]
-	path = workloads/nonempty-containers
-	url = git@github.com:alpaylan/nonempty-containers-etna.git
-[submodule "workloads/psqueues"]
-	path = workloads/psqueues
-	url = git@github.com:alpaylan/psqueues-etna.git
 [submodule "ShrinkingEval"]
 	path = ShrinkingEval
 	url = git@github.com:lemonidas/ShrinkingEval.git
