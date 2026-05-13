@@ -127,16 +127,17 @@ jobs:
           cp "tests/${NAME}.json" "${{ steps.etna.outputs.exp_dir }}/tests/"
           echo "name=$NAME" >> "$GITHUB_OUTPUT"
 
-      # State persistence via Cloudflare R2 (S3-compatible). The aws
-      # CLI is preinstalled on ubuntu-latest. Each task has a fixed
-      # object path so puts overwrite cleanly and no key juggling is
-      # required (unlike GH Actions Cache where keys are immutable).
+      # State persistence via Cloudflare R2 using wrangler. wrangler
+      # authenticates with CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID
+      # (the token needs Workers R2 Storage:Edit). Each task has a
+      # fixed object path so puts overwrite cleanly.
+      - name: Install wrangler
+        run: npm install -g wrangler@latest
+
       - name: Restore Lean state from R2
         env:
-          AWS_ACCESS_KEY_ID:     ${{ secrets.R2_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION:    auto
-          R2_ENDPOINT:           https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          CLOUDFLARE_API_TOKEN:  ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           R2_BUCKET:             ${{ secrets.R2_BUCKET }}
           MUT:                   ${{ matrix.mutation }}
           PROP:                  ${{ matrix.property }}
@@ -145,10 +146,8 @@ jobs:
           CKPT_REL="state/lean/${WL}/${MUT}_${PROP}.txt"
           STORE_REL="partial-stores/lean-${WL}-${MUT}-${PROP}.jsonl"
           mkdir -p "$(dirname "$CKPT_REL")" partial-stores
-          aws s3 cp --endpoint-url "$R2_ENDPOINT" --quiet \
-            "s3://$R2_BUCKET/$CKPT_REL" "$CKPT_REL" 2>/dev/null || true
-          aws s3 cp --endpoint-url "$R2_ENDPOINT" --quiet \
-            "s3://$R2_BUCKET/$STORE_REL" "$STORE_REL" 2>/dev/null || true
+          wrangler r2 object get "$R2_BUCKET/$CKPT_REL"  --file "$CKPT_REL"  --remote 2>/dev/null || true
+          wrangler r2 object get "$R2_BUCKET/$STORE_REL" --file "$STORE_REL" --remote 2>/dev/null || true
           if [ -f "$CKPT_REL" ]; then
             echo "Restored offset $(cat "$CKPT_REL")"
           else
@@ -175,10 +174,8 @@ jobs:
         env:
           ETNA_LEAN_RESUME:      ${{ steps.ckpt.outputs.resume }}
           ETNA_LEAN_CHECKPOINT:  ${{ steps.ckpt.outputs.path }}
-          AWS_ACCESS_KEY_ID:     ${{ secrets.R2_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION:    auto
-          R2_ENDPOINT:           https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          CLOUDFLARE_API_TOKEN:  ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           R2_BUCKET:             ${{ secrets.R2_BUCKET }}
           MUT:                   ${{ matrix.mutation }}
           PROP:                  ${{ matrix.property }}
@@ -193,13 +190,13 @@ jobs:
           # Helper: push current state to R2.
           push_state() {
             if [ -f "$ETNA_LEAN_CHECKPOINT" ]; then
-              aws s3 cp --endpoint-url "$R2_ENDPOINT" --quiet \
-                "$ETNA_LEAN_CHECKPOINT" "s3://$R2_BUCKET/$CKPT_REL" \
+              wrangler r2 object put "$R2_BUCKET/$CKPT_REL" \
+                --file "$ETNA_LEAN_CHECKPOINT" --remote \
                 || echo "::warning::R2 put failed (checkpoint)"
             fi
             if [ -f "$STORE" ] && [ -s "$STORE" ]; then
-              aws s3 cp --endpoint-url "$R2_ENDPOINT" --quiet \
-                "$STORE" "s3://$R2_BUCKET/$STORE_REL" \
+              wrangler r2 object put "$R2_BUCKET/$STORE_REL" \
+                --file "$STORE" --remote \
                 || echo "::warning::R2 put failed (store)"
             fi
           }
