@@ -127,19 +127,33 @@ jobs:
           cp "tests/${NAME}.json" "${{ steps.etna.outputs.exp_dir }}/tests/"
           echo "name=$NAME" >> "$GITHUB_OUTPUT"
 
-      # Restore the most recent cache for this task (offset + partial
-      # store). restore-keys does a prefix match, so the highest-keyed
-      # entry wins — which is the most recent save thanks to the
-      # `<offset>` suffix we encode at save time.
-      - name: Restore Lean state from cache
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            state/lean/${{ inputs.workload }}/${{ matrix.mutation }}_${{ matrix.property }}.txt
-            partial-stores/lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}.jsonl
-          key: lean-state-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}-restore-${{ github.run_id }}
-          restore-keys: |
-            lean-state-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}-
+      # State persistence via Cloudflare R2 (S3-compatible). The aws
+      # CLI is preinstalled on ubuntu-latest. Each task has a fixed
+      # object path so puts overwrite cleanly and no key juggling is
+      # required (unlike GH Actions Cache where keys are immutable).
+      - name: Restore Lean state from R2
+        env:
+          AWS_ACCESS_KEY_ID:     ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION:    auto
+          R2_ENDPOINT:           https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          R2_BUCKET:             ${{ secrets.R2_BUCKET }}
+          MUT:                   ${{ matrix.mutation }}
+          PROP:                  ${{ matrix.property }}
+          WL:                    ${{ inputs.workload }}
+        run: |
+          CKPT_REL="state/lean/${WL}/${MUT}_${PROP}.txt"
+          STORE_REL="partial-stores/lean-${WL}-${MUT}-${PROP}.jsonl"
+          mkdir -p "$(dirname "$CKPT_REL")" partial-stores
+          aws s3 cp --endpoint-url "$R2_ENDPOINT" --quiet \
+            "s3://$R2_BUCKET/$CKPT_REL" "$CKPT_REL" 2>/dev/null || true
+          aws s3 cp --endpoint-url "$R2_ENDPOINT" --quiet \
+            "s3://$R2_BUCKET/$STORE_REL" "$STORE_REL" 2>/dev/null || true
+          if [ -f "$CKPT_REL" ]; then
+            echo "Restored offset $(cat "$CKPT_REL")"
+          else
+            echo "No prior state — starting from index 0"
+          fi
 
       - name: Read prior checkpoint
         id: ckpt
@@ -151,32 +165,44 @@ jobs:
           echo "path=$CKPT"    >> "$GITHUB_OUTPUT"
           echo "Resuming from index $VAL"
 
-      # Run etna in the background and have a watchdog loop save the
-      # latest checkpoint + partial store to GH Actions Cache every
-      # 60s via scripts/cache_save.sh (which talks the same internal
-      # REST API as actions/cache/save@v4, but can be invoked
-      # mid-step). Spot-instance reclamation kills the runner without
-      # giving post-steps a chance to run, so the only state that
-      # survives is what's been pushed to a remote system before SIGTERM.
-      - name: Run incremental Lean (with mid-run cache saves)
+      # Run etna in the background. A bash watchdog pushes the latest
+      # checkpoint + partial store to R2 every 60s. R2 is append-only-
+      # for-our-purposes (we PUT the same key repeatedly, latest wins)
+      # and survives any SIGTERM since each write is a single HTTP
+      # round-trip — completes within seconds, before the runner's
+      # grace period expires.
+      - name: Run incremental Lean (with mid-run R2 saves)
         env:
-          ETNA_LEAN_RESUME:     ${{ steps.ckpt.outputs.resume }}
-          ETNA_LEAN_CHECKPOINT: ${{ steps.ckpt.outputs.path }}
+          ETNA_LEAN_RESUME:      ${{ steps.ckpt.outputs.resume }}
+          ETNA_LEAN_CHECKPOINT:  ${{ steps.ckpt.outputs.path }}
+          AWS_ACCESS_KEY_ID:     ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION:    auto
+          R2_ENDPOINT:           https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          R2_BUCKET:             ${{ secrets.R2_BUCKET }}
+          MUT:                   ${{ matrix.mutation }}
+          PROP:                  ${{ matrix.property }}
+          WL:                    ${{ inputs.workload }}
         run: |
           set +e
-          mkdir -p "$GITHUB_WORKSPACE/partial-stores"
-          STORE_REL="partial-stores/lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}.jsonl"
-          CKPT_REL="state/lean/${{ inputs.workload }}/${{ matrix.mutation }}_${{ matrix.property }}.txt"
+          STORE_REL="partial-stores/lean-${WL}-${MUT}-${PROP}.jsonl"
+          CKPT_REL="state/lean/${WL}/${MUT}_${PROP}.txt"
           STORE="$GITHUB_WORKSPACE/$STORE_REL"
-          KEY_BASE="lean-state-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}"
+          mkdir -p "$GITHUB_WORKSPACE/partial-stores"
 
-          # Sanity check: the cache REST API needs these.
-          if [ -z "${ACTIONS_RUNTIME_TOKEN:-}" ] || [ -z "${ACTIONS_CACHE_URL:-}" ]; then
-            echo "::warning::ACTIONS_RUNTIME_TOKEN / ACTIONS_CACHE_URL not exposed; mid-run saves will be skipped."
-            CACHE_OK=no
-          else
-            CACHE_OK=yes
-          fi
+          # Helper: push current state to R2.
+          push_state() {
+            if [ -f "$ETNA_LEAN_CHECKPOINT" ]; then
+              aws s3 cp --endpoint-url "$R2_ENDPOINT" --quiet \
+                "$ETNA_LEAN_CHECKPOINT" "s3://$R2_BUCKET/$CKPT_REL" \
+                || echo "::warning::R2 put failed (checkpoint)"
+            fi
+            if [ -f "$STORE" ] && [ -s "$STORE" ]; then
+              aws s3 cp --endpoint-url "$R2_ENDPOINT" --quiet \
+                "$STORE" "s3://$R2_BUCKET/$STORE_REL" \
+                || echo "::warning::R2 put failed (store)"
+            fi
+          }
 
           cd "${{ steps.etna.outputs.exp_dir }}"
           etna experiment run \
@@ -185,38 +211,22 @@ jobs:
             --short-circuit &
           ETNA_PID=$!
 
-          # Background watchdog: each 60s, if the checkpoint advanced,
-          # push the (offset-stamped) cache entry. The offset in the
-          # key ensures uniqueness; restore-keys prefix-matches and
-          # GitHub returns the most recent by key.
           LAST=""
           while kill -0 "$ETNA_PID" 2>/dev/null; do
             sleep 60
-            if [ "$CACHE_OK" = "yes" ] && [ -f "$ETNA_LEAN_CHECKPOINT" ]; then
+            if [ -f "$ETNA_LEAN_CHECKPOINT" ]; then
               CUR=$(cat "$ETNA_LEAN_CHECKPOINT" 2>/dev/null || echo "")
               if [ -n "$CUR" ] && [ "$CUR" != "$LAST" ]; then
-                # Pad offset so lexicographic restore-keys ordering
-                # tracks numeric ordering up to 10**12 tests.
-                PADDED=$(printf '%012d' "$CUR")
-                bash "$GITHUB_WORKSPACE/scripts/cache_save.sh" \
-                  "${KEY_BASE}-${PADDED}" "$CKPT_REL" "$STORE_REL" \
-                  || echo "::warning::cache_save failed; will retry next iteration"
+                push_state
                 LAST="$CUR"
+                echo "[$(date +%H:%M:%S)] saved offset $CUR to R2"
               fi
             fi
           done
 
           wait "$ETNA_PID" || true
-
-          # One more save after etna exits cleanly, with a -final tag
-          # so we can tell completed runs from mid-flight snapshots.
-          if [ "$CACHE_OK" = "yes" ] && [ -f "$ETNA_LEAN_CHECKPOINT" ]; then
-            CUR=$(cat "$ETNA_LEAN_CHECKPOINT")
-            PADDED=$(printf '%012d' "$CUR")
-            bash "$GITHUB_WORKSPACE/scripts/cache_save.sh" \
-              "${KEY_BASE}-${PADDED}-final" "$CKPT_REL" "$STORE_REL" \
-              || true
-          fi
+          # Final flush after etna exits cleanly.
+          push_state
 
           echo "--- store rows produced ---"
           wc -l "$STORE" || true
