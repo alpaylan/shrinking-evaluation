@@ -54,7 +54,6 @@ jobs:
       - uses: haskell-actions/setup@v2
         with:
           enable-stack: true
-          stack-version: '2.15.7'
 
       - uses: actions/cache@v4
         with:
@@ -80,6 +79,24 @@ jobs:
           echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
           "$HOME/.cargo/bin/etna" --version || true
 
+      # etna requires a global config + an experiment dir before
+      # `experiment run` works. Mirror the alpaylan/etna-cli reference
+      # workflow: setup config, create the experiment, then clone the
+      # current repo as the workload source (so it picks up the local
+      # LeanCheck rewrite committed to main).
+      - name: Setup etna config + experiment + workload
+        id: etna
+        shell: bash
+        run: |
+          etna setup --overwrite || true
+          mkdir -p /tmp/etna-experiment
+          cd /tmp/etna-experiment
+          etna experiment new ci-run
+          cd ci-run
+          etna workload add "https://github.com/${{ github.repository }}.git"
+          echo "exp_dir=/tmp/etna-experiment/ci-run" >> "$GITHUB_OUTPUT"
+          ls tests/ | head
+
       - name: Compose single-task test JSON
         id: task
         run: |
@@ -92,12 +109,16 @@ jobs:
             --workload "${{ inputs.workload }}" \
             --mutation "$MUT" --property "$PROP" \
             --timeout "$BUDGET" --out-name "$NAME"
+          # etna looks up <name>.json in the experiment's tests/ dir,
+          # which `etna workload add` populated from the repo. Drop the
+          # composed JSON in alongside.
+          cp "tests/${NAME}.json" "${{ steps.etna.outputs.exp_dir }}/tests/"
           echo "name=$NAME" >> "$GITHUB_OUTPUT"
 
       - name: Read prior checkpoint
         id: ckpt
         run: |
-          CKPT="state/lean/${{ inputs.workload }}/${{ matrix.mutation }}_${{ matrix.property }}.txt"
+          CKPT="$GITHUB_WORKSPACE/state/lean/${{ inputs.workload }}/${{ matrix.mutation }}_${{ matrix.property }}.txt"
           mkdir -p "$(dirname "$CKPT")"
           if [ -f "$CKPT" ]; then VAL=$(cat "$CKPT"); else VAL=0; fi
           echo "resume=$VAL"   >> "$GITHUB_OUTPUT"
@@ -109,8 +130,9 @@ jobs:
           ETNA_LEAN_RESUME:     ${{ steps.ckpt.outputs.resume }}
           ETNA_LEAN_CHECKPOINT: ${{ steps.ckpt.outputs.path }}
         run: |
-          mkdir -p partial-stores
-          STORE="partial-stores/lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}.jsonl"
+          mkdir -p "$GITHUB_WORKSPACE/partial-stores"
+          STORE="$GITHUB_WORKSPACE/partial-stores/lean-${{ inputs.workload }}-${{ matrix.mutation }}-${{ matrix.property }}.jsonl"
+          cd "${{ steps.etna.outputs.exp_dir }}"
           # `|| true`: timeout exit codes shouldn't fail the job;
           # whether anything got stored is the indicator.
           etna experiment run \
