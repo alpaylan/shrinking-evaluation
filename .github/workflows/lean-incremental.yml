@@ -82,8 +82,11 @@ jobs:
       # etna requires a global config + an experiment dir before
       # `experiment run` works. Mirror the alpaylan/etna-cli reference
       # workflow: setup config, create the experiment, then clone the
-      # current repo as the workload source (so it picks up the local
-      # LeanCheck rewrite committed to main).
+      # canonical per-workload repo (alpaylan/etna-haskell-<wl>) which
+      # is what `etna workload add` expects — workload-shaped repo
+      # with etna.toml + steps.json at its root. The LeanCheck
+      # streaming rewrite + shrink-counter schema live on the main
+      # branches of those upstream repos.
       - name: Setup etna config + experiment + workload
         id: etna
         shell: bash
@@ -93,7 +96,7 @@ jobs:
           cd /tmp/etna-experiment
           etna experiment new ci-run
           cd ci-run
-          etna workload add "https://github.com/${{ github.repository }}.git"
+          etna workload add "https://github.com/alpaylan/etna-haskell-${{ inputs.workload }}.git"
           echo "exp_dir=/tmp/etna-experiment/ci-run" >> "$GITHUB_OUTPUT"
           ls tests/ | head
 
