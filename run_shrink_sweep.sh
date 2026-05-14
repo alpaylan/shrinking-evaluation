@@ -54,11 +54,11 @@ run stlc-haskell-hedgehog default default
 run stlc-haskell-falsify  default default
 
 # fsub-haskell sweeps.
-run fsub-haskell-quick    none    0
-run fsub-haskell-hedgehog none    0
-run fsub-haskell-falsify  none    0
 run fsub-haskell-quick    default default
 run fsub-haskell-hedgehog default default
 run fsub-haskell-falsify  default default
+run fsub-haskell-quick    none    0
+run fsub-haskell-hedgehog none    0
+run fsub-haskell-falsify  none    0
 
 echo "=== all runs complete ==="
