@@ -54,12 +54,12 @@ shift d = go 0
   where
     go c (Var n)
       {-! -}
-      {-!
       | n < c = Var n
       | otherwise = Var (n + d)
-      -}
       {-!! shift_var_none -}
+      {-!
       = Var n
+      -}
       {-!! shift_var_all -}
       {-!
       = Var (n + d)
