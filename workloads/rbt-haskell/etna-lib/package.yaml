@@ -17,6 +17,7 @@ dependencies:
     - clock
     - regex-tdfa
     - deepseq
+    - directory
     - time
 
 library:

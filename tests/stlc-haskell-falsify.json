@@ -1,0 +1,222 @@
+[
+  {
+    "workload": "stlc-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "shift_var_none"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      }
+    ]
+  },
+  {
+    "workload": "stlc-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "shift_var_all"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      }
+    ]
+  },
+  {
+    "workload": "stlc-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "shift_var_leq"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      }
+    ]
+  },
+  {
+    "workload": "stlc-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "shift_abs_no_incr"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      }
+    ]
+  },
+  {
+    "workload": "stlc-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "subst_var_all"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      }
+    ]
+  },
+  {
+    "workload": "stlc-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "subst_var_none"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      }
+    ]
+  },
+  {
+    "workload": "stlc-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "subst_abs_no_shift"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      }
+    ]
+  },
+  {
+    "workload": "stlc-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "subst_abs_no_incr"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      }
+    ]
+  },
+  {
+    "workload": "stlc-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "substTop_no_shift"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      }
+    ]
+  },
+  {
+    "workload": "stlc-haskell",
+    "trials": 10,
+    "timeout": 360.0,
+    "mutations": [
+      "substTop_no_shift_back"
+    ],
+    "mode": "Solve",
+    "params": null,
+    "tasks": [
+      {
+        "strategy": "Falsify",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      }
+    ]
+  }
+]

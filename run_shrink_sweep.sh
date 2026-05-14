@@ -45,5 +45,20 @@ run rbt-haskell-quick    default default
 run rbt-haskell-hedgehog default default
 run rbt-haskell-falsify  default default
 
+# stlc-haskell sweeps.
+run stlc-haskell-quick    none    0
+run stlc-haskell-hedgehog none    0
+run stlc-haskell-falsify  none    0
+run stlc-haskell-quick    default default
+run stlc-haskell-hedgehog default default
+run stlc-haskell-falsify  default default
+
+# fsub-haskell sweeps.
+run fsub-haskell-quick    none    0
+run fsub-haskell-hedgehog none    0
+run fsub-haskell-falsify  none    0
+run fsub-haskell-quick    default default
+run fsub-haskell-hedgehog default default
+run fsub-haskell-falsify  default default
 
 echo "=== all runs complete ==="

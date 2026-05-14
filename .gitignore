@@ -4,3 +4,4 @@ archive/
 .claude/
 .vscode/
 cf.*
+.r2-snapshots/
