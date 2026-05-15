@@ -77,11 +77,11 @@ shiftTyp x (Abs ty1 t2) = Abs (tshift x ty1) (shiftTyp x t2)
 shiftTyp x (App t1 t2) = App (shiftTyp x t1) (shiftTyp x t2)
 shiftTyp x (TAbs ty1 t2) =
   {-! -}
-  {-!
   TAbs (tshift x ty1) (shiftTyp (1 + x) t2)
-  -}
   {-!! shift_typ_tabs_no_incr -}
+  {-!
   TAbs (tshift x ty1) (shiftTyp x t2)
+  -}
   {- !-}
 shiftTyp x (TApp t1 ty2) = TApp (shiftTyp x t1) (tshift x ty2)
 
