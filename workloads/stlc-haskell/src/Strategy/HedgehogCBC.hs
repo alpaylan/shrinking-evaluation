@@ -12,11 +12,10 @@ import Impl
 import Spec
 
 -- Correct-by-construction STLC generator (Hedgehog flavour). Mirrors
--- Strategy.Correct: pick a target type, then build an expression of
--- that type so typeCheck is satisfied by construction. Depth is taken
--- from Hedgehog's ambient `Size` (Gen.sized) so it grows during
--- testing — matching Correct's QC `sized` behaviour. Wired with
--- `Correct` (no precondition filter).
+-- Strategy.Correct: pick a target type, then build a well-typed Expr.
+-- Depth is taken from Hedgehog's ambient `Size` (Gen.sized) so it grows
+-- during testing — matching stlc Strategy.Correct's QC `sized` behaviour.
+-- Wired with `Correct` (no precondition filter).
 
 genTypHCBC :: Int -> HH.Gen Typ
 genTypHCBC n

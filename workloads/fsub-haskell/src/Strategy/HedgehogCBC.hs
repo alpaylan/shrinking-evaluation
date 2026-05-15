@@ -8,7 +8,6 @@ import Etna.Lib
 import qualified Hedgehog as HH
 import qualified Hedgehog.Gen as Gen
 import qualified Hedgehog.Range as Range
-import Hedgehog.Range (Size (..))
 import Impl (Term (..), Typ (..))
 import Spec
 import Util
@@ -220,20 +219,19 @@ tshift _ Top = Top
 tshift x (Arr ty1 ty2) = Arr (tshift x ty1) (tshift x ty2)
 tshift x (All ty1 ty2) = All (tshift x ty1) (tshift (1 + x) ty2)
 
--- Top-level: depth comes from Hedgehog's ambient `Size` (Gen.sized),
--- mirroring Strategy.Correct's QC `sized` behaviour. If the backtracking
--- generator can't find a well-typed term, signal Hedgehog to discard
--- and retry.
+-- Top-level: pick a target type, then build a well-typed term. If the
+-- backtracking generator can't find one, signal Hedgehog to discard and
+-- retry.
 class HGen a where
   hgen :: HH.Gen a
 
 instance HGen Typ where
-  hgen = Gen.sized $ \(Size sz) -> genExactTypH sz Empty
+  hgen = genExactTypH 4 Empty
 
 instance HGen Term where
-  hgen = Gen.sized $ \(Size sz) -> do
-    ty <- genExactTypH sz Empty
-    mt <- genExactTermH sz Empty ty
+  hgen = do
+    ty <- genExactTypH 4 Empty
+    mt <- genExactTermH 4 Empty ty
     case mt of
       Just t  -> pure t
       Nothing -> Gen.discard

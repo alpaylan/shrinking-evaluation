@@ -229,19 +229,13 @@ tshift x (All ty1 ty2) = All (tshift x ty1) (tshift (1 + x) ty2)
 class FGen a where
   fgen :: Gen a
 
--- Sample top-level depth from [1, 10]. Falsify's Gen has no `sized`
--- equivalent, so we draw the depth explicitly; shrinking on the Range
--- pulls it toward 1.
 instance FGen Typ where
-  fgen = do
-    n <- Gen.int (Range.between (1, 10))
-    genExactTypF n Empty
+  fgen = genExactTypF 4 Empty
 
 instance FGen Term where
   fgen = do
-    n <- Gen.int (Range.between (1, 10))
-    ty <- genExactTypF n Empty
-    mt <- genExactTermF n Empty ty
+    ty <- genExactTypF 4 Empty
+    mt <- genExactTermF 4 Empty ty
     case mt of
       Just t  -> pure t
       Nothing -> pure (Var 0)  -- vacuous: getTyp will return Nothing, precondition fails

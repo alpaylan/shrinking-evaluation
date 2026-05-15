@@ -28,7 +28,8 @@ genTypFCBC n
         , (1, TFun <$> genTypFCBC (n `div` 2) <*> genTypFCBC (n `div` 2))
         ]
 
--- Top-level depth is sampled from [1, 10] in `fgen`; we thread it in here.
+-- Top-level depth is sampled from [1, 10] in `fgen`; we thread it in here
+-- (Falsify has no `sized` equivalent, so we draw it explicitly).
 genExactExprF :: Int -> Ctx -> Typ -> Gen Expr
 genExactExprF = go
   where
@@ -65,9 +66,8 @@ genExactExprF = go
 class FGen a where
   fgen :: Gen a
 
--- Sample top-level depth from [1, 10]. Falsify's Gen has no `sized`
--- equivalent, so we draw the depth explicitly; shrinking on the depth
--- Range pulls it toward 1.
+-- Sample top-level depth from [1, 10]. Falsify has no `sized` so we
+-- draw the depth explicitly; shrinking on the Range pulls it toward 1.
 instance FGen Typ where
   fgen = do
     n <- Gen.int (Range.between (1, 10))
