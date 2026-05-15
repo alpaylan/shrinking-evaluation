@@ -49,14 +49,15 @@ run rbt-haskell-falsify  default default
 run stlc-haskell-quick    default default
 run stlc-haskell-hedgehog default default
 run stlc-haskell-falsify  default default
+run fsub-haskell-quick    default default
+run fsub-haskell-hedgehog default default
+run fsub-haskell-falsify  default default
+
 run stlc-haskell-quick    none    0
 run stlc-haskell-hedgehog none    0
 run stlc-haskell-falsify  none    0
 
 # fsub-haskell sweeps.
-run fsub-haskell-quick    default default
-run fsub-haskell-hedgehog default default
-run fsub-haskell-falsify  default default
 run fsub-haskell-quick    none    0
 run fsub-haskell-hedgehog none    0
 run fsub-haskell-falsify  none    0
