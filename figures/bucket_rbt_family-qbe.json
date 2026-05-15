@@ -1,0 +1,44 @@
+{
+  "numBuckets": 6,
+  "chartNames": [
+    "QuickGbE",
+    "HedgehogGbE",
+    "FalsifyGbE"
+  ],
+  "chartColors": [
+    "#1b7837",
+    "#2166ac",
+    "#b35806"
+  ],
+  "barStyles": [
+    "solid",
+    "solid",
+    "solid"
+  ],
+  "bucketValues": [
+    [
+      "54",
+      "4",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "32",
+      "11",
+      "7",
+      "3",
+      "1",
+      "4"
+    ],
+    [
+      "33",
+      "11",
+      "7",
+      "4",
+      "0",
+      "3"
+    ]
+  ]
+}

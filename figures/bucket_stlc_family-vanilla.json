@@ -1,0 +1,44 @@
+{
+  "numBuckets": 6,
+  "chartNames": [
+    "Quick",
+    "Hedgehog",
+    "Falsify"
+  ],
+  "chartColors": [
+    "#1b7837",
+    "#2166ac",
+    "#b35806"
+  ],
+  "barStyles": [
+    "solid",
+    "solid",
+    "solid"
+  ],
+  "bucketValues": [
+    [
+      "0",
+      "8",
+      "8",
+      "0",
+      "0",
+      "4"
+    ],
+    [
+      "0",
+      "5",
+      "11",
+      "0",
+      "0",
+      "4"
+    ],
+    [
+      "0",
+      "7",
+      "9",
+      "0",
+      "0",
+      "4"
+    ]
+  ]
+}
