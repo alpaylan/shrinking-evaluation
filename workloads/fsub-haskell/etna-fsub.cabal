@@ -14,7 +14,9 @@ library
       Spec
       Strategy.Correct
       Strategy.Falsify
+      Strategy.FalsifyCBC
       Strategy.Hedgehog
+      Strategy.HedgehogCBC
       Strategy.Lean
       Strategy.LeanRev
       Strategy.Quick

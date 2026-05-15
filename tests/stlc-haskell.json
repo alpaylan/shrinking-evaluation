@@ -30,12 +30,32 @@
         "witnesses": []
       },
       {
+        "strategy": "HedgehogCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Falsify",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
         "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -92,12 +112,32 @@
         "witnesses": []
       },
       {
+        "strategy": "HedgehogCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Falsify",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
         "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -154,12 +194,32 @@
         "witnesses": []
       },
       {
+        "strategy": "HedgehogCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Falsify",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
         "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -216,12 +276,32 @@
         "witnesses": []
       },
       {
+        "strategy": "HedgehogCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Falsify",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
         "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -278,12 +358,32 @@
         "witnesses": []
       },
       {
+        "strategy": "HedgehogCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Falsify",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
         "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -340,12 +440,32 @@
         "witnesses": []
       },
       {
+        "strategy": "HedgehogCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Falsify",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
         "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -402,12 +522,32 @@
         "witnesses": []
       },
       {
+        "strategy": "HedgehogCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Falsify",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
         "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -464,12 +604,32 @@
         "witnesses": []
       },
       {
+        "strategy": "HedgehogCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Falsify",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
         "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -526,12 +686,32 @@
         "witnesses": []
       },
       {
+        "strategy": "HedgehogCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Falsify",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
         "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -588,12 +768,32 @@
         "witnesses": []
       },
       {
+        "strategy": "HedgehogCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Falsify",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
         "strategy": "Falsify",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       },
