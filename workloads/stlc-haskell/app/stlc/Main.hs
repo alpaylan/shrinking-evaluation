@@ -8,10 +8,8 @@ import Data.Maybe (fromJust)
 import Strategy.Correct as Correct
 import Strategy.Falsify as Falsify
 import Strategy.FalsifyCBC as FalsifyCBC
-import Strategy.FalsifyCBC2 as FalsifyCBC2
 import Strategy.Hedgehog as Hedgehog
 import Strategy.HedgehogCBC as HedgehogCBC
-import Strategy.HedgehogCBC2 as HedgehogCBC2
 import Strategy.Lean as Lean
 import Strategy.LeanRev as LeanRev
 import Strategy.Quick as Quick
@@ -24,10 +22,8 @@ $( mkMain
          [ "Correct",
            "Falsify",
            "FalsifyCBC",
-           "FalsifyCBC2",
            "Hedgehog",
            "HedgehogCBC",
-           "HedgehogCBC2",
            "Lean",
            "LeanRev",
            "Quick",

@@ -15,10 +15,8 @@ library
       Strategy.Correct
       Strategy.Falsify
       Strategy.FalsifyCBC
-      Strategy.FalsifyCBC2
       Strategy.Hedgehog
       Strategy.HedgehogCBC
-      Strategy.HedgehogCBC2
       Strategy.Lean
       Strategy.LeanRev
       Strategy.Quick

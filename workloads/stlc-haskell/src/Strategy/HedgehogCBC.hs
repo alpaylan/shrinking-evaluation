@@ -7,13 +7,16 @@ import Etna.Lib
 import qualified Hedgehog as HH
 import qualified Hedgehog.Gen as Gen
 import qualified Hedgehog.Range as Range
+import Hedgehog.Range (Size (..))
 import Impl
 import Spec
 
 -- Correct-by-construction STLC generator (Hedgehog flavour). Mirrors
--- Strategy.Correct: pick a target type, then build an expression of that
--- type so typeCheck is satisfied by construction. Wired with `Correct`
--- (no precondition filter).
+-- Strategy.Correct: pick a target type, then build an expression of
+-- that type so typeCheck is satisfied by construction. Depth is taken
+-- from Hedgehog's ambient `Size` (Gen.sized) so it grows during
+-- testing — matching Correct's QC `sized` behaviour. Wired with
+-- `Correct` (no precondition filter).
 
 genTypHCBC :: Int -> HH.Gen Typ
 genTypHCBC n
@@ -25,7 +28,7 @@ genTypHCBC n
         ]
 
 genExactExprH :: Ctx -> Typ -> HH.Gen Expr
-genExactExprH = go 4
+genExactExprH ctx0 t0 = Gen.sized $ \(Size sz) -> go sz ctx0 t0
   where
     go n ctx t
       | n <= 0 = case genVar ctx t of
@@ -42,7 +45,7 @@ genExactExprH = go 4
         genAbs c t1 t2 = Abs t1 <$> go (n - 1) (t1 : c) t2
 
         genApp c tgt = do
-          t' <- genTypHCBC 4
+          t' <- genTypHCBC (max 1 (n `div` 2))
           e1 <- go (n `div` 2) c (TFun t' tgt)
           e2 <- go (n `div` 2) c t'
           pure (App e1 e2)
@@ -59,11 +62,11 @@ class HGen a where
   hgen :: HH.Gen a
 
 instance HGen Typ where
-  hgen = genTypHCBC 4
+  hgen = Gen.sized $ \(Size sz) -> genTypHCBC sz
 
 instance HGen Expr where
   hgen = do
-    t <- genTypHCBC 4
+    t <- Gen.sized $ \(Size sz) -> genTypHCBC sz
     genExactExprH [] t
 
 $( mkStrategies

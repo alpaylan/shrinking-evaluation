@@ -1,7 +1,7 @@
 [
   {
     "workload": "stlc-haskell",
-    "trials": 10,
+    "trials": 3,
     "timeout": 360.0,
     "mutations": [
       "shift_var_none"
@@ -10,12 +10,12 @@
     "params": null,
     "tasks": [
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -23,7 +23,7 @@
   },
   {
     "workload": "stlc-haskell",
-    "trials": 10,
+    "trials": 3,
     "timeout": 360.0,
     "mutations": [
       "shift_var_all"
@@ -32,12 +32,12 @@
     "params": null,
     "tasks": [
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -45,7 +45,7 @@
   },
   {
     "workload": "stlc-haskell",
-    "trials": 10,
+    "trials": 3,
     "timeout": 360.0,
     "mutations": [
       "shift_var_leq"
@@ -54,12 +54,12 @@
     "params": null,
     "tasks": [
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -67,7 +67,7 @@
   },
   {
     "workload": "stlc-haskell",
-    "trials": 10,
+    "trials": 3,
     "timeout": 360.0,
     "mutations": [
       "shift_abs_no_incr"
@@ -76,12 +76,12 @@
     "params": null,
     "tasks": [
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -89,7 +89,7 @@
   },
   {
     "workload": "stlc-haskell",
-    "trials": 10,
+    "trials": 3,
     "timeout": 360.0,
     "mutations": [
       "subst_var_all"
@@ -98,12 +98,12 @@
     "params": null,
     "tasks": [
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -111,7 +111,7 @@
   },
   {
     "workload": "stlc-haskell",
-    "trials": 10,
+    "trials": 3,
     "timeout": 360.0,
     "mutations": [
       "subst_var_none"
@@ -120,12 +120,12 @@
     "params": null,
     "tasks": [
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -133,7 +133,7 @@
   },
   {
     "workload": "stlc-haskell",
-    "trials": 10,
+    "trials": 3,
     "timeout": 360.0,
     "mutations": [
       "subst_abs_no_shift"
@@ -142,12 +142,12 @@
     "params": null,
     "tasks": [
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -155,7 +155,7 @@
   },
   {
     "workload": "stlc-haskell",
-    "trials": 10,
+    "trials": 3,
     "timeout": 360.0,
     "mutations": [
       "subst_abs_no_incr"
@@ -164,12 +164,12 @@
     "params": null,
     "tasks": [
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -177,7 +177,7 @@
   },
   {
     "workload": "stlc-haskell",
-    "trials": 10,
+    "trials": 3,
     "timeout": 360.0,
     "mutations": [
       "substTop_no_shift"
@@ -186,12 +186,12 @@
     "params": null,
     "tasks": [
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -199,7 +199,7 @@
   },
   {
     "workload": "stlc-haskell",
-    "trials": 10,
+    "trials": 3,
     "timeout": 360.0,
     "mutations": [
       "substTop_no_shift_back"
@@ -208,12 +208,12 @@
     "params": null,
     "tasks": [
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "SinglePreserve",
         "witnesses": []
       },
       {
-        "strategy": "FalsifyCBC2",
+        "strategy": "FalsifyCBC",
         "property": "MultiPreserve",
         "witnesses": []
       }

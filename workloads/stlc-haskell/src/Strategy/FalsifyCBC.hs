@@ -28,8 +28,9 @@ genTypFCBC n
         , (1, TFun <$> genTypFCBC (n `div` 2) <*> genTypFCBC (n `div` 2))
         ]
 
-genExactExprF :: Ctx -> Typ -> Gen Expr
-genExactExprF = go 4
+-- Top-level depth is sampled from [1, 10] in `fgen`; we thread it in here.
+genExactExprF :: Int -> Ctx -> Typ -> Gen Expr
+genExactExprF = go
   where
     go n ctx t
       | n <= 0 = case genVar ctx t of
@@ -46,7 +47,7 @@ genExactExprF = go 4
         genAbs c t1 t2 = Abs t1 <$> go (n - 1) (t1 : c) t2
 
         genApp c tgt = do
-          t' <- genTypFCBC 4
+          t' <- genTypFCBC (max 1 (n `div` 2))
           e1 <- go (n `div` 2) c (TFun t' tgt)
           e2 <- go (n `div` 2) c t'
           pure (App e1 e2)
@@ -64,13 +65,19 @@ genExactExprF = go 4
 class FGen a where
   fgen :: Gen a
 
+-- Sample top-level depth from [1, 10]. Falsify's Gen has no `sized`
+-- equivalent, so we draw the depth explicitly; shrinking on the depth
+-- Range pulls it toward 1.
 instance FGen Typ where
-  fgen = genTypFCBC 4
+  fgen = do
+    n <- Gen.int (Range.between (1, 10))
+    genTypFCBC n
 
 instance FGen Expr where
   fgen = do
-    t <- genTypFCBC 4
-    genExactExprF [] t
+    n <- Gen.int (Range.between (1, 10))
+    t <- genTypFCBC n
+    genExactExprF n [] t
 
 $( mkStrategies
      [|fsRunGen fsDefaults Correct fgen|]

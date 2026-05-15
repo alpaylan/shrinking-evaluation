@@ -229,19 +229,31 @@ tshift x (All ty1 ty2) = All (tshift x ty1) (tshift (1 + x) ty2)
 class FGen a where
   fgen :: Gen a
 
+-- Sample top-level depth from [1, 10]. Falsify's Gen has no `sized`
+-- equivalent, so we draw the depth explicitly; shrinking on the Range
+-- pulls it toward 1.
 instance FGen Typ where
-  fgen = genExactTypF 4 Empty
+  fgen = do
+    n <- Gen.int (Range.between (1, 10))
+    genExactTypF n Empty
 
 instance FGen Term where
   fgen = do
-    ty <- genExactTypF 4 Empty
-    mt <- genExactTermF 4 Empty ty
+    n <- Gen.int (Range.between (1, 10))
+    ty <- genExactTypF n Empty
+    mt <- genExactTermF n Empty ty
     case mt of
       Just t  -> pure t
       Nothing -> pure (Var 0)  -- vacuous: getTyp will return Nothing, precondition fails
 
 $( mkStrategies
-     [|fsRunGen fsDefaults Correct fgen|]
+     -- Naive (not Correct): under type-level mutations (tshift_*, tsubst_*)
+     -- the mutated `getTyp` may reject terms our typed generator built, making
+     -- `mty = Nothing` while `pstep t = Just _`. With Correct mode the Falsify
+     -- runner force-seqs `post = mtypeCheck _ (fromJust mty)` and the process
+     -- aborts on `fromJust Nothing`. Naive's precondition filter discards
+     -- those rare mutation-induced ill-typed cases safely.
+     [|fsRunGen fsDefaults Naive fgen|]
      [ 'prop_SinglePreserve,
        'prop_MultiPreserve
      ]

@@ -28,16 +28,6 @@
         "strategy": "HedgehogCBC",
         "property": "MultiPreserve",
         "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "SinglePreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "MultiPreserve",
-        "witnesses": []
       }
     ]
   },
@@ -68,16 +58,6 @@
       },
       {
         "strategy": "HedgehogCBC",
-        "property": "MultiPreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "SinglePreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -112,16 +92,6 @@
         "strategy": "HedgehogCBC",
         "property": "MultiPreserve",
         "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "SinglePreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "MultiPreserve",
-        "witnesses": []
       }
     ]
   },
@@ -152,16 +122,6 @@
       },
       {
         "strategy": "HedgehogCBC",
-        "property": "MultiPreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "SinglePreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -196,16 +156,6 @@
         "strategy": "HedgehogCBC",
         "property": "MultiPreserve",
         "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "SinglePreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "MultiPreserve",
-        "witnesses": []
       }
     ]
   },
@@ -236,16 +186,6 @@
       },
       {
         "strategy": "HedgehogCBC",
-        "property": "MultiPreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "SinglePreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -280,16 +220,6 @@
         "strategy": "HedgehogCBC",
         "property": "MultiPreserve",
         "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "SinglePreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "MultiPreserve",
-        "witnesses": []
       }
     ]
   },
@@ -320,16 +250,6 @@
       },
       {
         "strategy": "HedgehogCBC",
-        "property": "MultiPreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "SinglePreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
         "property": "MultiPreserve",
         "witnesses": []
       }
@@ -364,16 +284,6 @@
         "strategy": "HedgehogCBC",
         "property": "MultiPreserve",
         "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "SinglePreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "MultiPreserve",
-        "witnesses": []
       }
     ]
   },
@@ -404,16 +314,6 @@
       },
       {
         "strategy": "HedgehogCBC",
-        "property": "MultiPreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
-        "property": "SinglePreserve",
-        "witnesses": []
-      },
-      {
-        "strategy": "HedgehogCBC2",
         "property": "MultiPreserve",
         "witnesses": []
       }

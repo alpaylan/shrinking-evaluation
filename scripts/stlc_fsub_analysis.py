@@ -36,7 +36,6 @@ WORKLOADS = {
             "falsify":  ROOT / "store.stlc.falsify.shrink-default.jsonl",
         },
         "groundtruth": ROOT / "store.stlc.det.jsonl",
-        # Strategy display order; CBC strategy paired beneath its vanilla peer.
         "strategies": ["Quick", "Correct", "Hedgehog", "HedgehogCBC", "Falsify", "FalsifyCBC"],
         "framework_of": {
             "Quick": "quick", "Correct": "quick",
