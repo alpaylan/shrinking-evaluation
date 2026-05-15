@@ -59,16 +59,16 @@ shift d = go 0
       | otherwise = Var (n + d)
       -}
       {-!! shift_var_none -}
-      {-!
       = Var n
-      -}
       {-!! shift_var_all -}
       {-!
       = Var (n + d)
       -}
       {-!! shift_var_leq -}
+      {-!
       | n <= c = Var n
       | otherwise = Var (n + d)
+      -}
       {- !-}
     go _ (Bool b) = Bool b
     go c (Abs t e) =
