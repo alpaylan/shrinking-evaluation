@@ -20,6 +20,16 @@
         "witnesses": []
       },
       {
+        "strategy": "Correct",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Hedgehog",
         "property": "SinglePreserve",
         "witnesses": []
@@ -98,6 +108,16 @@
       },
       {
         "strategy": "Quick",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -184,6 +204,16 @@
         "witnesses": []
       },
       {
+        "strategy": "Correct",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Hedgehog",
         "property": "SinglePreserve",
         "witnesses": []
@@ -262,6 +292,16 @@
       },
       {
         "strategy": "Quick",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -348,6 +388,16 @@
         "witnesses": []
       },
       {
+        "strategy": "Correct",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Hedgehog",
         "property": "SinglePreserve",
         "witnesses": []
@@ -426,6 +476,16 @@
       },
       {
         "strategy": "Quick",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -512,6 +572,16 @@
         "witnesses": []
       },
       {
+        "strategy": "Correct",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Hedgehog",
         "property": "SinglePreserve",
         "witnesses": []
@@ -590,6 +660,16 @@
       },
       {
         "strategy": "Quick",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
         "property": "MultiPreserve",
         "witnesses": []
       },
@@ -676,6 +756,16 @@
         "witnesses": []
       },
       {
+        "strategy": "Correct",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
         "strategy": "Hedgehog",
         "property": "SinglePreserve",
         "witnesses": []
@@ -754,6 +844,16 @@
       },
       {
         "strategy": "Quick",
+        "property": "MultiPreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
+        "property": "SinglePreserve",
+        "witnesses": []
+      },
+      {
+        "strategy": "Correct",
         "property": "MultiPreserve",
         "witnesses": []
       },
