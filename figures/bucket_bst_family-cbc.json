@@ -3,9 +3,9 @@
   "chartNames": [
     "QuickCBC",
     "HedgehogCBC",
-    "HedgehogCBC2",
+    "HedgehogIdiomatic",
     "FalsifyCBC",
-    "FalsifyCBC2"
+    "FalsifyIdiomatic"
   ],
   "chartColors": [
     "#1b7837",

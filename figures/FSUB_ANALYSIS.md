@@ -1,7 +1,7 @@
 # FSUB analysis — default shrink mode
 
 Stores loaded:
-  - `store.fsub.quick.shrink-default.jsonl` (667 rows)
+  - `store.fsub.quick.shrink-default.jsonl` (658 rows)
   - `store.fsub.hedgehog.shrink-default.jsonl` (549 rows)
   - `store.fsub.falsify.shrink-default.jsonl` (403 rows)
 Ground truth: `store.fsub.det.jsonl` — 36 (property, mutation) pairs
@@ -15,7 +15,7 @@ Failed rows per strategy. Expected = 10 (stlc) or 18 (fsub) mutations × 2 props
 
 | Strategy | Failed | TimedOut | total | gt-coverage |
 |---|---:|---:|---:|---:|
-| Quick | 299 | 8 | 307 | 299 |
+| Quick | 289 | 9 | 298 | 289 |
 | Correct | 360 | 0 | 360 | 360 |
 | Hedgehog | 169 | 20 | 189 | 169 |
 | HedgehogCBC | 360 | 0 | 360 | 360 |
@@ -28,7 +28,7 @@ Lower is better. Format: **mean / median / p90 / max**.
 
 | Strategy | TED | n |
 |---|---|---:|
-| Quick | 43.8 / 39.0 / 75.0 / 149.0 | 299 |
+| Quick | 7.2 / 7.0 / 16.0 / 45.0 | 289 |
 | Correct | 26.9 / 23.0 / 53.0 / 146.0 | 360 |
 | Hedgehog | 7.7 / 8.0 / 13.0 / 24.0 | 169 |
 | HedgehogCBC | 95.6 / 91.5 / 158.0 / 275.0 | 360 |
@@ -39,7 +39,7 @@ Lower is better. Format: **mean / median / p90 / max**.
 
 | Strategy | TED=0 | n | % |
 |---|---:|---:|---:|
-| Quick | 0 | 299 | 0.0% |
+| Quick | 88 | 289 | 30.4% |
 | Correct | 14 | 360 | 3.9% |
 | Hedgehog | 0 | 169 | 0.0% |
 | HedgehogCBC | 0 | 360 | 0.0% |
@@ -52,7 +52,7 @@ Lower is better. Format: **mean / median / p90 / max**.
 
 | Strategy | ms/edit (mean / med / p90 / max) | n |
 |---|---|---:|
-| Quick | — | 0 |
+| Quick | 0.02 / 0.01 / 0.03 / 0.13 | 286 |
 | Correct | 0.01 / 0.00 / 0.01 / 0.09 | 339 |
 | Hedgehog | 0.09 / 0.05 / 0.23 / 0.54 | 141 |
 | HedgehogCBC | 0.06 / 0.02 / 0.11 / 1.91 | 287 |
@@ -65,7 +65,7 @@ Token count of `pre_counterexample` vs `counterexample` on Failed rows. Lower po
 
 | Strategy | mean pre | mean post | mean Δ | mean Δ % |
 |---|---:|---:|---:|---:|
-| Quick | 49.7 | 49.7 | 0.0 | 0.0% |
+| Quick | 54.0 | 19.7 | 34.3 | 63.5% |
 | Correct | 159.4 | 34.5 | 124.9 | 78.4% |
 | Hedgehog | 27.9 | 18.8 | 9.1 | 32.5% |
 | HedgehogCBC | 152.7 | 86.9 | 65.8 | 43.1% |
@@ -79,7 +79,7 @@ broke again (accepted as new minimum), `discarded` = precondition rejected.
 
 | Strategy | passed | failed (accepted) | discarded | total |
 |---|---:|---:|---:|---:|
-| Quick | 0.0 | 0.0 | 0.0 | 0.0 |
+| Quick | 14.8 | 5.5 | 11.9 | 32.2 |
 | Correct | 18.3 | 6.7 | 39.9 | 64.9 |
 | Hedgehog | 6.9 | 2.2 | 9.6 | 18.7 |
 | HedgehogCBC | 9.3 | 11.8 | 0.0 | 21.1 |
@@ -94,7 +94,7 @@ broke again (accepted as new minimum), `discarded` = precondition rejected.
 
 | Strategy | execution | generation | shrinking | total |
 |---|---:|---:|---:|---:|
-| Quick | 56565.61 ms | 39531.02 ms | 0.49 ms | 96097.12 ms |
+| Quick | 7407.65 ms | 6846.50 ms | 0.54 ms | 14254.70 ms |
 | Correct | 9.67 ms | 0.88 ms | 0.45 ms | 11.00 ms |
 | Hedgehog | 0.79 ms | 21362.85 ms | 0.54 ms | 21364.19 ms |
 | HedgehogCBC | 3.59 ms | 45.53 ms | 2.40 ms | 51.52 ms |

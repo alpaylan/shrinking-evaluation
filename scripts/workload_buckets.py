@@ -16,7 +16,7 @@ from collections import defaultdict
 from pathlib import Path
 from statistics import median
 
-from workload_config import ROOT, COLORS, HATCHED, get_config
+from workload_config import ROOT, COLORS, HATCHED, display_name, get_config
 
 # Time buckets (seconds), bottom-to-top of stack.
 BUCKETS = [
@@ -71,7 +71,7 @@ def build_spec(rows, strategies):
         counts = counts_for(rows, s)
         if sum(counts) == 0:
             continue
-        chart_names.append(s)
+        chart_names.append(display_name(s))
         chart_colors.append(COLORS.get(s, "#000000"))
         bar_styles.append("hatched" if s in HATCHED else "solid")
         bucket_values.append([str(c) for c in counts])

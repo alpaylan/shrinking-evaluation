@@ -19,7 +19,7 @@ from statistics import median
 
 import matplotlib.pyplot as plt
 
-from workload_config import ROOT, COLORS, HATCHED, get_config
+from workload_config import ROOT, COLORS, HATCHED, display_name, get_config
 
 
 def load_default_rows(csv_path: Path):
@@ -75,22 +75,19 @@ def value_ted_to_gt(r):
     return r.get("ted_to_gt")
 
 
-# metric_id -> dict(value_fn, xlabel, title, xscale, drop_nonpositive)
+# metric_id -> dict(value_fn, xlabel, xscale, drop_nonpositive)
 METRICS = {
     "time-shrinking": dict(
         value_fn=value_time_shrinking_ms,
         xlabel="shrinking time per task (ms, log)",
-        title="Shrinking wall-clock time per task",
         xscale="log", drop_nonpositive=True),
     "ms-per-edit": dict(
         value_fn=value_ms_per_edit,
         xlabel="ms per TED edit (log)",
-        title="Time-per-edit: ms / (pre TED − post TED)",
         xscale="log", drop_nonpositive=True),
     "ted-to-gt": dict(
         value_fn=value_ted_to_gt,
         xlabel="TED to ground-truth minimum (post-shrink)",
-        title="Absolute TED to ground truth after shrinking",
         xscale="linear", drop_nonpositive=False),
 }
 
@@ -110,7 +107,7 @@ def draw_ecdf(rows, strategies, spec, ax):
         c = COLORS.get(s, "#444")
         ls = ":" if s in HATCHED else "-"
         ax.step(xs, ys, where="post", color=c, linewidth=2.0,
-                linestyle=ls, label=f"{s} (n={n})")
+                linestyle=ls, label=f"{display_name(s)} (n={n})")
         plotted += 1
     ax.set_xscale(spec["xscale"])
     ax.set_xlabel(spec["xlabel"])
@@ -143,7 +140,6 @@ def main():
     for metric_id, spec in METRICS.items():
         for fam, strats in families.items():
             fig, ax = plt.subplots(figsize=(6, 4))
-            ax.set_title(f"{spec['title']} — {fam.upper()} ({args.workload}, default mode)")
             n = draw_ecdf(rows, strats, spec, ax)
             out = out_dir / f"shrink_{args.workload}_{metric_id}_ecdf_family-{fam}.png"
             if n == 0:

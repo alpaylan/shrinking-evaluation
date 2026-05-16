@@ -22,6 +22,17 @@ COLORS = {
 }
 HATCHED = {"HedgehogCBC2", "FalsifyCBC2"}
 
+# Display labels for charts. The store data keeps the raw strategy name
+# ("HedgehogCBC2"); charts show the friendlier "Idiomatic" naming.
+DISPLAY_NAMES = {
+    "HedgehogCBC2": "HedgehogIdiomatic",
+    "FalsifyCBC2":  "FalsifyIdiomatic",
+}
+
+
+def display_name(strategy: str) -> str:
+    return DISPLAY_NAMES.get(strategy, strategy)
+
 
 def _store(wl: str, fw: str, mode: str) -> str:
     """Map (workload, framework, mode) -> store filename."""
