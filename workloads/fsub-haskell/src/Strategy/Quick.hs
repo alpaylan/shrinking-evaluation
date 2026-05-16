@@ -17,6 +17,7 @@ instance Arbitrary Typ where
   arbitrary =
     genericArbitraryRec (1 % 1 % 1 % 1 % ())
       `withBaseCase` return Top
+  shrink = genericShrink
 
 deriving instance Generic Term
 
@@ -24,6 +25,7 @@ instance Arbitrary Term where
   arbitrary =
     genericArbitraryRec (1 % 1 % 1 % 1 % 1 % ())
       `withBaseCase` return (Var 0)
+  shrink = genericShrink
 
 $( mkStrategies
      [|qcRunArb qcDefaults Naive|]
