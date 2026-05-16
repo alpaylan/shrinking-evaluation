@@ -137,7 +137,15 @@ def main():
     out_dir.mkdir(exist_ok=True)
     families = cfg["families"]
 
+    # All strategies, in family order, deduped — for the combined chart.
+    all_strats = []
+    for strats in families.values():
+        for s in strats:
+            if s not in all_strats:
+                all_strats.append(s)
+
     for metric_id, spec in METRICS.items():
+        # Per-family panels.
         for fam, strats in families.items():
             fig, ax = plt.subplots(figsize=(6, 4))
             n = draw_ecdf(rows, strats, spec, ax)
@@ -146,6 +154,19 @@ def main():
                 plt.close(fig)
                 print(f"  skip {out.name} (no data)")
                 continue
+            plt.tight_layout()
+            plt.savefig(out, dpi=150, bbox_inches="tight")
+            plt.close(fig)
+            print(f"  wrote {out.name}")
+
+        # Combined panel: every strategy for this workload on one axes.
+        fig, ax = plt.subplots(figsize=(7, 5))
+        n = draw_ecdf(rows, all_strats, spec, ax)
+        out = out_dir / f"shrink_{args.workload}_{metric_id}_ecdf.png"
+        if n == 0:
+            plt.close(fig)
+            print(f"  skip {out.name} (no data)")
+        else:
             plt.tight_layout()
             plt.savefig(out, dpi=150, bbox_inches="tight")
             plt.close(fig)
