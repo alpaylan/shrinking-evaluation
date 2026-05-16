@@ -103,10 +103,13 @@ WORKLOADS = {
     "rbt": {
         "long_name": "rbt-haskell",
         "modes": ["none", "default"],
+        # Idiomatic (CBC2) variants are intentionally excluded from rbt
+        # charts — they showed no benefit there (only HedgehogCBC2 on bst
+        # did). The store data still contains the CBC2 rows.
         "variants": {
-            "Quick":    ["Quick", "QuickCBC",                    "QuickGbE"],
-            "Hedgehog": ["Hedgehog", "HedgehogCBC", "HedgehogCBC2", "HedgehogGbE"],
-            "Falsify":  ["Falsify",  "FalsifyCBC",  "FalsifyCBC2",  "FalsifyGbE"],
+            "Quick":    ["Quick", "QuickCBC",                "QuickGbE"],
+            "Hedgehog": ["Hedgehog", "HedgehogCBC",          "HedgehogGbE"],
+            "Falsify":  ["Falsify",  "FalsifyCBC",           "FalsifyGbE"],
         },
         "groups": [
             ("vanilla", [
@@ -117,9 +120,7 @@ WORKLOADS = {
             ("CBC", [
                 ("Quick",    "QuickCBC",     "Quick"),
                 ("Hedgehog", "HedgehogCBC",  "Hedgehog"),
-                ("Hedgehog", "HedgehogCBC2", "Hedgehog\nIdiomatic"),
                 ("Falsify",  "FalsifyCBC",   "Falsify"),
-                ("Falsify",  "FalsifyCBC2",  "Falsify\nIdiomatic"),
             ]),
             ("GbE", [
                 ("Quick",    "QuickGbE",    "Quick"),
@@ -129,7 +130,7 @@ WORKLOADS = {
         ],
         "families": {
             "vanilla": ["Quick", "Hedgehog", "Falsify"],
-            "cbc":     ["QuickCBC", "HedgehogCBC", "HedgehogCBC2", "FalsifyCBC", "FalsifyCBC2"],
+            "cbc":     ["QuickCBC", "HedgehogCBC", "FalsifyCBC"],
             "qbe":     ["QuickGbE", "HedgehogGbE", "FalsifyGbE"],
         },
     },

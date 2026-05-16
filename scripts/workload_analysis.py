@@ -102,10 +102,16 @@ def task_key(r):
 
 
 def load_groundtruth(workload: str):
-    """Map (property_bare, mutations_str) -> smallest deterministic-search cex.
+    """Map (property_bare, mutations_str) -> list of minimal-size cexes.
+
+    The deterministic Lean / LeanRev searches can each surface a different
+    counterexample of the *same* minimal size (there is not always a unique
+    minimum). We keep the full set of minimal-size counterexamples per task;
+    TED-to-GT is then the distance to the *nearest* one, so a strategy that
+    finds any legitimate minimum scores TED = 0.
 
     For bst the groundtruth lives in store.det.jsonl, otherwise in
-    store.<workload>.det.jsonl. Uses Lean and LeanRev rows.
+    store.<workload>.det.jsonl.
     """
     candidates = [
         ROOT / f"store.{workload}.det.jsonl",
@@ -115,7 +121,7 @@ def load_groundtruth(workload: str):
     if path is None:
         print(f"  WARN: no ground truth store for {workload}", file=sys.stderr)
         return {}
-    out = {}
+    raw = defaultdict(set)
     for r in load(path):
         if r["strategy"] not in ("Lean", "LeanRev"):
             continue
@@ -124,11 +130,37 @@ def load_groundtruth(workload: str):
         cex = r.get("counterexample") or r.get("pre_counterexample") or ""
         if not cex:
             continue
-        k = task_key(r)
-        if k not in out or cex_size(cex) < cex_size(out[k]):
-            out[k] = cex
-    print(f"  ground truth: {len(out)} pairs from {path.name}")
+        raw[task_key(r)].add(cex)
+    out = {}
+    n_ties = 0
+    for k, cexes in raw.items():
+        m = min(cex_size(c) for c in cexes)
+        minimal = sorted(c for c in cexes if cex_size(c) == m)
+        out[k] = minimal
+        if len(minimal) > 1:
+            n_ties += 1
+    print(f"  ground truth: {len(out)} pairs from {path.name} "
+          f"({n_ties} with multiple equal-size minima)")
     return out
+
+
+def ted_to_set(cex, gt_list, cache_ted):
+    """TED from `cex` to the nearest counterexample in `gt_list`.
+
+    `gt_list` is the set of equal-size minimal ground-truth counterexamples
+    for the task; a strategy that finds any of them should score 0.
+    """
+    if not cex or not gt_list:
+        return None
+    dists = []
+    for g in gt_list:
+        key = (cex, g)
+        if key not in cache_ted:
+            cache_ted[key] = ted(cex, g)
+        d = cache_ted[key]
+        if d is not None:
+            dists.append(d)
+    return min(dists) if dists else None
 
 
 def annotate(rows, ground_truth, cache_ted):
@@ -137,23 +169,11 @@ def annotate(rows, ground_truth, cache_ted):
         pre = r.get("pre_counterexample") or ""
         r["_cex_size"] = cex_size(cex)
         r["_pre_size"] = cex_size(pre)
-        gt = ground_truth.get(task_key(r))
-        r["_gt_cex"]  = gt
-        r["_gt_size"] = cex_size(gt) if gt else None
-        if cex and gt:
-            key = (cex, gt)
-            if key not in cache_ted:
-                cache_ted[key] = ted(cex, gt)
-            r["_ted_to_gt"] = cache_ted[key]
-        else:
-            r["_ted_to_gt"] = None
-        if pre and gt:
-            key2 = (pre, gt)
-            if key2 not in cache_ted:
-                cache_ted[key2] = ted(pre, gt)
-            r["_pre_ted_to_gt"] = cache_ted[key2]
-        else:
-            r["_pre_ted_to_gt"] = None
+        gt = ground_truth.get(task_key(r))  # list of minimal cexes, or None
+        r["_gt_cex"]  = gt[0] if gt else None
+        r["_gt_size"] = cex_size(gt[0]) if gt else None
+        r["_ted_to_gt"]     = ted_to_set(cex, gt, cache_ted)
+        r["_pre_ted_to_gt"] = ted_to_set(pre, gt, cache_ted)
         r["_gen_time"] = (r.get("time_pre_failure", 0) or 0) - (r.get("exec_time_pre", 0) or 0)
 
 
