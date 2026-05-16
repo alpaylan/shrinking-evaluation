@@ -169,11 +169,11 @@ substTyp (Abs ty1 t2) x ty = Abs (tsubst ty1 x ty) (substTyp t2 x ty)
 substTyp (App t1 t2) x ty = App (substTyp t1 x ty) (substTyp t2 x ty)
 substTyp (TAbs ty1 t2) x ty =
   {-! -}
-  {-!
   TAbs (tsubst ty1 x ty) (substTyp t2 (1 + x) (tshift 0 ty))
-  -}
   {-!! subst_typ_tabs_no_incr -}
+  {-!
   TAbs (tsubst ty1 x ty) (substTyp t2 x (tshift 0 ty))
+  -}
   {-!! subst_typ_tabs_no_shift -}
   {-!
   TAbs (tsubst ty1 x ty) (substTyp t2 (1 + x) ty)
