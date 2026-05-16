@@ -34,6 +34,31 @@ def display_name(strategy: str) -> str:
     return DISPLAY_NAMES.get(strategy, strategy)
 
 
+# Line style per generator type, so combined charts stay legible when
+# same-framework variants share a color.
+LINESTYLES = {
+    "vanilla":   "-",    # solid
+    "cbc":       "--",   # dashed
+    "idiomatic": "-.",   # dash-dot
+    "qbe":       ":",    # dotted
+}
+
+
+def generator_type(strategy: str) -> str:
+    """Classify a strategy into a generator family for styling."""
+    if strategy in HATCHED:
+        return "idiomatic"
+    if strategy.endswith("GbE"):
+        return "qbe"
+    if strategy.endswith("CBC") or strategy == "Correct":
+        return "cbc"
+    return "vanilla"
+
+
+def linestyle(strategy: str) -> str:
+    return LINESTYLES[generator_type(strategy)]
+
+
 def _store(wl: str, fw: str, mode: str) -> str:
     """Map (workload, framework, mode) -> store filename."""
     suffix = {"none": "shrink-0", "fixed-100": "shrink-100", "default": "shrink-default"}[mode]

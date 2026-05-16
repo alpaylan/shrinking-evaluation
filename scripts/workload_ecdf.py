@@ -19,7 +19,7 @@ from statistics import median
 
 import matplotlib.pyplot as plt
 
-from workload_config import ROOT, COLORS, HATCHED, display_name, get_config
+from workload_config import ROOT, COLORS, display_name, linestyle, get_config
 
 
 def load_default_rows(csv_path: Path):
@@ -105,7 +105,7 @@ def draw_ecdf(rows, strategies, spec, ax):
         # Cumulative *count* of tasks (not fraction).
         ys = [i + 1 for i in range(n)]
         c = COLORS.get(s, "#444")
-        ls = ":" if s in HATCHED else "-"
+        ls = linestyle(s)
         ax.step(xs, ys, where="post", color=c, linewidth=2.0,
                 linestyle=ls, label=f"{display_name(s)} (n={n})")
         plotted += 1
