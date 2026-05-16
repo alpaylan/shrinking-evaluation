@@ -40,13 +40,15 @@ def load_default_rows(csv_path: Path):
     return rows
 
 
-def task_medians(rows, strategy, value_fn):
+def task_medians(rows, strategy, value_fn, drop_nonpositive=True):
     bytask = defaultdict(list)
     for r in rows:
         if r["strategy"] != strategy:
             continue
         v = value_fn(r)
-        if v is None or v <= 0:
+        if v is None:
+            continue
+        if drop_nonpositive and v <= 0:
             continue
         bytask[(r["property"], r["mutation"])].append(v)
     return [median(v) for v in bytask.values() if v]
@@ -67,34 +69,54 @@ def value_ms_per_edit(r):
     return (r.get("time_shrinking") or 0) * 1000 / d
 
 
+def value_ted_to_gt(r):
+    """Absolute TED of the final (post-shrink) counterexample to the
+    ground-truth minimum. 0 = reached the minimum."""
+    return r.get("ted_to_gt")
+
+
+# metric_id -> dict(value_fn, xlabel, title, xscale, drop_nonpositive)
 METRICS = {
-    "time-shrinking": (value_time_shrinking_ms,
-                       "shrinking time per task (ms, log)",
-                       "Shrinking wall-clock time per task"),
-    "ms-per-edit":    (value_ms_per_edit,
-                       "ms per TED edit (log)",
-                       "Time-per-edit: ms / (pre TED − post TED)"),
+    "time-shrinking": dict(
+        value_fn=value_time_shrinking_ms,
+        xlabel="shrinking time per task (ms, log)",
+        title="Shrinking wall-clock time per task",
+        xscale="log", drop_nonpositive=True),
+    "ms-per-edit": dict(
+        value_fn=value_ms_per_edit,
+        xlabel="ms per TED edit (log)",
+        title="Time-per-edit: ms / (pre TED − post TED)",
+        xscale="log", drop_nonpositive=True),
+    "ted-to-gt": dict(
+        value_fn=value_ted_to_gt,
+        xlabel="TED to ground-truth minimum (post-shrink)",
+        title="Absolute TED to ground truth after shrinking",
+        xscale="linear", drop_nonpositive=False),
 }
 
 
-def draw_ecdf(rows, strategies, value_fn, ax, xlabel, title):
+def draw_ecdf(rows, strategies, spec, ax):
     plotted = 0
+    max_n = 0
     for s in strategies:
-        xs = sorted(task_medians(rows, s, value_fn))
+        xs = sorted(task_medians(rows, s, spec["value_fn"],
+                                 drop_nonpositive=spec["drop_nonpositive"]))
         if not xs:
             continue
         n = len(xs)
-        ys = [(i + 1) / n for i in range(n)]
+        max_n = max(max_n, n)
+        # Cumulative *count* of tasks (not fraction).
+        ys = [i + 1 for i in range(n)]
         c = COLORS.get(s, "#444")
         ls = ":" if s in HATCHED else "-"
         ax.step(xs, ys, where="post", color=c, linewidth=2.0,
-                linestyle=ls, label=s)
+                linestyle=ls, label=f"{s} (n={n})")
         plotted += 1
-    ax.set_xscale("log")
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel("fraction of tasks ≤ x")
-    ax.set_title(title)
-    ax.set_ylim(0, 1.02)
+    ax.set_xscale(spec["xscale"])
+    ax.set_xlabel(spec["xlabel"])
+    ax.set_ylabel("number of tasks ≤ x")
+    if max_n:
+        ax.set_ylim(0, max_n * 1.05)
     ax.grid(True, alpha=0.3, which="both")
     if plotted:
         ax.legend(loc="lower right", fontsize=8, frameon=False)
@@ -118,11 +140,11 @@ def main():
     out_dir.mkdir(exist_ok=True)
     families = cfg["families"]
 
-    for metric_id, (vfn, ylabel, title) in METRICS.items():
+    for metric_id, spec in METRICS.items():
         for fam, strats in families.items():
             fig, ax = plt.subplots(figsize=(6, 4))
-            n = draw_ecdf(rows, strats, vfn, ax, ylabel,
-                          f"{title} — {fam.upper()} ({args.workload}, default mode)")
+            ax.set_title(f"{spec['title']} — {fam.upper()} ({args.workload}, default mode)")
+            n = draw_ecdf(rows, strats, spec, ax)
             out = out_dir / f"shrink_{args.workload}_{metric_id}_ecdf_family-{fam}.png"
             if n == 0:
                 plt.close(fig)
