@@ -60,7 +60,8 @@ for w in bst rbt stlc fsub; do
   .venv/bin/python scripts/workload_ecdf.py   --workload "$w"   # fig:ecdf_ted_to_gt,
                                                                 # fig:ecdf_time_shrinking,
                                                                 # fig:ecdf_ms_per_edit
-  .venv/bin/python scripts/bucket_charts.py   --workload "$w"   # bug-finding bucket charts
+  .venv/bin/python scripts/workload_buckets.py --workload "$w"  # bug-finding bucket charts
+                                                                # (fig:bucket_bst etc.)
 done
 ```
 
