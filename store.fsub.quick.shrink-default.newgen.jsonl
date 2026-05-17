@@ -1,0 +1,1 @@
+{"data":{"experiment":"shrinking-evaluation","workload":"fsub-haskell","language":"Haskell","strategy":"Quick","property":"SinglePreserve","mutations":["tshift_tvar_all"],"mode":"solve","trial":0,"timeout":360.0,"timestamp":"2026-05-17T15:33:54.868122+00:00","status":"timed_out"},"hash":"d6cdfec54d7fbcfd5adb88594e0bcd79da230f9e"}
