@@ -1,12 +1,22 @@
 #!/usr/bin/env python3
 """ECDF charts for shrinking metrics, parameterised by workload.
 
-Produces `figures/shrink_<workload>_{time-shrinking,ms-per-edit}_ecdf_family-<fam>.png`.
+Produces `figures/shrink_<workload>_<metric>_ecdf_family-<fam>.png` (per
+generator family) plus a combined `shrink_<workload>_<metric>_ecdf.png`.
 
 Reads `figures/<WORKLOAD>_ANALYSIS.csv` (produced by scripts/workload_analysis.py).
-Default-mode Failed rows only. Each family gets its own ECDF panel; within
-a panel, one line per strategy. Per (property, mutation) task we take the
-median across trials and plot the cross-task distribution.
+Default-mode Failed rows only. Per (property, mutation) task we take the
+median across trials and plot the cross-task cumulative distribution
+(y = number of tasks ≤ x).
+
+Conventions:
+  - Axes are fixed per (workload, metric): every family panel shares the
+    same x- and y-range, so panels can be read side by side.
+  - Lines are solid for all strategies. The single exception is the BST
+    CBC panel, where the idiomatic variants are dashed (they share a
+    framework colour with plain CBC).
+  - A dotted reference line marks the total task count for the metric, so
+    a curve that plateaus below it visibly "didn't reach" every task.
 
 Usage: scripts/workload_ecdf.py --workload {bst,rbt,stlc,fsub}
 """
@@ -19,7 +29,7 @@ from statistics import median
 
 import matplotlib.pyplot as plt
 
-from workload_config import ROOT, COLORS, display_name, linestyle, get_config
+from workload_config import ROOT, COLORS, HATCHED, display_name, get_config
 
 
 def load_default_rows(csv_path: Path):
@@ -40,7 +50,8 @@ def load_default_rows(csv_path: Path):
     return rows
 
 
-def task_medians(rows, strategy, value_fn, drop_nonpositive=True):
+def task_median_map(rows, strategy, value_fn, drop_nonpositive):
+    """(property, mutation) -> median metric value across that task's trials."""
     bytask = defaultdict(list)
     for r in rows:
         if r["strategy"] != strategy:
@@ -51,7 +62,7 @@ def task_medians(rows, strategy, value_fn, drop_nonpositive=True):
         if drop_nonpositive and v <= 0:
             continue
         bytask[(r["property"], r["mutation"])].append(v)
-    return [median(v) for v in bytask.values() if v]
+    return {k: median(v) for k, v in bytask.items() if v}
 
 
 def value_time_shrinking_ms(r):
@@ -92,32 +103,59 @@ METRICS = {
 }
 
 
-def draw_ecdf(rows, strategies, spec, ax):
+def line_style(workload, family, strategy):
+    """Solid everywhere, except the BST CBC panel where the idiomatic
+    (CBC2) variants are dashed so they read apart from plain CBC."""
+    if workload == "bst" and family == "cbc" and strategy in HATCHED:
+        return "--"
+    return "-"
+
+
+def draw_ecdf(median_maps, strategies, ax, *, workload, family, spec,
+              xlim, n_tasks):
+    """median_maps: {strategy: {task: median_value}}."""
     plotted = 0
-    max_n = 0
     for s in strategies:
-        xs = sorted(task_medians(rows, s, spec["value_fn"],
-                                 drop_nonpositive=spec["drop_nonpositive"]))
+        xs = sorted(median_maps.get(s, {}).values())
         if not xs:
             continue
-        n = len(xs)
-        max_n = max(max_n, n)
-        # Cumulative *count* of tasks (not fraction).
-        ys = [i + 1 for i in range(n)]
-        c = COLORS.get(s, "#444")
-        ls = linestyle(s)
-        ax.step(xs, ys, where="post", color=c, linewidth=2.0,
-                linestyle=ls, label=f"{display_name(s)} (n={n})")
+        ys = [i + 1 for i in range(len(xs))]
+        ax.step(xs, ys, where="post", color=COLORS.get(s, "#444"),
+                linewidth=2.0, linestyle=line_style(workload, family, s),
+                label=f"{display_name(s)} (n={len(xs)})")
         plotted += 1
+    if not plotted:
+        return 0
+
+    # Reference line at the total task count for this metric.
+    ax.axhline(n_tasks, color="0.55", linestyle=(0, (2, 2)),
+               linewidth=1.0, zorder=1)
+    ax.text(0.015, n_tasks, f"{n_tasks} tasks",
+            transform=ax.get_yaxis_transform(),
+            ha="left", va="bottom", fontsize=7, color="0.4")
+
     ax.set_xscale(spec["xscale"])
+    if xlim:
+        ax.set_xlim(*xlim)
+    ax.set_ylim(0, n_tasks * 1.08)
     ax.set_xlabel(spec["xlabel"])
     ax.set_ylabel("number of tasks ≤ x")
-    if max_n:
-        ax.set_ylim(0, max_n * 1.05)
     ax.grid(True, alpha=0.3, which="both")
-    if plotted:
-        ax.legend(loc="lower right", fontsize=8, frameon=False)
+    ax.legend(loc="lower right", fontsize=8, frameon=False)
     return plotted
+
+
+def fixed_xlim(median_maps, xscale):
+    """Shared x-range across every strategy's per-task values."""
+    vals = [v for m in median_maps.values() for v in m.values()]
+    if not vals:
+        return None
+    lo, hi = min(vals), max(vals)
+    if xscale == "log":
+        lo = min(v for v in vals if v > 0)
+        return (lo * 0.8, hi * 1.25)
+    span = hi - lo or 1.0
+    return (lo - 0.02 * span, hi + 0.05 * span)
 
 
 def main():
@@ -137,7 +175,6 @@ def main():
     out_dir.mkdir(exist_ok=True)
     families = cfg["families"]
 
-    # All strategies, in family order, deduped — for the combined chart.
     all_strats = []
     for strats in families.values():
         for s in strats:
@@ -145,10 +182,26 @@ def main():
                 all_strats.append(s)
 
     for metric_id, spec in METRICS.items():
+        # Precompute per-strategy task->median maps once per metric.
+        maps = {s: task_median_map(rows, s, spec["value_fn"],
+                                   spec["drop_nonpositive"])
+                for s in all_strats}
+        # Fixed scale per (workload, metric): shared x-range and a task
+        # count that is the union of tasks measurable for this metric.
+        xlim = fixed_xlim(maps, spec["xscale"])
+        universe = set()
+        for m in maps.values():
+            universe |= set(m)
+        n_tasks = len(universe)
+        if n_tasks == 0:
+            print(f"  skip {metric_id} (no data)")
+            continue
+
         # Per-family panels.
         for fam, strats in families.items():
             fig, ax = plt.subplots(figsize=(6, 4))
-            n = draw_ecdf(rows, strats, spec, ax)
+            n = draw_ecdf(maps, strats, ax, workload=args.workload,
+                          family=fam, spec=spec, xlim=xlim, n_tasks=n_tasks)
             out = out_dir / f"shrink_{args.workload}_{metric_id}_ecdf_family-{fam}.png"
             if n == 0:
                 plt.close(fig)
@@ -159,9 +212,10 @@ def main():
             plt.close(fig)
             print(f"  wrote {out.name}")
 
-        # Combined panel: every strategy for this workload on one axes.
+        # Combined panel: every strategy on one axes.
         fig, ax = plt.subplots(figsize=(7, 5))
-        n = draw_ecdf(rows, all_strats, spec, ax)
+        n = draw_ecdf(maps, all_strats, ax, workload=args.workload,
+                      family="combined", spec=spec, xlim=xlim, n_tasks=n_tasks)
         out = out_dir / f"shrink_{args.workload}_{metric_id}_ecdf.png"
         if n == 0:
             plt.close(fig)
