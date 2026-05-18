@@ -34,7 +34,12 @@ qcDefaults =
   -- By default, use timeout instead of max tests. ETNA_SHRINKS picks
   -- the shrink-budget mode (default/none/<N>); ShrinkDefault leaves
   -- maxShrinks at QC's stdArgs value of maxBound (effectively unlimited).
-  let base = stdArgs {maxSuccess = maxCap}
+  --
+  -- chatty = False: QuickCheck's default chatty output prints per-test
+  -- progress; producing (and capturing) it lands inside the measured
+  -- trial wall-clock, a per-test cost Hedgehog and Falsify do not pay.
+  -- Disabling it removes that cross-framework timing asymmetry.
+  let base = stdArgs {maxSuccess = maxCap, chatty = False}
    in case shrinkModeFromEnv of
         ShrinkDefault   -> base
         ShrinkNone      -> base {maxShrinks = 0}
