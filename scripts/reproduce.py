@@ -146,19 +146,27 @@ def C1():
 
 
 def C2():
-    print("C2  Median pre/post shrinking edit distance, type-based generators (paper line 721 TODO)")
-    pooled = []
-    for wl in WORKLOADS:
-        diffs = []
-        for r in load_csv(wl):
-            if r["strategy"] not in VANILLA:
-                continue
-            pre, post = fnum(r["pre_ted_to_gt"]), fnum(r["ted_to_gt"])
-            if pre is not None and post is not None:
-                diffs.append(pre - post)
-        pooled += diffs
-        print(f"  {wl:5s}: median Δ = {med(diffs):.1f}  (n={len(diffs)})")
-    print(f"  POOLED: median Δ = {med(pooled):.1f}  (n={len(pooled)})")
+    print("C2  Shrinking reduction in TED-to-GT, per family (paper lines 734-737:")
+    print("    type-based 3-8, GbE 33-41, CBC 18-102)")
+    families = [("type-based", lambda wl: VANILLA, WORKLOADS),
+                ("GbE", lambda wl: QBE, ["bst", "rbt"]),
+                ("CBC", cbc_libs, WORKLOADS)]
+    for label, libsfn, wls in families:
+        per = []
+        for wl in wls:
+            libs = libsfn(wl)
+            diffs = []
+            for r in load_csv(wl):
+                if r["strategy"] not in libs:
+                    continue
+                pre, post = fnum(r["pre_ted_to_gt"]), fnum(r["ted_to_gt"])
+                if pre is not None and post is not None:
+                    diffs.append(pre - post)
+            if diffs:
+                per.append((wl, statistics.median(diffs)))
+        cells = "  ".join(f"{wl}={m:.1f}" for wl, m in per)
+        lo, hi = min(m for _, m in per), max(m for _, m in per)
+        print(f"  {label:11s}: {cells}   range {lo:.1f}-{hi:.1f}")
 
 
 def C3():

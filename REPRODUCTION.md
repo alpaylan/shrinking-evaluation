@@ -40,7 +40,7 @@ One command per claim. `all` runs every handler.
 | # | line | Claim (anchor phrase) | Expected |
 |---|---|---|---|
 | C1 | ~550 | "Binary-Search Tree with 53 tasks…" | RBT 58, STLC 20, F<: 36 ✓ — **BST reproduces 52** (see notes) |
-| C2 | ~734 | "the median pre/post shrinking edit distance is [TODO: X]" | pooled **4** (per-workload 4/3/8/23); still an unfilled TODO |
+| C2 | ~734–737 | "shrinking reduces the tree edit distance … by a median of only 3-8 edits … GbE (33-41) … CBC (18-102)" | type-based 4/3/8/8 (range 3–8); GbE 33.5/40.5; CBC 18/35.5/92/101.5 — all ✓ |
 | C15 | ~736 | "we ran a Friedman test across all tasks (BST X²=39.5…)" | χ²=39.5/11.1, p<0.001/0.004; QC–Falsify p=0.18/0.09; Hedgehog worse |
 | C16 | ~742 | "idiomatic BST generator in Hedgehog shows a median improvement of 2" | Hedgehog +2 (p<0.001); Falsify 0 (p=0.98) |
 | C17 | ~741,748 | "RBT … slight win for QuickCheck … STLC … Falsify … ranking … in F<:" | CBC TED-to-GT: BST/RBT QuickCBC best; STLC Falsify best; F<: Correct<Falsify<Hedgehog |
@@ -87,11 +87,18 @@ These do **not** match the paper text as written — flag for revision:
 
 - **C1** — BST reproduces **52** distinct (property, mutation) tasks; the
   paper says 53. Confirm against the ETNA workload definition.
-- **C2** — line ~734 still contains the literal `[TODO: X]`. The value is
-  **4** (pooled median); note the per-workload spread (4/3/8/23), F<: an
-  outlier.
 - **C3** — "order of magnitude" is loose: Falsify/Quick is ~5–7× on
   BST/RBT/F<: and ~54× only on STLC.
+- **C6 (F<: only) — stale store, comparison invalid.** The F<:
+  `shrink-default` stores were regenerated 2026-05-18 with the fixed
+  small-index generators; the F<: `shrink-0` stores are still 2026-05-15/16
+  (old ±1000-index generators). So `reproduce.py C6` compares old-gen
+  budget=0 (rate 0.857) against new-gen budget=default (0.964) and shows a
+  spurious 11pp "overhead". Regenerate `store.fsub.*.shrink-0.jsonl` with
+  `ETNA_SHRINKS=none` before trusting C6 on F<:. BST/RBT/STLC C6 are fine.
+- **C13** — with the updated F<: data the ranges spill slightly past the
+  paper's brackets: Hedgehog failure rate **28.6–57%** (paper 30–60%),
+  QuickCheck **3.2–11%** (paper 3–10%). Falsify ~2% ✓.
 - **C14** — peak QuickCheck discard rate reproduces at **82.5%** (RBT GbE),
   not 70%. The paper undersells it.
 

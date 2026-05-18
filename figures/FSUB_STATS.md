@@ -11,59 +11,59 @@ a random B-trial. Â₁₂ > 0.5 ⇒ A better; reported as the mean over tasks.
 
 | A | B | A better | B better | n.s. | mean Â₁₂(A,B) | n tasks |
 |---|---|---:|---:|---:|---:|---:|
-| Quick | Hedgehog | 3 | 2 | 13 | 0.644 | 18 |
-| Quick | Falsify | 0 | 1 | 0 | 0.037 | 1 |
-| Quick | Correct | 18 | 0 | 13 | 0.847 | 31 |
-| Quick | HedgehogCBC | 31 | 0 | 0 | 0.997 | 31 |
-| Quick | FalsifyCBC | 30 | 0 | 1 | 0.997 | 31 |
-| Hedgehog | Falsify | 0 | 0 | 1 | 0.700 | 1 |
-| Hedgehog | Correct | 12 | 3 | 3 | 0.756 | 18 |
-| Hedgehog | HedgehogCBC | 18 | 0 | 0 | 1.000 | 18 |
-| Hedgehog | FalsifyCBC | 18 | 0 | 0 | 1.000 | 18 |
-| Falsify | Correct | 1 | 0 | 0 | 1.000 | 1 |
-| Falsify | HedgehogCBC | 1 | 0 | 0 | 1.000 | 1 |
-| Falsify | FalsifyCBC | 1 | 0 | 0 | 1.000 | 1 |
-| Correct | HedgehogCBC | 29 | 0 | 7 | 0.935 | 36 |
-| Correct | FalsifyCBC | 22 | 0 | 14 | 0.893 | 36 |
-| HedgehogCBC | FalsifyCBC | 0 | 0 | 36 | 0.357 | 36 |
+| Quick | Hedgehog | 13 | 0 | 13 | 0.850 | 26 |
+| Quick | Falsify | 1 | 0 | 25 | 0.639 | 26 |
+| Quick | Correct | 21 | 0 | 7 | 0.874 | 28 |
+| Quick | HedgehogCBC | 28 | 0 | 0 | 0.994 | 28 |
+| Quick | FalsifyCBC | 28 | 0 | 0 | 1.000 | 28 |
+| Hedgehog | Falsify | 0 | 6 | 20 | 0.255 | 26 |
+| Hedgehog | Correct | 18 | 1 | 7 | 0.817 | 26 |
+| Hedgehog | HedgehogCBC | 26 | 0 | 0 | 1.000 | 26 |
+| Hedgehog | FalsifyCBC | 26 | 0 | 0 | 1.000 | 26 |
+| Falsify | Correct | 20 | 0 | 6 | 0.858 | 26 |
+| Falsify | HedgehogCBC | 26 | 0 | 0 | 1.000 | 26 |
+| Falsify | FalsifyCBC | 26 | 0 | 0 | 1.000 | 26 |
+| Correct | HedgehogCBC | 32 | 0 | 4 | 0.945 | 36 |
+| Correct | FalsifyCBC | 27 | 0 | 9 | 0.918 | 36 |
+| HedgehogCBC | FalsifyCBC | 0 | 2 | 34 | 0.384 | 36 |
 
 ## Metric: time-shrinking
 
 | A | B | A better | B better | n.s. | mean Â₁₂(A,B) | n tasks |
 |---|---|---:|---:|---:|---:|---:|
-| Quick | Hedgehog | 2 | 0 | 16 | 0.625 | 18 |
-| Quick | Falsify | 1 | 0 | 0 | 1.000 | 1 |
-| Quick | Correct | 0 | 3 | 28 | 0.247 | 31 |
-| Quick | HedgehogCBC | 20 | 0 | 11 | 0.884 | 31 |
-| Quick | FalsifyCBC | 28 | 0 | 3 | 0.985 | 31 |
-| Hedgehog | Falsify | 1 | 0 | 0 | 1.000 | 1 |
-| Hedgehog | Correct | 0 | 4 | 14 | 0.186 | 18 |
-| Hedgehog | HedgehogCBC | 11 | 0 | 7 | 0.839 | 18 |
-| Hedgehog | FalsifyCBC | 17 | 0 | 1 | 0.973 | 18 |
-| Falsify | Correct | 0 | 1 | 0 | 0.000 | 1 |
-| Falsify | HedgehogCBC | 0 | 0 | 1 | 0.500 | 1 |
-| Falsify | FalsifyCBC | 0 | 1 | 0 | 0.125 | 1 |
-| Correct | HedgehogCBC | 28 | 0 | 8 | 0.904 | 36 |
-| Correct | FalsifyCBC | 36 | 0 | 0 | 0.989 | 36 |
-| HedgehogCBC | FalsifyCBC | 24 | 0 | 12 | 0.818 | 36 |
+| Quick | Hedgehog | 8 | 0 | 18 | 0.711 | 26 |
+| Quick | Falsify | 26 | 0 | 0 | 0.997 | 26 |
+| Quick | Correct | 1 | 1 | 26 | 0.464 | 28 |
+| Quick | HedgehogCBC | 21 | 0 | 7 | 0.898 | 28 |
+| Quick | FalsifyCBC | 28 | 0 | 0 | 0.994 | 28 |
+| Hedgehog | Falsify | 26 | 0 | 0 | 1.000 | 26 |
+| Hedgehog | Correct | 1 | 9 | 16 | 0.275 | 26 |
+| Hedgehog | HedgehogCBC | 20 | 0 | 6 | 0.894 | 26 |
+| Hedgehog | FalsifyCBC | 26 | 0 | 0 | 0.978 | 26 |
+| Falsify | Correct | 0 | 25 | 1 | 0.016 | 26 |
+| Falsify | HedgehogCBC | 0 | 7 | 19 | 0.257 | 26 |
+| Falsify | FalsifyCBC | 18 | 4 | 4 | 0.777 | 26 |
+| Correct | HedgehogCBC | 29 | 0 | 7 | 0.903 | 36 |
+| Correct | FalsifyCBC | 36 | 0 | 0 | 0.993 | 36 |
+| HedgehogCBC | FalsifyCBC | 25 | 0 | 11 | 0.844 | 36 |
 
 ## Metric: ms-per-edit
 
 | A | B | A better | B better | n.s. | mean Â₁₂(A,B) | n tasks |
 |---|---|---:|---:|---:|---:|---:|
-| Quick | Hedgehog | 17 | 0 | 1 | 0.947 | 18 |
-| Quick | Falsify | 1 | 0 | 0 | 1.000 | 1 |
-| Quick | Correct | 0 | 21 | 10 | 0.083 | 31 |
-| Quick | HedgehogCBC | 2 | 0 | 29 | 0.688 | 31 |
-| Quick | FalsifyCBC | 17 | 0 | 14 | 0.820 | 31 |
-| Hedgehog | Falsify | 1 | 0 | 0 | 0.950 | 1 |
-| Hedgehog | Correct | 0 | 16 | 2 | 0.020 | 18 |
-| Hedgehog | HedgehogCBC | 0 | 3 | 15 | 0.223 | 18 |
-| Hedgehog | FalsifyCBC | 0 | 3 | 15 | 0.487 | 18 |
-| Falsify | Correct | 0 | 1 | 0 | 0.000 | 1 |
-| Falsify | HedgehogCBC | 0 | 1 | 0 | 0.050 | 1 |
-| Falsify | FalsifyCBC | 0 | 1 | 0 | 0.000 | 1 |
-| Correct | HedgehogCBC | 25 | 0 | 11 | 0.953 | 36 |
-| Correct | FalsifyCBC | 34 | 0 | 2 | 0.971 | 36 |
-| HedgehogCBC | FalsifyCBC | 13 | 0 | 23 | 0.794 | 36 |
+| Quick | Hedgehog | 1 | 0 | 25 | 0.715 | 26 |
+| Quick | Falsify | 26 | 0 | 0 | 0.974 | 26 |
+| Quick | Correct | 0 | 25 | 3 | 0.036 | 28 |
+| Quick | HedgehogCBC | 0 | 5 | 23 | 0.287 | 28 |
+| Quick | FalsifyCBC | 13 | 1 | 14 | 0.751 | 28 |
+| Hedgehog | Falsify | 5 | 0 | 21 | 0.830 | 26 |
+| Hedgehog | Correct | 0 | 26 | 0 | 0.019 | 26 |
+| Hedgehog | HedgehogCBC | 0 | 7 | 19 | 0.169 | 26 |
+| Hedgehog | FalsifyCBC | 4 | 1 | 21 | 0.609 | 26 |
+| Falsify | Correct | 0 | 26 | 0 | 0.006 | 26 |
+| Falsify | HedgehogCBC | 0 | 19 | 7 | 0.063 | 26 |
+| Falsify | FalsifyCBC | 0 | 5 | 21 | 0.348 | 26 |
+| Correct | HedgehogCBC | 28 | 0 | 8 | 0.941 | 36 |
+| Correct | FalsifyCBC | 34 | 0 | 2 | 0.978 | 36 |
+| HedgehogCBC | FalsifyCBC | 14 | 0 | 22 | 0.792 | 36 |
 
