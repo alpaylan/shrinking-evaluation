@@ -27,39 +27,42 @@ run() {
 }
 
 # bst-haskell sweeps (continuation of the existing data).
-run bst-haskell-quick    none 0
-run bst-haskell-hedgehog none 0
-run bst-haskell-falsify  none 0
+# run bst-haskell-quick    none 0
+# run bst-haskell-hedgehog none 0
+# run bst-haskell-falsify  none 0
 run bst-haskell-quick    default default
 run bst-haskell-hedgehog default default
 run bst-haskell-falsify  default default
-run bst-haskell-quick    100  100
-run bst-haskell-hedgehog 100  100
-run bst-haskell-falsify  100  100
-
-# rbt-haskell sweeps — same layout for the new workload.
-run rbt-haskell-quick    none    0
-run rbt-haskell-hedgehog none    0
-run rbt-haskell-falsify  none 0
-run rbt-haskell-quick    default default
-run rbt-haskell-hedgehog default default
-run rbt-haskell-falsify  default default
+# run bst-haskell-quick    100  100
+# run bst-haskell-hedgehog 100  100
+# run bst-haskell-falsify  100  100
 
 # stlc-haskell sweeps.
 run stlc-haskell-quick    default default
 run stlc-haskell-hedgehog default default
 run stlc-haskell-falsify  default default
+
+# rbt-haskell sweeps — same layout for the new workload.
+# run rbt-haskell-quick    none    0
+# run rbt-haskell-hedgehog none    0
+# run rbt-haskell-falsify  none 0
+run rbt-haskell-quick    default default
+run rbt-haskell-hedgehog default default
+run rbt-haskell-falsify  default default
+
 run fsub-haskell-quick    default default
 run fsub-haskell-hedgehog default default
 run fsub-haskell-falsify  default default
 
-run stlc-haskell-quick    none    0
-run stlc-haskell-hedgehog none    0
-run stlc-haskell-falsify  none    0
 
-# fsub-haskell sweeps.
-run fsub-haskell-quick    none    0
-run fsub-haskell-hedgehog none    0
-run fsub-haskell-falsify  none    0
+
+# run stlc-haskell-quick    none    0
+# run stlc-haskell-hedgehog none    0
+# run stlc-haskell-falsify  none    0
+
+# # fsub-haskell sweeps.
+# run fsub-haskell-quick    none    0
+# run fsub-haskell-hedgehog none    0
+# run fsub-haskell-falsify  none    0
 
 echo "=== all runs complete ==="
