@@ -85,12 +85,12 @@ shift d = go 0
 subst :: Int -> Expr -> Expr -> Expr
 subst n s (Var m)
   {-! -}
+  {-!
   | m == n = s
   | otherwise = Var m
-  {-!! subst_var_all -}
-  {-!
-  = s
   -}
+  {-!! subst_var_all -}
+  = s
   {-!! subst_var_none -}
   {-!
   = Var m
