@@ -7,34 +7,34 @@ signed-rank post-hoc. Lower is better. r = matched-pairs rank-biserial
 
 ## BST / vanilla  (Quick, Hedgehog, Falsify)
 
-- **ted-to-gt**  (N=47 tasks)
-  - Friedman χ²=23.89, p=6.487e-06 → **REJECT**  | avg ranks: Quick 1.71 · Hedgehog 2.39 · Falsify 1.89
-    - Quick vs Hedgehog: median Δ=+0.00, nonzero=26/47, r=-0.635, p=0.00425, p_Holm=0.01275 *
-    - Quick vs Falsify: median Δ=+0.00, nonzero=13/47, r=-0.308, p=0.3265, p_Holm=0.3265 n.s.
-    - Hedgehog vs Falsify: median Δ=+0.00, nonzero=25/47, r=+0.563, p=0.01228, p_Holm=0.02456 *
-- **time-shrinking-ms**  (N=47 tasks)
-  - Friedman χ²=62.43, p=2.783e-14 → **REJECT**  | avg ranks: Quick 1.30 · Hedgehog 1.81 · Falsify 2.89
-    - Quick vs Hedgehog: median Δ=-0.15, nonzero=47/47, r=-0.472, p=0.004268, p_Holm=0.004268 **
-    - Quick vs Falsify: median Δ=-4.14, nonzero=47/47, r=-0.995, p=7.105e-14, p_Holm=2.132e-13 ***
-    - Hedgehog vs Falsify: median Δ=-4.00, nonzero=47/47, r=-0.970, p=2.942e-12, p_Holm=5.883e-12 ***
-- **ms-per-edit**  (N=47 tasks)
-  - Friedman χ²=71.36, p=3.192e-16 → **REJECT**  | avg ranks: Quick 1.21 · Hedgehog 1.85 · Falsify 2.94
-    - Quick vs Hedgehog: median Δ=-0.05, nonzero=47/47, r=-0.619, p=0.0001246, p_Holm=0.0001246 ***
-    - Quick vs Falsify: median Δ=-1.24, nonzero=47/47, r=-0.975, p=1.563e-12, p_Holm=4.69e-12 ***
-    - Hedgehog vs Falsify: median Δ=-1.09, nonzero=47/47, r=-0.941, p=4.566e-11, p_Holm=9.132e-11 ***
+- **ted-to-gt**  (N=48 tasks)
+  - Friedman χ²=23.89, p=6.487e-06 → **REJECT**  | avg ranks: Quick 1.72 · Hedgehog 2.39 · Falsify 1.90
+    - Quick vs Hedgehog: median Δ=+0.00, nonzero=26/48, r=-0.635, p=0.00425, p_Holm=0.01275 *
+    - Quick vs Falsify: median Δ=+0.00, nonzero=13/48, r=-0.308, p=0.3265, p_Holm=0.3265 n.s.
+    - Hedgehog vs Falsify: median Δ=+0.00, nonzero=25/48, r=+0.563, p=0.01228, p_Holm=0.02456 *
+- **time-shrinking-ms**  (N=48 tasks)
+  - Friedman χ²=59.04, p=1.511e-13 → **REJECT**  | avg ranks: Quick 1.31 · Hedgehog 1.83 · Falsify 2.85
+    - Quick vs Hedgehog: median Δ=-0.15, nonzero=48/48, r=-0.481, p=0.003164, p_Holm=0.003164 **
+    - Quick vs Falsify: median Δ=-3.91, nonzero=48/48, r=-0.990, p=9.948e-14, p_Holm=2.984e-13 ***
+    - Hedgehog vs Falsify: median Δ=-3.76, nonzero=48/48, r=-0.957, p=6.423e-12, p_Holm=1.285e-11 ***
+- **ms-per-edit**  (N=48 tasks)
+  - Friedman χ²=67.79, p=1.902e-15 → **REJECT**  | avg ranks: Quick 1.23 · Hedgehog 1.88 · Falsify 2.90
+    - Quick vs Hedgehog: median Δ=-0.05, nonzero=48/48, r=-0.621, p=9.943e-05, p_Holm=9.943e-05 ***
+    - Quick vs Falsify: median Δ=-1.05, nonzero=48/48, r=-0.973, p=1.201e-12, p_Holm=3.602e-12 ***
+    - Hedgehog vs Falsify: median Δ=-0.97, nonzero=48/48, r=-0.935, p=4.691e-11, p_Holm=9.382e-11 ***
 
 ## BST / qbe  (QuickGbE, HedgehogGbE, FalsifyGbE)
 
-- **ted-to-gt**  (N=52 tasks)
-  - Friedman χ²=39.45, p=2.707e-09 → **REJECT**  | avg ranks: QuickGbE 1.81 · HedgehogGbE 2.56 · FalsifyGbE 1.63
-    - QuickGbE vs HedgehogGbE: median Δ=-1.00, nonzero=34/52, r=-0.845, p=1.57e-05, p_Holm=3.141e-05 ***
-    - QuickGbE vs FalsifyGbE: median Δ=+0.00, nonzero=18/52, r=+0.363, p=0.176, p_Holm=0.176 n.s.
-    - HedgehogGbE vs FalsifyGbE: median Δ=+2.75, nonzero=40/52, r=+0.862, p=1.819e-06, p_Holm=5.457e-06 ***
-- **time-shrinking-ms**  (N=52 tasks)
-  - Friedman χ²=102.04, p=6.96e-23 → **REJECT**  | avg ranks: QuickGbE 1.00 · HedgehogGbE 2.02 · FalsifyGbE 2.98
-    - QuickGbE vs HedgehogGbE: median Δ=-0.52, nonzero=52/52, r=-1.000, p=3.504e-10, p_Holm=1.051e-09 ***
-    - QuickGbE vs FalsifyGbE: median Δ=-9.50, nonzero=52/52, r=-1.000, p=3.504e-10, p_Holm=1.051e-09 ***
-    - HedgehogGbE vs FalsifyGbE: median Δ=-8.81, nonzero=52/52, r=-0.990, p=5.268e-10, p_Holm=1.051e-09 ***
+- **ted-to-gt**  (N=53 tasks)
+  - Friedman χ²=41.20, p=1.131e-09 → **REJECT**  | avg ranks: QuickGbE 1.80 · HedgehogGbE 2.57 · FalsifyGbE 1.63
+    - QuickGbE vs HedgehogGbE: median Δ=-1.00, nonzero=35/53, r=-0.854, p=9.52e-06, p_Holm=1.904e-05 ***
+    - QuickGbE vs FalsifyGbE: median Δ=+0.00, nonzero=18/53, r=+0.363, p=0.176, p_Holm=0.176 n.s.
+    - HedgehogGbE vs FalsifyGbE: median Δ=+3.00, nonzero=41/53, r=+0.869, p=1.114e-06, p_Holm=3.341e-06 ***
+- **time-shrinking-ms**  (N=53 tasks)
+  - Friedman χ²=98.26, p=4.594e-22 → **REJECT**  | avg ranks: QuickGbE 1.02 · HedgehogGbE 2.04 · FalsifyGbE 2.94
+    - QuickGbE vs HedgehogGbE: median Δ=-0.52, nonzero=53/53, r=-1.000, p=2.386e-10, p_Holm=7.159e-10 ***
+    - QuickGbE vs FalsifyGbE: median Δ=-8.97, nonzero=53/53, r=-0.999, p=2.527e-10, p_Holm=7.159e-10 ***
+    - HedgehogGbE vs FalsifyGbE: median Δ=-8.55, nonzero=53/53, r=-0.980, p=5.291e-10, p_Holm=7.159e-10 ***
 - **ms-per-edit**  (N=52 tasks)
   - Friedman χ²=24.50, p=4.785e-06 → **REJECT**  | avg ranks: QuickGbE 1.44 · HedgehogGbE 2.33 · FalsifyGbE 2.23
     - QuickGbE vs HedgehogGbE: median Δ=-0.04, nonzero=52/52, r=-0.875, p=3.986e-08, p_Holm=1.196e-07 ***
@@ -43,21 +43,21 @@ signed-rank post-hoc. Lower is better. r = matched-pairs rank-biserial
 
 ## BST / cbc  (QuickCBC, HedgehogCBC, FalsifyCBC)
 
-- **ted-to-gt**  (N=52 tasks)
-  - Friedman χ²=52.04, p=4.997e-12 → **REJECT**  | avg ranks: QuickCBC 1.25 · HedgehogCBC 2.27 · FalsifyCBC 2.48
-    - QuickCBC vs HedgehogCBC: median Δ=-4.00, nonzero=41/52, r=-0.969, p=6.411e-08, p_Holm=1.282e-07 ***
-    - QuickCBC vs FalsifyCBC: median Δ=-3.25, nonzero=43/52, r=-0.978, p=2.142e-08, p_Holm=6.427e-08 ***
-    - HedgehogCBC vs FalsifyCBC: median Δ=-0.75, nonzero=47/52, r=-0.216, p=0.1961, p_Holm=0.1961 n.s.
-- **time-shrinking-ms**  (N=52 tasks)
-  - Friedman χ²=47.58, p=4.664e-11 → **REJECT**  | avg ranks: QuickCBC 1.37 · HedgehogCBC 1.92 · FalsifyCBC 2.71
-    - QuickCBC vs HedgehogCBC: median Δ=-0.17, nonzero=52/52, r=-0.598, p=0.0001754, p_Holm=0.0001754 ***
-    - QuickCBC vs FalsifyCBC: median Δ=-9.65, nonzero=52/52, r=-0.954, p=2.187e-09, p_Holm=6.562e-09 ***
-    - HedgehogCBC vs FalsifyCBC: median Δ=-9.38, nonzero=52/52, r=-0.913, p=1.015e-08, p_Holm=2.029e-08 ***
-- **ms-per-edit**  (N=52 tasks)
-  - Friedman χ²=63.38, p=1.723e-14 → **REJECT**  | avg ranks: QuickCBC 1.15 · HedgehogCBC 2.15 · FalsifyCBC 2.69
-    - QuickCBC vs HedgehogCBC: median Δ=-0.01, nonzero=52/52, r=-0.927, p=5.909e-09, p_Holm=1.182e-08 ***
-    - QuickCBC vs FalsifyCBC: median Δ=-0.11, nonzero=52/52, r=-0.958, p=1.849e-09, p_Holm=5.546e-09 ***
-    - HedgehogCBC vs FalsifyCBC: median Δ=-0.10, nonzero=52/52, r=-0.816, p=3.086e-07, p_Holm=3.086e-07 ***
+- **ted-to-gt**  (N=53 tasks)
+  - Friedman χ²=52.86, p=3.318e-12 → **REJECT**  | avg ranks: QuickCBC 1.25 · HedgehogCBC 2.25 · FalsifyCBC 2.49
+    - QuickCBC vs HedgehogCBC: median Δ=-4.00, nonzero=41/53, r=-0.969, p=6.411e-08, p_Holm=1.282e-07 ***
+    - QuickCBC vs FalsifyCBC: median Δ=-3.00, nonzero=44/53, r=-0.977, p=1.535e-08, p_Holm=4.606e-08 ***
+    - HedgehogCBC vs FalsifyCBC: median Δ=-1.00, nonzero=48/53, r=-0.224, p=0.1768, p_Holm=0.1768 n.s.
+- **time-shrinking-ms**  (N=53 tasks)
+  - Friedman χ²=45.17, p=1.554e-10 → **REJECT**  | avg ranks: QuickCBC 1.38 · HedgehogCBC 1.94 · FalsifyCBC 2.68
+    - QuickCBC vs HedgehogCBC: median Δ=-0.16, nonzero=53/53, r=-0.604, p=0.0001288, p_Holm=0.0001288 ***
+    - QuickCBC vs FalsifyCBC: median Δ=-9.37, nonzero=53/53, r=-0.943, p=2.355e-09, p_Holm=7.066e-09 ***
+    - HedgehogCBC vs FalsifyCBC: median Δ=-8.94, nonzero=53/53, r=-0.901, p=1.159e-08, p_Holm=2.319e-08 ***
+- **ms-per-edit**  (N=53 tasks)
+  - Friedman χ²=61.17, p=5.214e-14 → **REJECT**  | avg ranks: QuickCBC 1.17 · HedgehogCBC 2.17 · FalsifyCBC 2.66
+    - QuickCBC vs HedgehogCBC: median Δ=-0.01, nonzero=53/53, r=-0.930, p=3.827e-09, p_Holm=7.653e-09 ***
+    - QuickCBC vs FalsifyCBC: median Δ=-0.11, nonzero=53/53, r=-0.944, p=2.231e-09, p_Holm=6.692e-09 ***
+    - HedgehogCBC vs FalsifyCBC: median Δ=-0.09, nonzero=53/53, r=-0.797, p=4.406e-07, p_Holm=4.406e-07 ***
 
 ## RBT / vanilla  (Quick, Hedgehog, Falsify)
 
@@ -151,34 +151,37 @@ signed-rank post-hoc. Lower is better. r = matched-pairs rank-biserial
 
 ## FSUB / vanilla  (Quick, Hedgehog, Falsify)
 
-- **ted-to-gt**  (N=4 tasks)
-  - Friedman χ²=2.80, p=0.2466 → **n.s.**  | avg ranks: Quick 2.12 · Hedgehog 2.50 · Falsify 1.38
-- **time-shrinking-ms**  (N=4 tasks)
-  - Friedman χ²=6.00, p=0.04979 → **REJECT**  | avg ranks: Quick 1.50 · Hedgehog 1.50 · Falsify 3.00
-    - Quick vs Hedgehog: median Δ=-0.06, nonzero=4/4, r=-0.400, p=0.625, p_Holm=0.625 n.s.
-    - Quick vs Falsify: median Δ=-2.49, nonzero=4/4, r=-1.000, p=0.125, p_Holm=0.375 n.s.
-    - Hedgehog vs Falsify: median Δ=-2.41, nonzero=4/4, r=-1.000, p=0.125, p_Holm=0.375 n.s.
-- **ms-per-edit**  (N=3 tasks)
-  - Friedman χ²=6.00, p=0.04979 → **REJECT**  | avg ranks: Quick 1.00 · Hedgehog 2.00 · Falsify 3.00
-    - Quick vs Hedgehog: median Δ=-0.05, nonzero=3/3, r=-1.000, p=0.25, p_Holm=0.75 n.s.
-    - Quick vs Falsify: median Δ=-0.74, nonzero=3/3, r=-1.000, p=0.25, p_Holm=0.75 n.s.
-    - Hedgehog vs Falsify: median Δ=-0.68, nonzero=3/3, r=-1.000, p=0.25, p_Holm=0.75 n.s.
+- **ted-to-gt**  (N=27 tasks)
+  - Friedman χ²=32.93, p=7.076e-08 → **REJECT**  | avg ranks: Quick 1.33 · Hedgehog 2.80 · Falsify 1.87
+    - Quick vs Hedgehog: median Δ=-5.00, nonzero=27/27, r=-0.974, p=9.584e-06, p_Holm=2.875e-05 ***
+    - Quick vs Falsify: median Δ=-0.50, nonzero=17/27, r=-0.895, p=0.001165, p_Holm=0.001165 **
+    - Hedgehog vs Falsify: median Δ=+3.00, nonzero=26/27, r=+0.929, p=3.343e-05, p_Holm=6.686e-05 ***
+- **time-shrinking-ms**  (N=27 tasks)
+  - Friedman χ²=42.74, p=5.236e-10 → **REJECT**  | avg ranks: Quick 1.30 · Hedgehog 1.70 · Falsify 3.00
+    - Quick vs Hedgehog: median Δ=-0.10, nonzero=27/27, r=-0.709, p=0.000744, p_Holm=0.000744 ***
+    - Quick vs Falsify: median Δ=-2.81, nonzero=27/27, r=-1.000, p=1.49e-08, p_Holm=4.47e-08 ***
+    - Hedgehog vs Falsify: median Δ=-2.71, nonzero=27/27, r=-1.000, p=1.49e-08, p_Holm=4.47e-08 ***
+- **ms-per-edit**  (N=27 tasks)
+  - Friedman χ²=44.96, p=1.724e-10 → **REJECT**  | avg ranks: Quick 1.15 · Hedgehog 1.89 · Falsify 2.96
+    - Quick vs Hedgehog: median Δ=-0.02, nonzero=27/27, r=-0.820, p=5.488e-05, p_Holm=5.488e-05 ***
+    - Quick vs Falsify: median Δ=-0.27, nonzero=27/27, r=-1.000, p=1.49e-08, p_Holm=4.47e-08 ***
+    - Hedgehog vs Falsify: median Δ=-0.23, nonzero=27/27, r=-0.995, p=2.98e-08, p_Holm=5.96e-08 ***
 
 ## FSUB / cbc  (Correct, HedgehogCBC, FalsifyCBC)
 
 - **ted-to-gt**  (N=36 tasks)
-  - Friedman χ²=54.31, p=1.608e-12 → **REJECT**  | avg ranks: Correct 1.06 · HedgehogCBC 2.74 · FalsifyCBC 2.21
-    - Correct vs HedgehogCBC: median Δ=-71.00, nonzero=36/36, r=-1.000, p=1.678e-07, p_Holm=5.034e-07 ***
-    - Correct vs FalsifyCBC: median Δ=-45.25, nonzero=36/36, r=-0.991, p=2.162e-07, p_Holm=5.034e-07 ***
-    - HedgehogCBC vs FalsifyCBC: median Δ=+22.25, nonzero=33/36, r=+0.736, p=0.0002243, p_Holm=0.0002243 ***
+  - Friedman χ²=51.59, p=6.276e-12 → **REJECT**  | avg ranks: Correct 1.06 · HedgehogCBC 2.65 · FalsifyCBC 2.29
+    - Correct vs HedgehogCBC: median Δ=-64.00, nonzero=36/36, r=-0.997, p=1.827e-07, p_Holm=5.48e-07 ***
+    - Correct vs FalsifyCBC: median Δ=-51.00, nonzero=36/36, r=-0.994, p=1.985e-07, p_Holm=5.48e-07 ***
+    - HedgehogCBC vs FalsifyCBC: median Δ=+8.50, nonzero=33/36, r=+0.504, p=0.01145, p_Holm=0.01145 *
 - **time-shrinking-ms**  (N=36 tasks)
-  - Friedman χ²=56.17, p=6.362e-13 → **REJECT**  | avg ranks: Correct 1.06 · HedgehogCBC 2.14 · FalsifyCBC 2.81
-    - Correct vs HedgehogCBC: median Δ=-1.68, nonzero=36/36, r=-0.988, p=2.037e-10, p_Holm=4.075e-10 ***
-    - Correct vs FalsifyCBC: median Δ=-13.32, nonzero=36/36, r=-1.000, p=2.91e-11, p_Holm=8.731e-11 ***
-    - HedgehogCBC vs FalsifyCBC: median Δ=-12.19, nonzero=36/36, r=-0.877, p=2.893e-07, p_Holm=2.893e-07 ***
+  - Friedman χ²=61.17, p=5.222e-14 → **REJECT**  | avg ranks: Correct 1.03 · HedgehogCBC 2.11 · FalsifyCBC 2.86
+    - Correct vs HedgehogCBC: median Δ=-1.55, nonzero=36/36, r=-0.952, p=4.919e-09, p_Holm=9.837e-09 ***
+    - Correct vs FalsifyCBC: median Δ=-21.26, nonzero=36/36, r=-1.000, p=2.91e-11, p_Holm=8.731e-11 ***
+    - HedgehogCBC vs FalsifyCBC: median Δ=-20.91, nonzero=36/36, r=-0.910, p=5.923e-08, p_Holm=5.923e-08 ***
 - **ms-per-edit**  (N=36 tasks)
-  - Friedman χ²=60.72, p=6.521e-14 → **REJECT**  | avg ranks: Correct 1.00 · HedgehogCBC 2.19 · FalsifyCBC 2.81
+  - Friedman χ²=63.39, p=1.719e-14 → **REJECT**  | avg ranks: Correct 1.00 · HedgehogCBC 2.14 · FalsifyCBC 2.86
     - Correct vs HedgehogCBC: median Δ=-0.02, nonzero=36/36, r=-1.000, p=2.91e-11, p_Holm=8.731e-11 ***
-    - Correct vs FalsifyCBC: median Δ=-0.19, nonzero=36/36, r=-1.000, p=2.91e-11, p_Holm=8.731e-11 ***
-    - HedgehogCBC vs FalsifyCBC: median Δ=-0.16, nonzero=36/36, r=-0.895, p=1.254e-07, p_Holm=1.254e-07 ***
+    - Correct vs FalsifyCBC: median Δ=-0.20, nonzero=36/36, r=-1.000, p=2.91e-11, p_Holm=8.731e-11 ***
+    - HedgehogCBC vs FalsifyCBC: median Δ=-0.18, nonzero=36/36, r=-0.898, p=1.084e-07, p_Holm=1.084e-07 ***
 

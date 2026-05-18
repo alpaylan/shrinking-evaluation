@@ -50,6 +50,13 @@ hhRunGen cap app gen task = do
             Just _  -> pure ()
           p <- readIORef preRef
           when (null p) $ writeIORef preRef (show a)
+          -- Record the *last failing* input as the shrunk counterexample.
+          -- Hedgehog's eager DFS shrinker commits to a failing child at
+          -- each level, so the final failing input it evaluates is the
+          -- minimal counterexample. The previous approach (write on every
+          -- forAll) instead captured the last *passing* shrink candidate
+          -- Hedgehog probed and rejected -- not a counterexample at all.
+          writeIORef counterexampleRef (show a)
 
       applyShrinkMode = case shrinkModeFromEnv of
         ShrinkDefault   -> id
@@ -61,7 +68,6 @@ hhRunGen cap app gen task = do
             HH.withDiscards (fromIntegral cap) $
               HH.property $ do
                 a <- HH.forAll gen
-                HH.evalIO $ writeIORef counterexampleRef (show a)
                 let (pre, post) = task a
                 case app of
                   Naive ->

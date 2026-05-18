@@ -39,7 +39,7 @@ One command per claim. `all` runs every handler.
 
 | # | line | Claim (anchor phrase) | Expected |
 |---|---|---|---|
-| C1 | ~550 | "Binary-Search Tree with 53 tasks…" | RBT 58, STLC 20, F<: 36 ✓ — **BST reproduces 52** (see notes) |
+| C1 | ~550 | "Binary-Search Tree with 53 tasks…" | BST 53, RBT 58, STLC 20, F<: 36 — all ✓ |
 | C2 | ~734–737 | "shrinking reduces the tree edit distance … by a median of only 3-8 edits … GbE (33-41) … CBC (18-102)" | type-based 4/3/8/8 (range 3–8); GbE 33.5/40.5; CBC 18/35.5/92/101.5 — all ✓ |
 | C15 | ~736 | "we ran a Friedman test across all tasks (BST X²=39.5…)" | χ²=39.5/11.1, p<0.001/0.004; QC–Falsify p=0.18/0.09; Hedgehog worse |
 | C16 | ~742 | "idiomatic BST generator in Hedgehog shows a median improvement of 2" | Hedgehog +2 (p<0.001); Falsify 0 (p=0.98) |
@@ -85,8 +85,6 @@ Underpin the orderings in C3/C8–C18:
 
 These do **not** match the paper text as written — flag for revision:
 
-- **C1** — BST reproduces **52** distinct (property, mutation) tasks; the
-  paper says 53. Confirm against the ETNA workload definition.
 - **C3** — "order of magnitude" is loose: Falsify/Quick is ~5–7× on
   BST/RBT/F<: and ~54× only on STLC.
 - **C6 (F<: only) — stale store, comparison invalid.** The F<:

@@ -110,15 +110,10 @@ def load_groundtruth(workload: str):
     TED-to-GT is then the distance to the *nearest* one, so a strategy that
     finds any legitimate minimum scores TED = 0.
 
-    For bst the groundtruth lives in store.det.jsonl, otherwise in
-    store.<workload>.det.jsonl.
+    The groundtruth for every workload lives in store.<workload>.det.jsonl.
     """
-    candidates = [
-        ROOT / f"store.{workload}.det.jsonl",
-        ROOT / "store.det.jsonl",  # bst legacy location
-    ]
-    path = next((p for p in candidates if p.exists()), None)
-    if path is None:
+    path = ROOT / f"store.{workload}.det.jsonl"
+    if not path.exists():
         print(f"  WARN: no ground truth store for {workload}", file=sys.stderr)
         return {}
     raw = defaultdict(set)

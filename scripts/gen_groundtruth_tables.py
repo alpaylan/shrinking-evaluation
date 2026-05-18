@@ -18,7 +18,7 @@ OUT = ROOT / "ShrinkingEval" / "appendix_groundtruth.tex"
 
 # workload -> (display name, list of store files, det store)
 WORKLOADS = [
-    ("bst",  "BST",      [f"store.bst.{fw}.shrink-default.jsonl"  for fw in ("quick", "hedgehog", "falsify")], "store.det.jsonl"),
+    ("bst",  "BST",      [f"store.bst.{fw}.shrink-default.jsonl"  for fw in ("quick", "hedgehog", "falsify")], "store.bst.det.jsonl"),
     ("rbt",  "RBT",      [f"store.rbt.{fw}.shrink-default.jsonl"  for fw in ("quick", "hedgehog", "falsify")], "store.rbt.det.jsonl"),
     ("stlc", "STLC",     [f"store.stlc.{fw}.shrink-default.jsonl" for fw in ("quick", "hedgehog", "falsify")], "store.stlc.det.jsonl"),
     ("fsub", "$F_{<:}$", [f"store.fsub.{fw}.shrink-default.jsonl" for fw in ("quick", "hedgehog", "falsify")], "store.fsub.det.jsonl"),

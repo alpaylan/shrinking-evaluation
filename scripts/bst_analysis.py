@@ -143,11 +143,11 @@ def task_key(r):
 def load_lean_groundtruth():
     """Build a map (property_bare, mutation_str) -> ground-truth cex string.
 
-    Lean ground truth lives in store.det.jsonl, strategy='Lean'. The
+    Lean ground truth lives in store.bst.det.jsonl, strategy='Lean'. The
     property in this store is `prop_X`; we strip the prefix to match the
     bare names used in the new sweep stores.
     """
-    rows = load(ROOT / "store.det.jsonl")
+    rows = load(ROOT / "store.bst.det.jsonl")
     out = {}
     for r in rows:
         if r["strategy"] != "Lean":
@@ -251,7 +251,7 @@ def render_markdown(all_data, ground_truth):
     lines.append("# BST analysis — paper draft")
     lines.append("")
     lines.append("All stats restricted to `status == \"Failed\"` rows on BST.")
-    lines.append("Ground-truth counterexamples come from `store.det.jsonl` (Lean strategy, exhaustive).")
+    lines.append("Ground-truth counterexamples come from `store.bst.det.jsonl` (Lean strategy, exhaustive).")
     lines.append("TED is Zhang-Shasha tree edit distance using `zss.simple_distance`")
     lines.append("over a parens-structured representation of the counterexample.")
     lines.append("")
