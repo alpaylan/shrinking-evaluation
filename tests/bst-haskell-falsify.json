@@ -1472,6 +1472,42 @@
             "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
           }
         ]
+      },
+      {
+        "strategy": "Falsify",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC2",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
       }
     ]
   },

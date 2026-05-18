@@ -1472,6 +1472,42 @@
           }
         ],
         "property": "UnionUnionAssoc"
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC2",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
       }
     ]
   },

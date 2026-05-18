@@ -1121,6 +1121,33 @@
             "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
           }
         ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
       }
     ]
   },

@@ -4982,6 +4982,132 @@
           }
         ],
         "strategy": "SmallRev"
+      },
+      {
+        "strategy": "Falsify",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyCBC",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "FalsifyGbE",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "Hedgehog",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogCBC",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "HedgehogGbE",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "LeanRev",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "Quick",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickCBC",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "QuickGbE",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "Size",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "Small",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
+      },
+      {
+        "strategy": "SmallRev",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
       }
     ]
   },

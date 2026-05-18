@@ -419,6 +419,15 @@
             "input": "((T E 0 1 E) (T E 0 1 E) (T E 0 0 E))"
           }
         ]
+      },
+      {
+        "strategy": "Lean",
+        "property": "UnionUnionIdem",
+        "witnesses": [
+          {
+            "input": "(T E 0 0 E)"
+          }
+        ]
       }
     ]
   },
