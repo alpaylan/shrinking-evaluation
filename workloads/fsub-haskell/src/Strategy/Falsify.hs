@@ -20,17 +20,17 @@ genTypF n
   | otherwise =
       Gen.frequency
         [ (1, pure Top)
-        , (1, TVar <$> Gen.int (Range.withOrigin (-1000, 1000) 0))
+        , (1, TVar <$> Gen.int (Range.between (0, 3)))
         , (1, Arr <$> genTypF (n - 1) <*> genTypF (n - 1))
         , (1, All <$> genTypF (n - 1) <*> genTypF (n - 1))
         ]
 
 genTermF :: Int -> Gen Term
 genTermF n
-  | n <= 0 = Var <$> Gen.int (Range.withOrigin (-1000, 1000) 0)
+  | n <= 0 = Var <$> Gen.int (Range.between (0, 3))
   | otherwise =
       Gen.frequency
-        [ (1, Var <$> Gen.int (Range.withOrigin (-1000, 1000) 0))
+        [ (1, Var <$> Gen.int (Range.between (0, 3)))
         , (1, Abs <$> genTypF (n - 1) <*> genTermF (n - 1))
         , (1, App <$> genTermF (n - 1) <*> genTermF (n - 1))
         , (1, TAbs <$> genTypF (n - 1) <*> genTermF (n - 1))

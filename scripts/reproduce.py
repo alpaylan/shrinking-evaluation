@@ -13,6 +13,7 @@ the stores from scratch).
 """
 
 import csv
+import itertools
 import json
 import statistics
 import sys
@@ -23,9 +24,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from workload_config import ROOT  # noqa: E402
 
 try:
-    from scipy.stats import friedmanchisquare, rankdata
+    from scipy.stats import friedmanchisquare, rankdata, wilcoxon
 except ImportError:
-    friedmanchisquare = rankdata = None
+    friedmanchisquare = rankdata = wilcoxon = None
 
 WORKLOADS = ["bst", "rbt", "stlc", "fsub"]
 VANILLA = ["Quick", "Hedgehog", "Falsify"]
@@ -78,6 +79,36 @@ def per_task_medians(rows, libs, valuefn):
     return common, {s: [statistics.median(vals[s][t]) for t in common] for s in libs}
 
 
+def holm(pvals):
+    """Holm-Bonferroni adjusted p-values, aligned to input order."""
+    m = len(pvals)
+    order = sorted(range(m), key=lambda i: pvals[i])
+    adj, running = [0.0] * m, 0.0
+    for rank, i in enumerate(order):
+        running = max(running, min(1.0, (m - rank) * pvals[i]))
+        adj[i] = running
+    return adj
+
+
+def posthoc_wilcoxon(rows, libs, valuefn):
+    """Holm-corrected pairwise Wilcoxon signed-rank on per-task medians.
+
+    Returns [(a, b, median_diff, p_raw, p_holm), ...].
+    """
+    common, m = per_task_medians(rows, libs, valuefn)
+    pairs = list(itertools.combinations(libs, 2))
+    raw = []
+    for a, b in pairs:
+        try:
+            _, p = wilcoxon(m[a], m[b])
+        except ValueError:
+            p = 1.0
+        raw.append(p)
+    adj = holm(raw)
+    return [(a, b, statistics.median([x - y for x, y in zip(m[a], m[b])]), pr, pa)
+            for (a, b), pr, pa in zip(pairs, raw, adj)]
+
+
 def friedman(rows, libs, valuefn):
     common, m = per_task_medians(rows, libs, valuefn)
     if len(common) < 3:
@@ -115,7 +146,7 @@ def C1():
 
 
 def C2():
-    print("C2  Median pre/post shrinking edit distance, type-based generators (paper line 647 TODO)")
+    print("C2  Median pre/post shrinking edit distance, type-based generators (paper line 721 TODO)")
     pooled = []
     for wl in WORKLOADS:
         diffs = []
@@ -303,8 +334,82 @@ def C14():
     print(f"  -> peak QuickCheck discard rate = {worst:.1f}%")
 
 
+def C15():
+    print("C15  GbE pairwise: Friedman + post-hoc Holm-Wilcoxon on TED-to-GT (lines 723-726)")
+    for wl in ("bst", "rbt"):
+        rows = load_csv(wl)
+        n, chi, p, avg, order = friedman(rows, QBE, v_ted)
+        print(f"  {wl:5s}: Friedman chi2={chi:.1f}, p={p:.4g}  (N={n} tasks)")
+        for a, b, mdiff, pr, pa in posthoc_wilcoxon(rows, QBE, v_ted):
+            sig = "n.s." if pa >= 0.05 else "significant"
+            print(f"    {a:13s} vs {b:13s}: median Δ={mdiff:+.1f}  p={pr:.4g}  p_Holm={pa:.4g}  {sig}")
+
+
+def C16():
+    print("C16  Idiomatic BST CBC generators: Falsify no change, Hedgehog +2 (lines 728-729)")
+    rows = load_csv("bst")
+    for base, idiom in [("HedgehogCBC", "HedgehogCBC2"), ("FalsifyCBC", "FalsifyCBC2")]:
+        common, m = per_task_medians(rows, [base, idiom], v_ted)
+        if len(common) < 3:
+            print(f"  {base} -> {idiom}: insufficient data"); continue
+        diffs = [b - i for b, i in zip(m[base], m[idiom])]
+        try:
+            _, p = wilcoxon(m[base], m[idiom])
+        except ValueError:
+            p = 1.0
+        print(f"  {base} -> {idiom}: median improvement = {med(diffs):.1f} edit distance  "
+              f"p={p:.4g}  (N={len(common)})")
+
+
+def C17():
+    print("C17  CBC shrinking effectiveness (TED-to-GT) ranking per workload (lines 730,734-735)")
+    for wl in WORKLOADS:
+        res = friedman(load_csv(wl), cbc_libs(wl), v_ted)
+        if res is None:
+            print(f"  {wl:5s}: insufficient data"); continue
+        n, chi, p, avg, order = res
+        ranks = "  ".join(f"{s}={avg[s]:.2f}" for s in cbc_libs(wl))
+        print(f"  {wl:5s}: Friedman p={p:.4g}  order: {' < '.join(order)}  [{ranks}]")
+
+
+def C18():
+    print("C18  QuickCheck TED-to-GT ~identical across GbE/CBC; HH & Falsify vary (lines 730-732)")
+    for wl in ("bst", "rbt"):
+        rows = load_csv(wl)
+        for lib, g, c in [("Quick", "QuickGbE", "QuickCBC"),
+                          ("Hedgehog", "HedgehogGbE", "HedgehogCBC"),
+                          ("Falsify", "FalsifyGbE", "FalsifyCBC")]:
+            common, m = per_task_medians(rows, [g, c], v_ted)
+            if len(common) < 3:
+                print(f"  {wl:5s} {lib:9s}: insufficient data"); continue
+            try:
+                _, p = wilcoxon(m[g], m[c])
+            except ValueError:
+                p = 1.0
+            verdict = "identical (n.s.)" if p >= 0.05 else "differ"
+            print(f"  {wl:5s} {lib:9s}: GbE vs CBC TED-to-GT  p={p:.4g}  -> {verdict}")
+
+
+def C19():
+    print("C19  RBT ground-truth task split: 34 with ground truth, 24 too deep (lines 737-738)")
+    gt = set()
+    for ln in (ROOT / "store.rbt.det.jsonl").read_text().splitlines():
+        if not ln.strip():
+            continue
+        d = json.loads(ln)["data"]
+        if d["strategy"] in ("Lean", "LeanRev") and d["status"] == "Failed" \
+                and (d.get("counterexample") or d.get("pre_counterexample")):
+            prop = d["property"]
+            prop = prop[5:] if prop.startswith("prop_") else prop
+            gt.add((prop, ",".join(d.get("mutations", []) or [])))
+    allt = {(r["property"], r["mutation"]) for r in load_csv("rbt", status=None)}
+    print(f"  RBT total tasks = {len(allt)}  |  with ground truth = {len(allt & gt)}  "
+          f"|  too deep = {len(allt - gt)}")
+
+
 CLAIMS = {f"C{i}": fn for i, fn in enumerate(
-    [None, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14])
+    [None, C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, C14,
+     C15, C16, C17, C18, C19])
     if fn}
 
 

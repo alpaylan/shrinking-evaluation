@@ -20,7 +20,7 @@ genTypH n
   | otherwise =
       Gen.frequency
         [ (1, pure Top)
-        , (1, TVar <$> Gen.int (Range.linearFrom 0 (-1000) 1000))
+        , (1, TVar <$> Gen.int (Range.constant 0 3))
         , (1, Arr <$> genTypH (n - 1) <*> genTypH (n - 1))
         , (1, All <$> genTypH (n - 1) <*> genTypH (n - 1))
         ]
@@ -30,10 +30,10 @@ genTypH n
 -- `withBaseCase (Var 0)`.
 genTermH :: Int -> HH.Gen Term
 genTermH n
-  | n <= 0 = Var <$> Gen.int (Range.linearFrom 0 (-1000) 1000)
+  | n <= 0 = Var <$> Gen.int (Range.constant 0 3)
   | otherwise =
       Gen.frequency
-        [ (1, Var <$> Gen.int (Range.linearFrom 0 (-1000) 1000))
+        [ (1, Var <$> Gen.int (Range.constant 0 3))
         , (1, Abs <$> genTypH (n - 1) <*> genTermH (n - 1))
         , (1, App <$> genTermH (n - 1) <*> genTermH (n - 1))
         , (1, TAbs <$> genTypH (n - 1) <*> genTermH (n - 1))
