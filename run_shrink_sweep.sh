@@ -30,13 +30,13 @@ run() {
 # run bst-haskell-quick    none 0
 # run bst-haskell-hedgehog none 0
 # run bst-haskell-falsify  none 0
-run rbt-haskell-hedgehog default default
-run fsub-haskell-hedgehog default default
-
-
 run bst-haskell-quick    default default
 run bst-haskell-hedgehog default default
 run bst-haskell-falsify  default default
+
+run rbt-haskell-hedgehog default default
+run fsub-haskell-hedgehog default default
+
 # run bst-haskell-quick    100  100
 # run bst-haskell-hedgehog 100  100
 # run bst-haskell-falsify  100  100
