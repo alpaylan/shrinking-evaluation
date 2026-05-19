@@ -84,7 +84,7 @@ prop_DeletePost (t, k, k') =
 
 prop_UnionPost :: Task (BST, BST, Key)
 prop_UnionPost (t, t', k) =
-  isBST t
+  isBST t && isBST t'
     --> find k (t `union` t')
     == (find k t <|> find k t')
 
