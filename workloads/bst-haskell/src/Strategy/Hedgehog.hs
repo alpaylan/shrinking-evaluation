@@ -68,4 +68,4 @@ $( mkStrategies
      ]
  )
 
-test_UnionUnionIdem = hhRunGen hhDefaults Correct hgen prop_UnionUnionIdem
+test_UnionUnionIdem = hhRunGen hhDefaults Naive hgen prop_UnionUnionIdem

@@ -67,4 +67,4 @@ $( mkStrategies
      ]
  )
 
-test_UnionUnionIdem = fsRunGen fsDefaults Correct fgen prop_UnionUnionIdem
+test_UnionUnionIdem = fsRunGen fsDefaults Naive fgen prop_UnionUnionIdem
