@@ -1,29 +1,18 @@
 {
   "numBuckets": 6,
   "chartNames": [
-    "Correct",
     "HedgehogCBC",
     "FalsifyCBC"
   ],
   "chartColors": [
-    "#1b7837",
     "#2166ac",
     "#b35806"
   ],
   "barStyles": [
     "solid",
-    "solid",
     "solid"
   ],
   "bucketValues": [
-    [
-      "36",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
-    ],
     [
       "32",
       "4",

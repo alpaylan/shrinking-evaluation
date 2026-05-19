@@ -69,7 +69,7 @@ instance HGen Expr where
     genExactExprH [] t
 
 $( mkStrategies
-     [|hhRunGen hhDefaults Correct hgen|]
+     [|hhRunGen hhDefaults Naive hgen|]
      [ 'prop_SinglePreserve,
        'prop_MultiPreserve
      ]

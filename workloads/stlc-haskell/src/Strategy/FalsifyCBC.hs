@@ -80,7 +80,7 @@ instance FGen Expr where
     genExactExprF n [] t
 
 $( mkStrategies
-     [|fsRunGen fsDefaults Correct fgen|]
+     [|fsRunGen fsDefaults Naive fgen|]
      [ 'prop_SinglePreserve,
        'prop_MultiPreserve
      ]
