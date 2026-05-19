@@ -53,7 +53,7 @@ instance (FGen a, FGen b, FGen c, FGen d, FGen e) => FGen (a, b, c, d, e) where
   fgen = (,,,,) <$> fgen <*> fgen <*> fgen <*> fgen <*> fgen
 
 $( mkStrategies
-     [|fsRunGen fsDefaults Correct fgen|]
+     [|fsRunGen fsDefaults Naive fgen|]
      [ 'prop_InsertValid,
        'prop_DeleteValid,
        'prop_UnionValid,
@@ -74,4 +74,4 @@ $( mkStrategies
      ]
  )
 
-test_UnionUnionIdem = fsRunGen fsDefaults Correct fgen prop_UnionUnionIdem
+test_UnionUnionIdem = fsRunGen fsDefaults Naive fgen prop_UnionUnionIdem

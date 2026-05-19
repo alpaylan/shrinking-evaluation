@@ -188,11 +188,11 @@ redden _ = Left IE
 
 balance :: Color -> Tree k v -> k -> v -> Tree k v -> Tree k v
 {-! -}
-balance B (T R (T R a x vx b) y vy c) z vz d = T R (T B a x vx b) y vy (T B c z vz d)
-{-!! swap_cd -}
 {-!
-balance B (T R (T R a x vx b) y vy c) z vz d = T R (T B a x vx b) y vy (T B d z vz c)
+balance B (T R (T R a x vx b) y vy c) z vz d = T R (T B a x vx b) y vy (T B c z vz d)
 -}
+{-!! swap_cd -}
+balance B (T R (T R a x vx b) y vy c) z vz d = T R (T B a x vx b) y vy (T B d z vz c)
 {- !-}
 balance B (T R a x vx (T R b y vy c)) z vz d = T R (T B a x vx b) y vy (T B c z vz d)
 {-! -}

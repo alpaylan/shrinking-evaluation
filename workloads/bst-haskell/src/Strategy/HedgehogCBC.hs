@@ -54,7 +54,7 @@ instance (HGen a, HGen b, HGen c, HGen d, HGen e) => HGen (a, b, c, d, e) where
   hgen = (,,,,) <$> hgen <*> hgen <*> hgen <*> hgen <*> hgen
 
 $( mkStrategies
-     [|hhRunGen hhDefaults Correct hgen|]
+     [|hhRunGen hhDefaults Naive hgen|]
      [ 'prop_InsertValid,
        'prop_DeleteValid,
        'prop_UnionValid,
@@ -75,4 +75,4 @@ $( mkStrategies
      ]
  )
 
-test_UnionUnionIdem = hhRunGen hhDefaults Correct hgen prop_UnionUnionIdem
+test_UnionUnionIdem = hhRunGen hhDefaults Naive hgen prop_UnionUnionIdem
