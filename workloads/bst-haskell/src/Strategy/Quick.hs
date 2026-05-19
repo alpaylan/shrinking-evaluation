@@ -58,4 +58,4 @@ $( mkStrategies
  )
 
 -- TODO: library expects tuple
-test_UnionUnionIdem = qcRunArb qcDefaults Correct prop_UnionUnionIdem
+test_UnionUnionIdem = qcRunArb qcDefaults Naive prop_UnionUnionIdem
