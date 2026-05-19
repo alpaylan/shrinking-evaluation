@@ -100,6 +100,10 @@ METRICS = {
         value_fn=value_ted_to_gt,
         xlabel="TED to ground-truth minimum (post-shrink)",
         xscale="linear", drop_nonpositive=False),
+    "cex-size": dict(
+        value_fn=lambda r: r.get("cex_size"),
+        xlabel="shrunk counterexample size (nodes)",
+        xscale="linear", drop_nonpositive=False),
 }
 
 

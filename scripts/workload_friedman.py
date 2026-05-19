@@ -39,6 +39,10 @@ def value_ted(r):
     return fnum(r.get("ted_to_gt"))
 
 
+def value_cex_size(r):
+    return fnum(r.get("cex_size"))
+
+
 def value_time_shrinking_ms(r):
     t = fnum(r.get("time_shrinking"))
     return None if t is None else t * 1000
@@ -57,6 +61,7 @@ def value_ms_per_edit(r):
 
 METRICS = {
     "ted-to-gt": value_ted,
+    "cex-size": value_cex_size,
     "time-shrinking-ms": value_time_shrinking_ms,
     "ms-per-edit": value_ms_per_edit,
 }

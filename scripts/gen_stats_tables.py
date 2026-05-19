@@ -32,6 +32,7 @@ FAM_NAMES = {
 }
 METRIC_NAMES = {
     "ted-to-gt": "TED to ground truth",
+    "cex-size": "Counterexample size",
     "time-shrinking-ms": "Shrink time (ms)",
     "ms-per-edit": "Time per edit (ms)",
 }
