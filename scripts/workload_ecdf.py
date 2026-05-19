@@ -38,7 +38,8 @@ def load_default_rows(csv_path: Path):
         for r in csv.DictReader(f):
             if r["mode"] != "default" or r["status"] != "Failed":
                 continue
-            for k in ("ted_to_gt", "pre_ted_to_gt", "time_shrinking"):
+            for k in ("ted_to_gt", "pre_ted_to_gt", "time_shrinking",
+                      "cex_size", "pre_size", "gt_size"):
                 if r.get(k) == "":
                     r[k] = None
                 elif r.get(k) is not None:

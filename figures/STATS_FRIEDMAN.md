@@ -210,7 +210,7 @@ signed-rank post-hoc. Lower is better. r = matched-pairs rank-biserial
 - **cex-size**  (N=36 tasks)
   - Friedman χ²=51.72, p=5.87e-12 → **REJECT**  | avg ranks: Correct 1.03 · HedgehogCBC 2.58 · FalsifyCBC 2.39
     - Correct vs HedgehogCBC: median Δ=-44.25, nonzero=36/36, r=-0.959, p=5.169e-07, p_Holm=1.034e-06 ***
-    - Correct vs FalsifyCBC: median Δ=-39.50, nonzero=36/36, r=-1.000, p=1.672e-07, p_Holm=5.015e-07 ***
+    - Correct vs FalsifyCBC: median Δ=-39.50, nonzero=36/36, r=-1.000, p=1.672e-07, p_Holm=5.017e-07 ***
     - HedgehogCBC vs FalsifyCBC: median Δ=+3.50, nonzero=36/36, r=+0.248, p=0.1948, p_Holm=0.1948 n.s.
 - **time-shrinking-ms**  (N=36 tasks)
   - Friedman χ²=59.72, p=1.075e-13 → **REJECT**  | avg ranks: Correct 1.03 · HedgehogCBC 2.14 · FalsifyCBC 2.83

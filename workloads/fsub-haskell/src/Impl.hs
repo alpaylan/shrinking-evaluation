@@ -25,12 +25,12 @@ tshift :: Int -> Typ -> Typ
 tshift _ Top = Top
 tshift x (TVar y)
   {-! -}
+  {-!
   | x <= y = TVar (1 + y)
   | otherwise = TVar y
-  {-!! tshift_tvar_all -}
-  {-!
-  = TVar (1 + y)
   -}
+  {-!! tshift_tvar_all -}
+  = TVar (1 + y)
   {-!! tshift_tvar_no_incr -}
   {-!
   = TVar y

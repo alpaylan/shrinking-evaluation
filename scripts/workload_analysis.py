@@ -23,16 +23,19 @@ FIG = ROOT / "figures"
 
 # ---- TED helpers (same convention as scripts/bst_analysis.py) ----
 
+
 def tokenize(s: str):
     tokens, cur = [], ""
     for c in s:
         if c in "()":
             if cur:
-                tokens.append(cur); cur = ""
+                tokens.append(cur)
+                cur = ""
             tokens.append(c)
         elif c in ", \t\n":
             if cur:
-                tokens.append(cur); cur = ""
+                tokens.append(cur)
+                cur = ""
         else:
             cur += c
     if cur:
@@ -59,10 +62,10 @@ def parse_tree(tokens, i=0):
 
 def cex_to_tree(s: str):
     if not s:
-        return None
+        raise ValueError("empty cex")
     toks = tokenize(s)
     if not toks:
-        return None
+        raise ValueError("no tokens in cex")
     if toks[0] != "(":
         return Node("ROOT", children=[Node(t) for t in toks])
     tree, _ = parse_tree(toks)
@@ -86,17 +89,17 @@ def ted(a: str, b: str):
 
 # ---- Loading + annotation ----
 
+
 def load(path: Path):
     if not path.exists():
         return []
-    return [json.loads(l)["data"]
-            for l in path.read_text().splitlines() if l.strip()]
+    return [json.loads(l)["data"] for l in path.read_text().splitlines() if l.strip()]
 
 
 def task_key(r):
     prop = r["property"]
     if prop.startswith("prop_"):
-        prop = prop[len("prop_"):]
+        prop = prop[len("prop_") :]
     muts = ",".join(r.get("mutations", []) or [])
     return (prop, muts)
 
@@ -134,8 +137,10 @@ def load_groundtruth(workload: str):
         out[k] = minimal
         if len(minimal) > 1:
             n_ties += 1
-    print(f"  ground truth: {len(out)} pairs from {path.name} "
-          f"({n_ties} with multiple equal-size minima)")
+    print(
+        f"  ground truth: {len(out)} pairs from {path.name} "
+        f"({n_ties} with multiple equal-size minima)"
+    )
     return out
 
 
@@ -162,22 +167,46 @@ def annotate(rows, ground_truth, cache_ted):
     for r in rows:
         cex = r.get("counterexample") or ""
         pre = r.get("pre_counterexample") or ""
+        assert (cex and pre) or r.get("status") != "Failed", (
+            f"failed trial with no counterexample: {r}"
+        )
         r["_cex_size"] = cex_size(cex)
         r["_pre_size"] = cex_size(pre)
         gt = ground_truth.get(task_key(r))  # list of minimal cexes, or None
-        r["_gt_cex"]  = gt[0] if gt else None
+        r["_gt_cex"] = gt[0] if gt else None
         r["_gt_size"] = cex_size(gt[0]) if gt else None
-        r["_ted_to_gt"]     = ted_to_set(cex, gt, cache_ted)
+        r["_ted_to_gt"] = ted_to_set(cex, gt, cache_ted)
         r["_pre_ted_to_gt"] = ted_to_set(pre, gt, cache_ted)
-        r["_gen_time"] = (r.get("time_pre_failure", 0) or 0) - (r.get("exec_time_pre", 0) or 0)
+        r["_gen_time"] = (r.get("time_pre_failure", 0) or 0) - (
+            r.get("exec_time_pre", 0) or 0
+        )
 
 
 # ---- CSV export (BST_ANALYSIS.csv-compatible) ----
 
-CSV_COLS = ["framework","strategy","mode","property","mutation","trial",
-            "status","tests","discards","shrinking_passed","shrinking_failed","shrinking_discarded",
-            "exec_time_pre","gen_time","time_shrinking","time_pre_failure",
-            "pre_size","cex_size","gt_size","pre_ted_to_gt","ted_to_gt"]
+CSV_COLS = [
+    "framework",
+    "strategy",
+    "mode",
+    "property",
+    "mutation",
+    "trial",
+    "status",
+    "tests",
+    "discards",
+    "shrinking_passed",
+    "shrinking_failed",
+    "shrinking_discarded",
+    "exec_time_pre",
+    "gen_time",
+    "time_shrinking",
+    "time_pre_failure",
+    "pre_size",
+    "cex_size",
+    "gt_size",
+    "pre_ted_to_gt",
+    "ted_to_gt",
+]
 
 
 def write_csv(all_data, csv_path: Path):
@@ -186,11 +215,15 @@ def write_csv(all_data, csv_path: Path):
         for (fw, mode), rows in all_data.items():
             for r in rows:
                 row = {
-                    "framework": fw, "strategy": r["strategy"], "mode": mode,
+                    "framework": fw,
+                    "strategy": r["strategy"],
+                    "mode": mode,
                     "property": r["property"],
                     "mutation": ",".join(r.get("mutations", []) or []),
-                    "trial": r.get("trial"), "status": r["status"],
-                    "tests": r.get("tests"), "discards": r.get("discards"),
+                    "trial": r.get("trial"),
+                    "status": r["status"],
+                    "tests": r.get("tests"),
+                    "discards": r.get("discards"),
                     "shrinking_passed": r.get("shrinking_passed"),
                     "shrinking_failed": r.get("shrinking_failed"),
                     "shrinking_discarded": r.get("shrinking_discarded"),
@@ -198,12 +231,18 @@ def write_csv(all_data, csv_path: Path):
                     "gen_time": r["_gen_time"],
                     "time_shrinking": r.get("time_shrinking"),
                     "time_pre_failure": r.get("time_pre_failure"),
-                    "pre_size": r["_pre_size"], "cex_size": r["_cex_size"],
+                    "pre_size": r["_pre_size"],
+                    "cex_size": r["_cex_size"],
                     "gt_size": r["_gt_size"],
                     "pre_ted_to_gt": r["_pre_ted_to_gt"],
                     "ted_to_gt": r["_ted_to_gt"],
                 }
-                f.write(",".join("" if v is None else str(v) for v in (row[c] for c in CSV_COLS)) + "\n")
+                f.write(
+                    ",".join(
+                        "" if v is None else str(v) for v in (row[c] for c in CSV_COLS)
+                    )
+                    + "\n"
+                )
 
 
 def main():
