@@ -25,6 +25,7 @@ HATCHED = {"HedgehogCBC2", "FalsifyCBC2"}
 # Display labels for charts. The store data keeps the raw strategy name
 # ("HedgehogCBC2"); charts show the friendlier "Idiomatic" naming.
 DISPLAY_NAMES = {
+    "Correct": "QuickCBC",
     "HedgehogCBC2": "HedgehogIdiomatic",
     "FalsifyCBC2":  "FalsifyIdiomatic",
 }

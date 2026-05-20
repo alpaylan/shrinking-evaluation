@@ -31,7 +31,7 @@ In practice, for our BST/RBT-style workloads the shrinkers terminate
 well before any of these caps fire. The cap is a safety net, not the normal
 termination condition.
 
-## Counters in `store.jsonl`
+## Counters in `store.*.jsonl`
 
 Each trial emits these new fields alongside the existing `tests` / `discards`:
 
@@ -84,4 +84,4 @@ cd workloads/bst-haskell && marauders set --variant insert_1 && stack build
 
 Note: direct `stack exec` invocations need the `prop_` prefix on the property
 name (`prop_InsertPost`, not `InsertPost`). The standard etna harness adds the
-prefix internally, so test JSON files and `store.jsonl` use the bare name.
+prefix internally, so test JSON files and ETNA store files use the bare name.

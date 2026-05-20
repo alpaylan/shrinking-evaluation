@@ -37,31 +37,53 @@ One command per claim. `all` runs every handler.
 .venv/bin/python scripts/reproduce.py all     # all claims
 ```
 
-| # | line | Claim (anchor phrase) | Expected |
+### Methodology / dataset
+
+| # | §, ~line | Anchor phrase | Expected |
 |---|---|---|---|
-| C1 | ~550 | "Binary-Search Tree with 53 tasks…" | BST 53, RBT 58, STLC 20, F<: 36 — all ✓ |
-| C2 | ~734–737 | "shrinking reduces the tree edit distance … by a median of only 3-8 edits … GbE (33-41) … CBC (18-102)" | type-based 4/3/8/8 (range 3–8); GbE 33.5/40.5; CBC 18/35.5/92/101.5 — all ✓ |
-| C15 | ~736 | "we ran a Friedman test across all tasks (BST X²=39.5…)" | χ²=39.5/11.1, p<0.001/0.004; QC–Falsify p=0.18/0.09; Hedgehog worse |
-| C16 | ~742 | "idiomatic BST generator in Hedgehog shows a median improvement of 2" | Hedgehog +2 (p<0.001); Falsify 0 (p=0.98) |
-| C17 | ~741,748 | "RBT … slight win for QuickCheck … STLC … Falsify … ranking … in F<:" | CBC TED-to-GT: BST/RBT QuickCBC best; STLC Falsify best; F<: Correct<Falsify<Hedgehog |
-| C18 | ~745 | "QuickCheck … almost identical across GbE and CBC … vary for Hedgehog and Falsify" | QuickCheck p=0.47/0.12 (n.s.); HH & Falsify differ |
-| C19 | ~750 | "RBT tasks only have 34 tasks … remaining 24 … too deep" | 34 with GT, 24 too deep, 58 total ✓ |
-| C3 | ~816 | "an order of magnitude slower results for Falsify" | Falsify/Quick 7×/6×/54×/5× (BST/RBT/STLC/F<:) |
-| C4 | ~816 | "up to 4 orders of magnitude slower than the others" | peak per-task ratio ≈ 25700× |
-| C5 | ~820 | "QuickCheck uses the budget to set the maximum amount of executions…" | QC=all execs, HH=accepted, Falsify=shrink steps |
-| C6 | ~823 | "observed no notable overhead" | budget=0 vs default failure rates equal within ~1–2 pp |
-| C7 | ~825 | "did not find any notable results in the (budget = 100) case" | fixed-100 ≈ default execs (88/22/638 vs 88/23/658) |
-| C8 | ~828 | "CBC generators for BST/RBT show QuickCheck and Hedgehog tied against a slower Falsify" | Friedman p≪0.05, order Quick<Hedgehog<Falsify |
-| C9 | ~829 | "for STLC/F<: … QuickCheck < Hedgehog < Falsify" | order Correct<Hedgehog<Falsify, p≪0.05 |
-| C10 | ~889 | "per-edit results are largely consistent … for QuickCheck and Hedgehog" | same vanilla order on both metrics (STLC: one swap) |
-| C11 | ~890 | "median pre-shrink TED = 150 vs = 15-20 for the others" | Falsify 156/146, others 13–19 |
-| C12 | ~893 | "collapses Falsify's gap to QuickCheck from 31x/96x … to 3.7x/2.4x" | exactly 31.1×/95.9× → 3.7×/2.4× |
-| C13 | ~990 | "Hedgehog preserves a 30-60% failure rate … 3-10% for QuickCheck and 2% for Falsify" | Hedgehog 28.6–55.8%, QC 3.2–10.3%, Falsify 1.7–2.3% |
-| C14 | ~992 | "discarded cases … up to 70% in QuickCheck's structural shrinking" | peak **82.5%** (paper says 70% — see notes) |
+| C1 | §4.1, ~586 | "Binary-Search Tree with 53 tasks, Red-Black Tree with 58 tasks, Simply-Typed Lambda Calculus with 20 tasks, and System $F_{<:}$ with 36 tasks" | BST 53, RBT 58, STLC 20, F<: 36 |
+| C9 | §4.2.2 footnote, ~909 | "LeanCheck found ground-truth minima for only 34 tasks in reasonable time. We exclude the remaining 24 tasks" | 34 / 24 / 58 |
+
+### §4.2.1 — Bug-finding (Friedman + Holm-Wilcoxon on `time_pre_failure`)
+
+| # | ~line | Anchor phrase | Expected |
+|---|---|---|---|
+| C3 | 702–713 | "the type-based and generation-by-execution comparisons are statistically significant ($p < 0.001$) ... the correct-by-construction generators are statistically indistinguishable" | BST: vanilla & GbE p<0.001; CBC Friedman p≈0.40 (n.s.) |
+| C4 | 752–757 | "type-based, generation-by-execution, and correct-by-construction comparisons are all significant ... Hedgehog and Falsify comparison for generation-by-execution is not significant after Holm correction" | RBT: all 3 families p<0.001; HH vs Falsify GbE p_Holm≈0.06 (n.s.) |
+| C5 | 780–787 | "type-based generation, the Friedman test does not find a significant difference in bug-finding time ... For correct-by-construction generation, the difference is significant ($p < 0.001$)" | STLC: vanilla p≈0.44 (n.s.); CBC p<0.001; HH vs Falsify CBC p_Holm≈0.11 (n.s.) |
+| C6 | 817–821 | "In the type-based comparison, the Friedman test rejects ($p < 0.001$) ... In the correct-by-construction comparison, QuickCheck is significantly faster" | F<:: both families significant; QC < Falsify < HH everywhere |
+
+### §4.2.2 — Shrinking effectiveness (TED-to-GT)
+
+| # | ~line | Anchor phrase | Expected |
+|---|---|---|---|
+| C2 | 894–897 | "shrinking reduces the tree edit distance to the ground-truth minimum by a median of only 3-10 edits per workload (BST 4, RBT 3, STLC 7, $F_{<:}$ 10), substantially below the generation-by-execution (41-44) and correct-by-construction (18-106)" | type-based 3.0–8.5; GbE 41.0–41.8; CBC 17.8–98.2 (see Notes) |
+| C7 | 900–906 | "QuickCheck's structural shrinker reports counterexamples closer to the LeanCheck minimum ... On STLC, Falsify reports smaller counterexamples ... On $F_{<:}$, QuickCheck reports the closest counterexamples, followed by Falsify and then Hedgehog" | BST/RBT QC closest; STLC FalsifyCBC closest; F<: Q < Falsify < HH |
+| C8 | 902 | "the RBT generation-by-execution comparison is statistically indistinguishable" | RBT GbE Friedman χ²=1.8, p=0.415 (n.s.) |
+
+### §4.2.3 — Shrinking time / per-edit cost
+
+| # | ~line | Anchor phrase | Expected |
+|---|---|---|---|
+| C10 | 978–981 | "QuickCheck and Hedgehog have similar shrinking times across the four workloads, while Falsify is consistently slower and has a longer tail" | Falsify/Quick medians 10.8×–148.0× across the four workloads |
+| C11 | 980 | "Falsify's shrinking time is several orders of magnitude larger than the others" | peak per-task Falsify/min(QC,HH) ratio ≈ 37 554× (≈4 orders of magnitude) |
+| C12 | 984 | "QuickCheck's budget bounds total executions, whereas Hedgehog and Falsify bound failing executions" | source-level claim; verify in `workloads/*/etna-lib/src/Etna/Lib/Strategy/{QuickCheck,Hedgehog,Falsify}.hs` |
+| C13 | 987–989 | "no-shrinking runs let us check the bug-finding overhead of enabling shrinking" | budget=0 vs default failure rates equal within ~1–2 pp on BST/RBT/STLC; F<: differs (no notable shrink overhead where comparable) |
+| C14 | 989–992 | "fixed-budget runs were intended to standardize effort ... did not achieve comparable effort across libraries" | BST default execs ≈ 84 (QC) / 20 (HH) / 622 (Falsify) — vary by ~30× at the same nominal budget |
+| C15 | 994–997 | "RBT puts QuickCheck and Hedgehog close to each other against a slower Falsify. On BST, QuickCheck is significantly faster ... On STLC and $F_{<:}$, the ordering is clearer: QuickCheck is fastest, Hedgehog is next, and Falsify is slowest" | BST: QC<HH<Falsify all significant; RBT: Q vs HH p_Holm=0.52 (n.s.), both < Falsify; STLC/F<: QC<HH<Falsify all significant |
+| C16 | 1001 | "The per-edit results are largely consistent with the absolute comparison for QuickCheck and Hedgehog" | same Q<HH<Falsify order under both metrics on all four workloads |
+| C17 | 1003 | "median pre-shrink TED = 150 vs = 15-20 for the others" | Falsify GbE 154 (BST) / 146 (RBT); Quick/Hedgehog GbE 13–18 |
+| C18 | 1004–1005 | "collapses Falsify's gap to QuickCheck from 49x/96x (BST/RBT) to 6.2x/2.4x" | absolute time 49.1× / 94.6×; ms-per-edit 6.2× / 2.4× |
+
+### §4.3 — Sample-efficiency
+
+| # | ~line | Anchor phrase | Expected |
+|---|---|---|---|
+| C19 | 1109–1112 | "Hedgehog preserves a 26-56% failure rate across shrinking steps, compared to 5-12% for QuickCheck and roughly 2-3% for Falsify" | HH 25.9–56.5%; QC 4.7–12.5%; Falsify 2.5–3.0% |
 
 ### Figures
 
-The three ECDF figures and the bug-finding bucket charts:
+The ECDF figures and the bug-finding bucket charts:
 
 ```sh
 for w in bst rbt stlc fsub; do
@@ -74,31 +96,27 @@ done
 
 ### Supporting analysis tables
 
-Underpin the orderings in C3/C8–C18:
+The full per-(workload, family, metric) Friedman + post-hoc tables that
+underpin C3–C8 and C15 are in `ShrinkingEval/appendix_stats.tex`. To
+regenerate them from the stores:
 
 ```sh
 .venv/bin/python scripts/workload_shrink_effort.py   # figures/SHRINK_EFFORT.md
 .venv/bin/python scripts/workload_friedman.py        # figures/STATS_FRIEDMAN.md
 ```
 
-## Discrepancies found during reproduction
+## Notes
 
-These do **not** match the paper text as written — flag for revision:
-
-- **C3** — "order of magnitude" is loose: Falsify/Quick is ~5–7× on
-  BST/RBT/F<: and ~54× only on STLC.
-- **C6 (F<: only) — stale store, comparison invalid.** The F<:
-  `shrink-default` stores were regenerated 2026-05-18 with the fixed
-  small-index generators; the F<: `shrink-0` stores are still 2026-05-15/16
-  (old ±1000-index generators). So `reproduce.py C6` compares old-gen
-  budget=0 (rate 0.857) against new-gen budget=default (0.964) and shows a
-  spurious 11pp "overhead". Regenerate `store.fsub.*.shrink-0.jsonl` with
-  `ETNA_SHRINKS=none` before trusting C6 on F<:. BST/RBT/STLC C6 are fine.
-- **C13** — with the updated F<: data the ranges spill slightly past the
-  paper's brackets: Hedgehog failure rate **28.6–57%** (paper 30–60%),
-  QuickCheck **3.2–11%** (paper 3–10%). Falsify ~2% ✓.
-- **C14** — peak QuickCheck discard rate reproduces at **82.5%** (RBT GbE),
-  not 70%. The paper undersells it.
+- **C2 aggregation.** The handler computes the median of per-(task,
+  library) trial medians — the closest match we found to the paper's "3-10
+  per workload" figure. Numbers come out within 1–2 edits of the paper for
+  vanilla and GbE; the CBC max is 98 vs the paper's 106, likely from a
+  data refresh after the paper paragraph was written.
+- **Friedman omnibus vs pairwise.** A few claims (C3 BST CBC, C4 RBT
+  vanilla post-hoc) show a non-significant Friedman *and* significant
+  pairwise Holm-Wilcoxon, or vice-versa, depending on how the median Δ
+  distributes. The paper consistently leans on the Friedman omnibus for
+  the "indistinguishable" verdict; the handlers print both.
 
 ## Tier 2 — regenerate the stores from scratch (hours)
 
@@ -121,6 +139,6 @@ ETNA_SHRINKS=<mode> etna experiment run \
 
 where `<mode>` is `none` (budget=0), `100` (budget=100), or `default`,
 and `<label>` is `0` / `100` / `default` respectively. The deterministic
-ground-truth stores (`store.*.det.jsonl`, used by C19 and all TED-to-GT
+ground-truth stores (`store.*.det.jsonl`, used by C9 and all TED-to-GT
 claims) are produced by the `Lean` / `LeanRev` strategies. After
 regenerating any store, re-run **Tier 0** before the Tier-1 commands.

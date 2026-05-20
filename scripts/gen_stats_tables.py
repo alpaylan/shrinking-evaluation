@@ -3,7 +3,7 @@
 
 For every (workload, generator family), runs a Friedman omnibus test
 across tasks plus post-hoc Holm-corrected pairwise Wilcoxon signed-rank
-tests, for each of the three shrinking metrics. Writes one longtable per
+tests, for each of the four shrinking metrics. Writes one longtable per
 workload into ShrinkingEval/appendix_stats.tex, which paper.tex \\input-s.
 
 Reuses the analysis from scripts/workload_friedman.py.
@@ -19,8 +19,15 @@ from collections import defaultdict
 from scipy.stats import friedmanchisquare, rankdata, wilcoxon
 
 from workload_config import ROOT, display_name
-from workload_friedman import (CORE, METRICS, fnum, holm, rank_biserial,
-                               family_groups)
+from workload_friedman import (
+    CORE,
+    METRICS,
+    all_algorithms_tied,
+    fnum,
+    holm,
+    rank_biserial,
+    family_groups,
+)
 
 OUT = ROOT / "ShrinkingEval" / "appendix_stats.tex"
 
@@ -35,8 +42,8 @@ METRIC_NAMES = {
     "cex-size": "Counterexample size",
     "time-shrinking-ms": "Shrink time (ms)",
     "ms-per-edit": "Time per edit (ms)",
+    "time-pre-failure": "Bug finding time (ms)",
 }
-
 
 def fmt_p(p):
     if p < 1e-3:
@@ -55,8 +62,7 @@ def per_task_medians(rows, libs, vfn):
     if not all(vals[s] for s in libs):
         return [], {}
     common = sorted(set.intersection(*[set(vals[s]) for s in libs]))
-    return common, {s: [statistics.median(vals[s][t]) for t in common]
-                    for s in libs}
+    return common, {s: [statistics.median(vals[s][t]) for t in common] for s in libs}
 
 
 def metric_block(rows, libs, vfn):
@@ -65,25 +71,42 @@ def metric_block(rows, libs, vfn):
     if len(common) < 3:
         return None
     n = len(common)
-    chi, p = friedmanchisquare(*[m[s] for s in libs])
+    if all_algorithms_tied(m, libs):
+        chi, p = 0.0, 1.0
+    else:
+        chi, p = friedmanchisquare(*[m[s] for s in libs])
     pairs = list(itertools.combinations(libs, 2))
     raw, info = [], []
     for a, b in pairs:
-        try:
-            _, pp = wilcoxon(m[a], m[b])
-        except ValueError:
-            pp = 1.0
-        raw.append(pp)
         diffs = [x - y for x, y in zip(m[a], m[b])]
+        if all(d == 0 for d in diffs):
+            pp = 1.0
+        else:
+            try:
+                _, pp = wilcoxon(m[a], m[b])
+            except ValueError:
+                pp = 1.0
+        raw.append(pp)
         r, _ = rank_biserial(diffs)
         info.append((a, b, statistics.median(diffs), r))
     adj = holm(raw)
-    out = [(f"Friedman ($N\\!=\\!{n}$)",
+    out = [
+        (
+            f"Friedman ($N\\!=\\!{n}$)",
             f"\\multicolumn{{2}}{{c}}{{$\\chi^2\\!=\\!{chi:.1f}$}}",
-            fmt_p(p), "---")]
+            fmt_p(p),
+            "---",
+        )
+    ]
     for (a, b, mdiff, r), pr, pa in zip(info, raw, adj):
-        out.append((f"{display_name(a)} vs.\\ {display_name(b)}",
-                    f"${mdiff:+.1f}$ & ${r:+.2f}$", fmt_p(pr), fmt_p(pa)))
+        out.append(
+            (
+                f"{display_name(a)} vs.\\ {display_name(b)}",
+                f"${mdiff:+.1f}$ & ${r:+.2f}$",
+                fmt_p(pr),
+                fmt_p(pa),
+            )
+        )
     return out
 
 
@@ -94,21 +117,26 @@ def main():
         "search. This exists for every task of BST, STLC, and $F_{<:}$, but "
         "for only 34 of RBT's 58 tasks---the remaining 24 are too deep for "
         "exhaustive search. Tasks without a ground truth are excluded from "
-        "these two metrics, lowering their $N$ relative to shrink time.")
+        "these two metrics, lowering their $N$ relative to shrink time."
+    )
     fn_edit = (
         "Time per edit ($\\mathrm{ms}/\\Delta\\mathrm{TED}$) is undefined "
         "when shrinking produces no reduction in edit distance to the "
         "ground truth ($d \\le 0$); such tasks are excluded from this metric "
         "only, which can lower its $N$ slightly even where ground truth is "
-        "complete.")
+        "complete."
+    )
     lines = [
         r"\section{Full Statistical Comparison}\label{app:stats}",
         "",
         "The tables below give, for every (workload, generator family), the "
         "Friedman omnibus test across tasks and the post-hoc Holm-corrected "
-        "pairwise Wilcoxon signed-rank tests, for three shrinking metrics: "
-        "tree edit distance to the ground-truth minimum,\\footnote{" + fn_gt
-        + "} shrink time, and time per edit.\\footnote{" + fn_edit + "} "
+        "pairwise Wilcoxon signed-rank tests, for four shrinking metrics: "
+        "tree edit distance to the ground-truth minimum,\\footnote{"
+        + fn_gt
+        + "} counterexample size, shrink time, and time per edit.\\footnote{"
+        + fn_edit
+        + "} "
         "Per-task values are trial medians; all metrics are lower-is-better. "
         "$\\Delta$ is the median per-task difference (first minus second "
         "library) and $r$ the matched-pairs rank-biserial effect size "
@@ -122,8 +150,11 @@ def main():
         csv_path = ROOT / "figures" / f"{wl.upper()}_ANALYSIS.csv"
         if not csv_path.exists():
             continue
-        rows = [r for r in csv.DictReader(csv_path.open())
-                if r["mode"] == "default" and r["status"] == "Failed"]
+        rows = [
+            r
+            for r in csv.DictReader(csv_path.open())
+            if r["mode"] == "default" and r["status"] == "Failed"
+        ]
 
         lines += [
             r"\begin{longtable}{@{}l l r r r@{}}",
@@ -146,16 +177,23 @@ def main():
         for fi, (fam, libs) in enumerate(fams):
             if fi > 0:
                 lines.append(r"\midrule")
-            lines.append(f"\\multicolumn{{5}}{{@{{}}l}}{{\\textit{{"
-                         f"{FAM_NAMES[fam]}}}}}\\\\")
+            lines.append(
+                f"\\multicolumn{{5}}{{@{{}}l}}{{\\textit{{{FAM_NAMES[fam]}}}}}\\\\"
+            )
             lines.append(r"\midrule")
             for mkey, vfn in METRICS.items():
+                if mkey not in METRIC_NAMES:
+                    continue
                 block = metric_block(rows, libs, vfn)
-                lines.append(f"\\multicolumn{{5}}{{@{{}}l}}{{\\quad "
-                             f"\\footnotesize {METRIC_NAMES[mkey]}}}\\\\")
+                lines.append(
+                    f"\\multicolumn{{5}}{{@{{}}l}}{{\\quad "
+                    f"\\footnotesize {METRIC_NAMES[mkey]}}}\\\\"
+                )
                 if block is None:
-                    lines.append(r"\multicolumn{5}{@{}l}{\quad\footnotesize "
-                                 r"\textit{insufficient tasks}}\\")
+                    lines.append(
+                        r"\multicolumn{5}{@{}l}{\quad\footnotesize "
+                        r"\textit{insufficient tasks}}\\"
+                    )
                 else:
                     for comp, mid, p, ph in block:
                         lines.append(f"\\quad {comp} & {mid} & {p} & {ph} \\\\")

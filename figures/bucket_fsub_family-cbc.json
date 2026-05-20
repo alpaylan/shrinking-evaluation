@@ -1,7 +1,7 @@
 {
   "numBuckets": 6,
   "chartNames": [
-    "Correct",
+    "QuickCBC",
     "HedgehogCBC",
     "FalsifyCBC"
   ],

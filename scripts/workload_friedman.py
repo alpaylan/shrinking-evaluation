@@ -16,6 +16,7 @@ Usage: .venv/bin/python scripts/workload_friedman.py
 
 import csv
 import itertools
+import math
 import statistics
 from collections import defaultdict
 
@@ -34,6 +35,7 @@ def fnum(x):
 
 
 # ---- metric value functions (lower is better) ----
+
 
 def value_ted(r):
     return fnum(r.get("ted_to_gt"))
@@ -59,18 +61,24 @@ def value_ms_per_edit(r):
     return t * 1000 / d
 
 
+def value_time_pre_ms(r):
+    t = fnum(r.get("time_pre_failure"))
+    return None if t is None else t * 1000
+
+
 METRICS = {
     "ted-to-gt": value_ted,
     "cex-size": value_cex_size,
     "time-shrinking-ms": value_time_shrinking_ms,
     "ms-per-edit": value_ms_per_edit,
+    "bug-finding-time-ms": value_time_pre_ms,
 }
 
 # The three core libraries per family. CBC uses QuickCBC/Correct;
 # idiomatic CBC2 variants are excluded from the 3-way library test.
 CORE = {
     "vanilla": ["Quick", "Hedgehog", "Falsify"],
-    "qbe":     ["QuickGbE", "HedgehogGbE", "FalsifyGbE"],
+    "qbe": ["QuickGbE", "HedgehogGbE", "FalsifyGbE"],
     "cbc-bstrbt": ["QuickCBC", "HedgehogCBC", "FalsifyCBC"],
     "cbc-stlcfsub": ["Correct", "HedgehogCBC", "FalsifyCBC"],
 }
@@ -99,6 +107,23 @@ def rank_biserial(diffs):
     return (rp - rn) / (rp + rn), len(d)
 
 
+def validate_failed_counterexamples(rows, csv_path):
+    for r in rows:
+        pre = fnum(r.get("pre_size"))
+        cex = fnum(r.get("cex_size"))
+        if pre is None or cex is None or pre <= 0 or cex <= 0:
+            task = f"{r.get('property')} / {r.get('mutation')} / trial {r.get('trial')}"
+            raise ValueError(
+                f"{csv_path.name}: Failed row has no real counterexample "
+                f"({r.get('strategy')}, {task}, pre_size={r.get('pre_size')!r}, "
+                f"cex_size={r.get('cex_size')!r})"
+            )
+
+
+def all_algorithms_tied(med, libs):
+    return all(len({med[s][i] for s in libs}) == 1 for i in range(len(med[libs[0]])))
+
+
 def family_groups(wl_name):
     """Yield (family_label, [3 library strategies]) for a workload."""
     fams = WORKLOADS[wl_name]["families"]
@@ -113,24 +138,32 @@ def family_groups(wl_name):
 
 
 def main():
-    out = ["# Friedman + post-hoc Holm-Wilcoxon — library comparison",
-           "",
-           "Per (workload, family, metric): Friedman omnibus across tasks on",
-           "per-task medians; on rejection, Holm-corrected pairwise Wilcoxon",
-           "signed-rank post-hoc. Lower is better. r = matched-pairs rank-biserial",
-           "(negative ⇒ first library better).",
-           ""]
+    out = [
+        "# Friedman + post-hoc Holm-Wilcoxon — library comparison",
+        "",
+        "Per (workload, family, metric): Friedman omnibus across tasks on",
+        "per-task medians; on rejection, Holm-corrected pairwise Wilcoxon",
+        "signed-rank post-hoc. Lower is better. r = matched-pairs rank-biserial",
+        "(negative ⇒ first library better).",
+        "",
+    ]
 
     for wl_name in ("bst", "rbt", "stlc", "fsub"):
         csv_path = ROOT / "figures" / f"{wl_name.upper()}_ANALYSIS.csv"
         if not csv_path.exists():
             out.append(f"## {wl_name.upper()} — MISSING {csv_path.name}\n")
             continue
-        rows = [r for r in csv.DictReader(csv_path.open())
-                if r["mode"] == "default" and r["status"] == "Failed"]
+        rows = [
+            r
+            for r in csv.DictReader(csv_path.open())
+            if r["mode"] == "default" and r["status"] == "Failed"
+        ]
+        validate_failed_counterexamples(rows, csv_path)
 
         for fam, libs in family_groups(wl_name):
-            out.append(f"## {wl_name.upper()} / {fam}  ({', '.join(display_name(s) for s in libs)})")
+            out.append(
+                f"## {wl_name.upper()} / {fam}  ({', '.join(display_name(s) for s in libs)})"
+            )
             out.append("")
             for m, vfn in METRICS.items():
                 # values[strategy][task] -> list of trial values
@@ -148,7 +181,12 @@ def main():
                     out.append(f"- **{m}**: only {len(common)} common tasks — skipped")
                     continue
                 med = {s: [statistics.median(vals[s][t]) for t in common] for s in libs}
-                chi, p = friedmanchisquare(*[med[s] for s in libs])
+                if all_algorithms_tied(med, libs):
+                    chi, p = 0.0, 1.0
+                else:
+                    chi, p = friedmanchisquare(*[med[s] for s in libs])
+                    if math.isnan(chi) or math.isnan(p):
+                        raise ValueError(f"Friedman returned NaN for {wl_name}/{fam}/{m}")
                 # average ranks (1 = best = smallest)
                 rsum = {s: 0.0 for s in libs}
                 for i in range(len(common)):
@@ -159,7 +197,9 @@ def main():
                 ranks_str = " · ".join(f"{display_name(s)} {avg[s]:.2f}" for s in libs)
                 verdict = "REJECT" if p < ALPHA else "n.s."
                 out.append(f"- **{m}**  (N={len(common)} tasks)")
-                out.append(f"  - Friedman χ²={chi:.2f}, p={p:.4g} → **{verdict}**  | avg ranks: {ranks_str}")
+                out.append(
+                    f"  - Friedman χ²={chi:.2f}, p={p:.4g} → **{verdict}**  | avg ranks: {ranks_str}"
+                )
                 if p < ALPHA:
                     raw, info = [], []
                     for A, B in itertools.combinations(libs, 2):
@@ -173,11 +213,20 @@ def main():
                         info.append((A, B, statistics.median(diffs), nz, r))
                     adj = holm(raw)
                     for (A, B, mdiff, nz, r), pa, pr in zip(info, adj, raw):
-                        star = ("***" if pa < 0.001 else "**" if pa < 0.01
-                                else "*" if pa < 0.05 else "n.s.")
-                        out.append(f"    - {display_name(A)} vs {display_name(B)}: "
-                                   f"median Δ={mdiff:+.2f}, nonzero={nz}/{len(common)}, "
-                                   f"r={r:+.3f}, p={pr:.4g}, p_Holm={pa:.4g} {star}")
+                        star = (
+                            "***"
+                            if pa < 0.001
+                            else "**"
+                            if pa < 0.01
+                            else "*"
+                            if pa < 0.05
+                            else "n.s."
+                        )
+                        out.append(
+                            f"    - {display_name(A)} vs {display_name(B)}: "
+                            f"median Δ={mdiff:+.2f}, nonzero={nz}/{len(common)}, "
+                            f"r={r:+.3f}, p={pr:.4g}, p_Holm={pa:.4g} {star}"
+                        )
             out.append("")
 
     dest = ROOT / "figures" / "STATS_FRIEDMAN.md"

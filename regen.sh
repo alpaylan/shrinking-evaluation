@@ -19,11 +19,15 @@ PY=.venv/bin/python
 WORKLOADS=("$@")
 [ ${#WORKLOADS[@]} -eq 0 ] && WORKLOADS=(bst rbt stlc fsub)
 
-echo "== Stage 1/4: analysis (stores -> figures/<WL>_ANALYSIS.csv) =="
-for wl in "${WORKLOADS[@]}"; do
-  echo "  workload_analysis $wl"
-  $PY scripts/workload_analysis.py --workload "$wl"
-done
+if [ "${REGEN_SKIP_ANALYSIS:-0}" = "1" ]; then
+  echo "== analysis skipped (REGEN_SKIP_ANALYSIS=1) =="
+else
+  echo "== Stage 1/4: analysis (stores -> figures/<WL>_ANALYSIS.csv) =="
+  for wl in "${WORKLOADS[@]}"; do
+    echo "  workload_analysis $wl"
+    $PY scripts/workload_analysis.py --workload "$wl"
+  done
+fi
 
 echo "== Stage 2/4: charts (ECDF + bucket) =="
 for wl in "${WORKLOADS[@]}"; do

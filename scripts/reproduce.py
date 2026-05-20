@@ -6,10 +6,9 @@ Each claim Cn in REPRODUCTION.md maps to a handler here. Run:
     .venv/bin/python scripts/reproduce.py C3
     .venv/bin/python scripts/reproduce.py all
 
-Tier-1 reproduction: recomputes the number from the existing
-figures/*_ANALYSIS.csv files (produced by scripts/workload_analysis.py)
-and the store.*.jsonl files. See REPRODUCTION.md for Tier-2 (regenerating
-the stores from scratch).
+Handlers re-compute the number from figures/*_ANALYSIS.csv (produced by
+scripts/workload_analysis.py) and the store.*.jsonl files. See
+REPRODUCTION.md for the anchor phrase, expected value, and paper line.
 """
 
 import csv
@@ -21,7 +20,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from workload_config import ROOT  # noqa: E402
+from workload_config import ROOT, display_name  # noqa: E402
 
 try:
     from scipy.stats import friedmanchisquare, rankdata, wilcoxon
@@ -126,7 +125,15 @@ def friedman(rows, libs, valuefn):
 # ---- metric value functions ----
 def v_ted(r):       return fnum(r.get("ted_to_gt"))
 def v_time(r):      t = fnum(r.get("time_shrinking")); return None if t is None else t * 1000
+def v_bug(r):       t = fnum(r.get("time_pre_failure")); return None if t is None else t * 1000
 def v_pre(r):       return fnum(r.get("pre_ted_to_gt"))
+
+
+def v_reduction(r):
+    pre, post = fnum(r.get("pre_ted_to_gt")), fnum(r.get("ted_to_gt"))
+    if pre is None or post is None:
+        return None
+    return pre - post
 
 
 def v_msedit(r):
@@ -136,81 +143,161 @@ def v_msedit(r):
     return t * 1000 / (pre - post)
 
 
+def _bugfind_lines(wl, families):
+    """Friedman + Holm-Wilcoxon on bug-finding time across families."""
+    rows = load_csv(wl)
+    for fname, libs in families:
+        res = friedman(rows, libs, v_bug)
+        if res is None:
+            print(f"  {fname:8s}: insufficient data"); continue
+        n, chi, p, avg, order = res
+        ord_s = " < ".join(display_name(s) for s in order)
+        sig = "significant" if p < 0.05 else "n.s."
+        print(f"  {fname:8s}: Friedman N={n}  chi2={chi:.1f}  p={p:.3g}  ({sig})  order: {ord_s}")
+        for a, b, mdiff, pr, pa in posthoc_wilcoxon(rows, libs, v_bug):
+            tag = "n.s." if pa >= 0.05 else "significant"
+            print(f"      {display_name(a):13s} vs {display_name(b):13s}: "
+                  f"median Δ={mdiff:+8.2f}ms  p_Holm={pa:.4g}  {tag}")
+
+
 # ============================ CLAIM HANDLERS ============================
 
 def C1():
-    print("C1  Task counts per workload (paper: BST 53, RBT 58, STLC 20, F<: 36)")
+    print("C1  Task counts per workload (paper §4.1: BST 53, RBT 58, STLC 20, F<: 36)")
     for wl in WORKLOADS:
         tasks = {(r["property"], r["mutation"]) for r in load_csv(wl, status=None)}
         print(f"  {wl:5s}: {len(tasks)} tasks")
 
 
 def C2():
-    print("C2  Shrinking reduction in TED-to-GT, per family (paper lines 734-737:")
-    print("    type-based 3-8, GbE 33-41, CBC 18-102)")
+    print("C2  Shrinking reduction in TED-to-GT (paper §4.2.2: type-based 3-10 per workload,")
+    print("    GbE 41-44, CBC 18-106 -- median across per-(task,library) trial-medians)")
     families = [("type-based", lambda wl: VANILLA, WORKLOADS),
-                ("GbE", lambda wl: QBE, ["bst", "rbt"]),
-                ("CBC", cbc_libs, WORKLOADS)]
+                ("GbE",        lambda wl: QBE,     ["bst", "rbt"]),
+                ("CBC",        cbc_libs,           WORKLOADS)]
     for label, libsfn, wls in families:
-        per = []
+        cells = []
         for wl in wls:
             libs = libsfn(wl)
-            diffs = []
+            pertask = defaultdict(list)
             for r in load_csv(wl):
                 if r["strategy"] not in libs:
                     continue
-                pre, post = fnum(r["pre_ted_to_gt"]), fnum(r["ted_to_gt"])
-                if pre is not None and post is not None:
-                    diffs.append(pre - post)
-            if diffs:
-                per.append((wl, statistics.median(diffs)))
-        cells = "  ".join(f"{wl}={m:.1f}" for wl, m in per)
-        lo, hi = min(m for _, m in per), max(m for _, m in per)
-        print(f"  {label:11s}: {cells}   range {lo:.1f}-{hi:.1f}")
+                v = v_reduction(r)
+                if v is not None:
+                    pertask[(r["strategy"], r["property"], r["mutation"])].append(v)
+            meds = [statistics.median(v) for v in pertask.values() if v]
+            if meds:
+                cells.append((wl, statistics.median(meds), len(meds)))
+        if cells:
+            txt = "  ".join(f"{wl}={m:.1f} (N={n})" for wl, m, n in cells)
+            lo, hi = min(m for _, m, _ in cells), max(m for _, m, _ in cells)
+            print(f"  {label:11s}: {txt}   range {lo:.1f}-{hi:.1f}")
 
 
 def C3():
-    print("C3  Type-based shrink time: QC≈Hedgehog, Falsify ~order of magnitude slower")
+    print("C3  BST bug-finding (paper §4.2.1: type-based & GbE significant p<0.001, CBC indistinguishable)")
+    _bugfind_lines("bst", [("vanilla", VANILLA), ("GbE", QBE), ("CBC", cbc_libs("bst"))])
+
+
+def C4():
+    print("C4  RBT bug-finding (paper §4.2.1: all 3 families significant p<0.001;")
+    print("    QC < HH/Falsify everywhere; Falsify vs HH GbE n.s. after Holm)")
+    _bugfind_lines("rbt", [("vanilla", VANILLA), ("GbE", QBE), ("CBC", cbc_libs("rbt"))])
+
+
+def C5():
+    print("C5  STLC bug-finding (paper §4.2.1: type-based n.s., CBC p<0.001; HH≈Falsify after Holm)")
+    _bugfind_lines("stlc", [("vanilla", VANILLA), ("CBC", cbc_libs("stlc"))])
+
+
+def C6():
+    print("C6  F<: bug-finding (paper §4.2.1: type-based p<0.001 with QC<Falsify<HH; CBC same shape)")
+    _bugfind_lines("fsub", [("vanilla", VANILLA), ("CBC", cbc_libs("fsub"))])
+
+
+def C7():
+    print("C7  CBC shrinking effectiveness (TED-to-GT) ranking per workload (paper §4.2.2)")
+    print("    expected: BST/RBT QuickCBC closest; STLC FalsifyCBC closest; F<: QuickCBC < FalsifyCBC < HedgehogCBC")
+    for wl in WORKLOADS:
+        res = friedman(load_csv(wl), cbc_libs(wl), v_ted)
+        if res is None:
+            print(f"  {wl:5s}: insufficient data"); continue
+        n, chi, p, avg, order = res
+        ord_s = " < ".join(display_name(s) for s in order)
+        ranks = "  ".join(f"{display_name(s)}={avg[s]:.2f}" for s in cbc_libs(wl))
+        print(f"  {wl:5s}: Friedman p={p:.3g}  order: {ord_s}  [{ranks}]")
+
+
+def C8():
+    print("C8  RBT GbE TED-to-GT statistically indistinguishable (paper §4.2.2: appendix χ²=1.8, p=0.415)")
+    rows = load_csv("rbt")
+    res = friedman(rows, QBE, v_ted)
+    if res is None:
+        print("  insufficient data"); return
+    n, chi, p, avg, order = res
+    print(f"  Friedman N={n}  chi2={chi:.1f}  p={p:.3g}  ({'n.s.' if p >= 0.05 else 'differ'})")
+    for a, b, mdiff, pr, pa in posthoc_wilcoxon(rows, QBE, v_ted):
+        tag = "n.s." if pa >= 0.05 else "significant"
+        print(f"    {a:13s} vs {b:13s}: median Δ={mdiff:+.1f}  p_Holm={pa:.4g}  {tag}")
+
+
+def C9():
+    print("C9  RBT ground-truth task split (paper §4.2.2 footnote: 34 with GT, 24 too deep, 58 total)")
+    gt = set()
+    for ln in (ROOT / "store.rbt.det.jsonl").read_text().splitlines():
+        if not ln.strip():
+            continue
+        d = json.loads(ln)["data"]
+        if d["strategy"] in ("Lean", "LeanRev") and d["status"] == "Failed" \
+                and (d.get("counterexample") or d.get("pre_counterexample")):
+            prop = d["property"]
+            prop = prop[5:] if prop.startswith("prop_") else prop
+            gt.add((prop, ",".join(d.get("mutations", []) or [])))
+    allt = {(r["property"], r["mutation"]) for r in load_csv("rbt", status=None)}
+    print(f"  RBT total tasks = {len(allt)}  |  with ground truth = {len(allt & gt)}  "
+          f"|  too deep = {len(allt - gt)}")
+
+
+def C10():
+    print("C10 Type-based shrink time (paper §4.2.3: QC≈Hedgehog, Falsify consistently slower with long tail)")
     for wl in WORKLOADS:
         rows = load_csv(wl)
         m = {s: med([v_time(r) for r in rows if r["strategy"] == s and v_time(r) is not None])
              for s in VANILLA}
-        if m["Quick"] != m["Quick"]:  # nan
+        if m["Quick"] != m["Quick"]:
             print(f"  {wl:5s}: insufficient data"); continue
         print(f"  {wl:5s}: Quick={m['Quick']:.3f}ms  Hedgehog={m['Hedgehog']:.3f}ms  "
               f"Falsify={m['Falsify']:.3f}ms  | Falsify/Quick={m['Falsify']/m['Quick']:.1f}x")
 
 
-def C4():
-    print("C4  Falsify long tail: up to ~4 orders of magnitude slower on some tasks")
+def C11():
+    print("C11 Falsify long tail: peak per-task slowdown -- paper §4.2.3 'several orders of magnitude'")
     worst = 0.0
     for wl in WORKLOADS:
         common, m = per_task_medians(load_csv(wl), VANILLA, v_time)
         for i in range(len(common)):
             others = min(m["Quick"][i], m["Hedgehog"][i])
             if others > 0:
-                ratio = m["Falsify"][i] / others
-                worst = max(worst, ratio)
+                worst = max(worst, m["Falsify"][i] / others)
     print(f"  max per-task Falsify/(faster of QC,HH) time ratio = {worst:.0f}x "
           f"(~{len(str(int(worst)))-1} orders of magnitude)")
 
 
-def C5():
-    print("C5  Shrink-budget semantics (source/docs claim, not a measurement)")
-    print("  QuickCheck  maxShrinks        -> caps ALL shrink executions")
-    print("  Hedgehog    withShrinks       -> caps ACCEPTED (failing) shrinks")
-    print("  Falsify     overrideMaxShrinks-> caps shrink STEPS (accepted shrink chain)")
-    print("  verify in: workloads/bst-haskell/etna-lib/src/Etna/Lib/Strategy/"
-          "{QuickCheck,Hedgehog,Falsify}.hs")
+def C12():
+    print("C12 Shrink-budget semantics (paper §4.2.3: QC=total executions, HH/Falsify=failing executions)")
+    print("    QuickCheck  maxShrinks         -> caps ALL shrink executions (pass + fail + discard)")
+    print("    Hedgehog    withShrinks        -> caps accepted (failing) shrinks")
+    print("    Falsify     overrideMaxShrinks -> caps accepted shrink steps (failing chain)")
+    print("    verify in: workloads/<wl>-haskell/etna-lib/src/Etna/Lib/Strategy/{QuickCheck,Hedgehog,Falsify}.hs")
 
 
-def C6():
-    print("C6  budget=0 vs budget=default: bug-finding failure rate (no notable overhead)")
+def C13():
+    print("C13 budget=0 vs budget=default bug-finding rates (paper §4.2.3: 'no-shrinking lets us check the bug-finding overhead')")
     for wl in WORKLOADS:
         for mode, label in [("none", "budget=0"), ("default", "budget=default")]:
             rows = load_csv(wl, mode=mode, status=None) if mode != "none" or wl != "fsub" else None
             if rows is None:
-                # fsub has no shrink-0 in the CSV; read the store directly
                 fr = tot = 0
                 for fw in ("quick", "hedgehog", "falsify"):
                     p = ROOT / f"store.fsub.{fw}.shrink-0.jsonl"
@@ -231,8 +318,8 @@ def C6():
             print(f"  {wl:5s} {label:16s}: failure rate = {rate:.3f}")
 
 
-def C7():
-    print("C7  budget=100 vs default: total shrinking executions (BST only; ~no change)")
+def C14():
+    print("C14 budget=100 fails to standardize effort across libraries (paper §4.2.3, BST illustration)")
     rows_all = {m: load_csv("bst", mode=m) for m in ("fixed-100", "default")}
     for s in VANILLA:
         line = f"  {s:9s}: "
@@ -246,42 +333,39 @@ def C7():
         print(line)
 
 
-def _friedman_line(wl, fam_label, libs):
-    res = friedman(load_csv(wl), libs, v_time)
+def _shrink_time_friedman(wl, label, libs):
+    rows = load_csv(wl)
+    res = friedman(rows, libs, v_time)
     if res is None:
-        print(f"  {wl:5s} {fam_label}: insufficient data"); return
+        print(f"  {wl:5s} {label}: insufficient data"); return
     n, chi, p, avg, order = res
-    ranks = "  ".join(f"{s}={avg[s]:.2f}" for s in libs)
-    print(f"  {wl:5s} {fam_label}: Friedman p={p:.4g}  ranks[{ranks}]  "
-          f"order: {' < '.join(order)}")
+    ord_s = " < ".join(display_name(s) for s in order)
+    print(f"  {wl:5s} {label}: Friedman p={p:.3g}  order: {ord_s}")
+    for a, b, mdiff, pr, pa in posthoc_wilcoxon(rows, libs, v_time):
+        tag = "n.s." if pa >= 0.05 else "significant"
+        print(f"      {display_name(a):13s} vs {display_name(b):13s}: median Δ={mdiff:+8.2f}ms  p_Holm={pa:.4g}  {tag}")
 
 
-def C8():
-    print("C8  CBC BST/RBT shrink time: QuickCheck & Hedgehog tied, Falsify slower")
-    for wl in ("bst", "rbt"):
-        _friedman_line(wl, "cbc", cbc_libs(wl))
+def C15():
+    print("C15 CBC shrink time order (paper §4.2.3: BST QC fastest; RBT QC≈HH < Falsify; STLC/F<: QC<HH<Falsify)")
+    for wl in WORKLOADS:
+        _shrink_time_friedman(wl, "cbc", cbc_libs(wl))
 
 
-def C9():
-    print("C9  CBC STLC/F<: shrink time: QuickCheck < Hedgehog < Falsify")
-    for wl in ("stlc", "fsub"):
-        _friedman_line(wl, "cbc", cbc_libs(wl))
-
-
-def C10():
-    print("C10  ms-per-edit vs absolute time: consistent for QuickCheck & Hedgehog")
+def C16():
+    print("C16 Per-edit ms order consistent w/ absolute time for QuickCheck & Hedgehog (paper §4.2.3)")
     for wl in WORKLOADS:
         rows = load_csv(wl)
         rt = friedman(rows, VANILLA, v_time)
         rm = friedman(rows, VANILLA, v_msedit)
         if rt is None or rm is None:
             print(f"  {wl:5s}: insufficient data"); continue
-        ot = " < ".join(rt[4]); om = " < ".join(rm[4])
-        print(f"  {wl:5s} vanilla: time order [{ot}]  ms/edit order [{om}]")
+        print(f"  {wl:5s} vanilla: time order [{' < '.join(rt[4])}]  "
+              f"ms/edit order [{' < '.join(rm[4])}]")
 
 
-def C11():
-    print("C11  Falsify GbE pre-shrink TED ≈ 150 vs 15-20 for QuickCheck/Hedgehog")
+def C17():
+    print("C17 Falsify GbE pre-shrink TED ≈ 150 vs 15-20 for QuickCheck/Hedgehog (paper §4.2.3)")
     for wl in ("bst", "rbt"):
         rows = load_csv(wl)
         for s in QBE:
@@ -289,22 +373,24 @@ def C11():
             print(f"  {wl:5s} {s:13s}: median pre-shrink TED = {med(pre):.0f}")
 
 
-def C12():
-    print("C12  Per-edit collapses Falsify/Quick gap: 31x/96x (time) -> 3.7x/2.4x (ms/edit)")
+def C18():
+    print("C18 Per-edit collapses Falsify/Quick GbE gap: 49x/96x (time) -> 6.2x/2.4x (ms/edit) (paper §4.2.3)")
     for wl in ("bst", "rbt"):
         rows = load_csv(wl)
-        def m(s, fn): return med([fn(r) for r in rows if r["strategy"] == s and fn(r) is not None])
+        def m(s, fn):
+            _, by_strategy = per_task_medians(rows, [s], fn)
+            return med(by_strategy[s])
         t = m("FalsifyGbE", v_time) / m("QuickGbE", v_time)
         e = m("FalsifyGbE", v_msedit) / m("QuickGbE", v_msedit)
         print(f"  {wl:5s}: Falsify/Quick  absolute time={t:.1f}x   ms-per-edit={e:.1f}x")
 
 
-def C13():
-    print("C13  CBC shrink failure(=accepted) rate: Hedgehog 30-60%, QC 3-10%, Falsify 2%")
+def C19():
+    print("C19 CBC per-trial failure rate during shrinking (paper §4.3: HH 26-56%, QC 5-12%, Falsify 2-3%)")
     for wl in WORKLOADS:
         rows = load_csv(wl)
         for s in cbc_libs(wl):
-            P = F = D = 0.0
+            fail_rates, discard_rates = [], []
             for r in rows:
                 if r["strategy"] != s:
                     continue
@@ -312,107 +398,13 @@ def C13():
                               fnum(r["shrinking_discarded"]))
                 if None in (sp, sf, sd):
                     continue
-                P += sp; F += sf; D += sd
-            tot = P + F + D
-            if tot:
-                print(f"  {wl:5s} {s:13s}: %fail = {100*F/tot:.1f}%   %disc = {100*D/tot:.1f}%")
-
-
-def C14():
-    print("C14  QuickCheck structural shrinking discards up to ~70% of candidates")
-    worst = 0.0
-    for wl in WORKLOADS:
-        rows = load_csv(wl)
-        qc = "QuickCBC" if wl in ("bst", "rbt") else "Correct"
-        for s in (qc, "QuickGbE"):
-            P = F = D = 0.0
-            for r in rows:
-                if r["strategy"] != s:
-                    continue
-                sp, sf, sd = (fnum(r["shrinking_passed"]), fnum(r["shrinking_failed"]),
-                              fnum(r["shrinking_discarded"]))
-                if None in (sp, sf, sd):
-                    continue
-                P += sp; F += sf; D += sd
-            tot = P + F + D
-            if tot:
-                pct = 100 * D / tot
-                worst = max(worst, pct)
-                print(f"  {wl:5s} {s:13s}: %discarded = {pct:.1f}%")
-    print(f"  -> peak QuickCheck discard rate = {worst:.1f}%")
-
-
-def C15():
-    print("C15  GbE pairwise: Friedman + post-hoc Holm-Wilcoxon on TED-to-GT (lines 723-726)")
-    for wl in ("bst", "rbt"):
-        rows = load_csv(wl)
-        n, chi, p, avg, order = friedman(rows, QBE, v_ted)
-        print(f"  {wl:5s}: Friedman chi2={chi:.1f}, p={p:.4g}  (N={n} tasks)")
-        for a, b, mdiff, pr, pa in posthoc_wilcoxon(rows, QBE, v_ted):
-            sig = "n.s." if pa >= 0.05 else "significant"
-            print(f"    {a:13s} vs {b:13s}: median Δ={mdiff:+.1f}  p={pr:.4g}  p_Holm={pa:.4g}  {sig}")
-
-
-def C16():
-    print("C16  Idiomatic BST CBC generators: Falsify no change, Hedgehog +2 (lines 728-729)")
-    rows = load_csv("bst")
-    for base, idiom in [("HedgehogCBC", "HedgehogCBC2"), ("FalsifyCBC", "FalsifyCBC2")]:
-        common, m = per_task_medians(rows, [base, idiom], v_ted)
-        if len(common) < 3:
-            print(f"  {base} -> {idiom}: insufficient data"); continue
-        diffs = [b - i for b, i in zip(m[base], m[idiom])]
-        try:
-            _, p = wilcoxon(m[base], m[idiom])
-        except ValueError:
-            p = 1.0
-        print(f"  {base} -> {idiom}: median improvement = {med(diffs):.1f} edit distance  "
-              f"p={p:.4g}  (N={len(common)})")
-
-
-def C17():
-    print("C17  CBC shrinking effectiveness (TED-to-GT) ranking per workload (lines 730,734-735)")
-    for wl in WORKLOADS:
-        res = friedman(load_csv(wl), cbc_libs(wl), v_ted)
-        if res is None:
-            print(f"  {wl:5s}: insufficient data"); continue
-        n, chi, p, avg, order = res
-        ranks = "  ".join(f"{s}={avg[s]:.2f}" for s in cbc_libs(wl))
-        print(f"  {wl:5s}: Friedman p={p:.4g}  order: {' < '.join(order)}  [{ranks}]")
-
-
-def C18():
-    print("C18  QuickCheck TED-to-GT ~identical across GbE/CBC; HH & Falsify vary (lines 730-732)")
-    for wl in ("bst", "rbt"):
-        rows = load_csv(wl)
-        for lib, g, c in [("Quick", "QuickGbE", "QuickCBC"),
-                          ("Hedgehog", "HedgehogGbE", "HedgehogCBC"),
-                          ("Falsify", "FalsifyGbE", "FalsifyCBC")]:
-            common, m = per_task_medians(rows, [g, c], v_ted)
-            if len(common) < 3:
-                print(f"  {wl:5s} {lib:9s}: insufficient data"); continue
-            try:
-                _, p = wilcoxon(m[g], m[c])
-            except ValueError:
-                p = 1.0
-            verdict = "identical (n.s.)" if p >= 0.05 else "differ"
-            print(f"  {wl:5s} {lib:9s}: GbE vs CBC TED-to-GT  p={p:.4g}  -> {verdict}")
-
-
-def C19():
-    print("C19  RBT ground-truth task split: 34 with ground truth, 24 too deep (lines 737-738)")
-    gt = set()
-    for ln in (ROOT / "store.rbt.det.jsonl").read_text().splitlines():
-        if not ln.strip():
-            continue
-        d = json.loads(ln)["data"]
-        if d["strategy"] in ("Lean", "LeanRev") and d["status"] == "Failed" \
-                and (d.get("counterexample") or d.get("pre_counterexample")):
-            prop = d["property"]
-            prop = prop[5:] if prop.startswith("prop_") else prop
-            gt.add((prop, ",".join(d.get("mutations", []) or [])))
-    allt = {(r["property"], r["mutation"]) for r in load_csv("rbt", status=None)}
-    print(f"  RBT total tasks = {len(allt)}  |  with ground truth = {len(allt & gt)}  "
-          f"|  too deep = {len(allt - gt)}")
+                tot = sp + sf + sd
+                if tot:
+                    fail_rates.append(100 * sf / tot)
+                    discard_rates.append(100 * sd / tot)
+            if fail_rates:
+                print(f"  {wl:5s} {display_name(s):13s}: median %fail = {med(fail_rates):.1f}%   "
+                      f"median %disc = {med(discard_rates):.1f}%")
 
 
 CLAIMS = {f"C{i}": fn for i, fn in enumerate(
