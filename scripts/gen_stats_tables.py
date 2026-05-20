@@ -38,11 +38,11 @@ FAM_NAMES = {
     "cbc": "Correct-by-construction generators",
 }
 METRIC_NAMES = {
+    "bug-finding-time-ms": "Bug-finding time (ms)",
     "ted-to-gt": "TED to ground truth",
     "cex-size": "Counterexample size",
     "time-shrinking-ms": "Shrink time (ms)",
     "ms-per-edit": "Time per edit (ms)",
-    "time-pre-failure": "Bug finding time (ms)",
 }
 
 def fmt_p(p):
@@ -126,13 +126,20 @@ def main():
         "only, which can lower its $N$ slightly even where ground truth is "
         "complete."
     )
+    fn_bug = (
+        "Bug-finding time is the wall-clock time spent before the first "
+        "failing execution. Tasks for which any of the compared libraries "
+        "never produces a failing trial are excluded from this metric, so "
+        "its $N$ can differ from the shrinking metrics."
+    )
     lines = [
         r"\section{Full Statistical Comparison}\label{app:stats}",
         "",
         "The tables below give, for every (workload, generator family), the "
         "Friedman omnibus test across tasks and the post-hoc Holm-corrected "
-        "pairwise Wilcoxon signed-rank tests, for four shrinking metrics: "
-        "tree edit distance to the ground-truth minimum,\\footnote{"
+        "pairwise Wilcoxon signed-rank tests, for five metrics: bug-finding "
+        "time,\\footnote{" + fn_bug + "} tree edit distance to the "
+        "ground-truth minimum,\\footnote{"
         + fn_gt
         + "} counterexample size, shrink time, and time per edit.\\footnote{"
         + fn_edit
@@ -158,8 +165,8 @@ def main():
 
         lines += [
             r"\begin{longtable}{@{}l l r r r@{}}",
-            f"\\caption{{Statistical comparison of shrinking metrics for "
-            f"{WL_NAMES[wl]}.}}\\label{{tab:stats-{wl}}}\\\\",
+            f"\\caption{{Statistical comparison of bug-finding and shrinking "
+            f"metrics for {WL_NAMES[wl]}.}}\\label{{tab:stats-{wl}}}\\\\",
             r"\toprule",
             r"Comparison & median $\Delta$ & $r$ & $p$ & $p_{\text{Holm}}$ \\",
             r"\midrule",
@@ -181,9 +188,10 @@ def main():
                 f"\\multicolumn{{5}}{{@{{}}l}}{{\\textit{{{FAM_NAMES[fam]}}}}}\\\\"
             )
             lines.append(r"\midrule")
-            for mkey, vfn in METRICS.items():
-                if mkey not in METRIC_NAMES:
+            for mkey in METRIC_NAMES:
+                if mkey not in METRICS:
                     continue
+                vfn = METRICS[mkey]
                 block = metric_block(rows, libs, vfn)
                 lines.append(
                     f"\\multicolumn{{5}}{{@{{}}l}}{{\\quad "

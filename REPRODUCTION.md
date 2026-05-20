@@ -118,6 +118,26 @@ regenerate them from the stores:
   distributes. The paper consistently leans on the Friedman omnibus for
   the "indistinguishable" verdict; the handlers print both.
 
+  The clearest case is **BST CBC bug-finding time** (now in
+  `appendix_stats.tex` Table~\ref{tab:stats-bst}): Friedman χ²=1.8,
+  p=0.40 (n.s.), but pairwise Holm-Wilcoxon shows QuickCBC vs FalsifyCBC
+  and HedgehogCBC vs FalsifyCBC both p_Holm<0.001 while QuickCBC vs
+  HedgehogCBC is p_Holm=0.79. This is a known low-power failure mode of
+  Friedman with k=3 algorithms: when two of the three are tied at the
+  top rank (≈1.5) and one trails (≈3), the rank-spread vector
+  (1.5, 1.5, 3) has less between-group variance than (1, 2, 3) and
+  Friedman's χ² collapses, even though a real two-vs-one effect is
+  present.
+
+  We follow the conservative Demšar (2006) / García & Herrera (2008)
+  closed-testing convention: when the omnibus does not reject, we report
+  "statistically indistinguishable" in the body and do not draw
+  conclusions from the pairwise post-hoc. The pairwise rows remain in
+  the appendix for transparency. Readers preferring the post-hoc-first
+  approach (Benavoli et al. 2017; García et al. 2010, *Information
+  Sciences*) can re-interpret directly from the appendix: those tables
+  contain everything needed under either convention.
+
 ## Tier 2 — regenerate the stores from scratch (hours)
 
 The `store.*.jsonl` files are produced by ETNA experiment runs, named
