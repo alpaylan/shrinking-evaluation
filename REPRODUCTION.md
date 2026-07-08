@@ -169,10 +169,25 @@ through the ETNA harness, so it needs two extra things beyond Tier 0–1:
      https://github.com/alpaylan/etna-cli/releases/latest/download/etna-installer.sh | sh
    ```
 
-Run the commands below from the repository root (the directory containing
-`etna.toml`). The **first** run of any workload compiles it and all of its
-dependencies (QuickCheck, Hedgehog, Falsify, LeanCheck) with `stack`, which
-can take several minutes; subsequent runs reuse the build.
+This archive ships as a **git repository** (ETNA records each run against
+git, so the experiment directory must be one — this is already set up for
+you). From the repository root (the directory containing `etna.toml`), the
+only remaining step is to register it in ETNA's experiment-tracking
+metadata:
+
+```sh
+etna experiment register
+```
+
+(Without this, `etna experiment run` fails with "current dir is not an
+experiment directory". If you obtained the sources some other way and they
+are *not* a git repository, first run `git init && git add -A && git commit
+-m snapshot`.)
+
+Run the commands below from that same directory. The **first** run of any
+workload compiles it and all of its dependencies (QuickCheck, Hedgehog,
+Falsify, LeanCheck) with `stack`, which can take several minutes; subsequent
+runs reuse the build.
 
 ### Running the experiments
 
