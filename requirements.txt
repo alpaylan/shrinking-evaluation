@@ -1,0 +1,6 @@
+# Python dependencies for the analysis / reproduction scripts (scripts/*.py).
+# Pinned to the versions used to produce the results in the paper (Python 3.14).
+# Everything else the scripts import is in the standard library.
+scipy==1.17.1
+matplotlib==3.10.9
+zss==1.2.0

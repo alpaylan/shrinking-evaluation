@@ -28,6 +28,9 @@ DISPLAY_NAMES = {
     "Correct": "QuickCBC",
     "HedgehogCBC2": "HedgehogIdiomatic",
     "FalsifyCBC2":  "FalsifyIdiomatic",
+    "QuickGbE":     "QuickAPI",
+    "HedgehogGbE":  "HedgehogAPI",
+    "FalsifyGbE":   "FalsifyAPI",
 }
 
 

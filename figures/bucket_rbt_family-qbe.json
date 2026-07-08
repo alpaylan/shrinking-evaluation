@@ -1,9 +1,9 @@
 {
   "numBuckets": 6,
   "chartNames": [
-    "QuickGbE",
-    "HedgehogGbE",
-    "FalsifyGbE"
+    "QuickAPI",
+    "HedgehogAPI",
+    "FalsifyAPI"
   ],
   "chartColors": [
     "#1b7837",

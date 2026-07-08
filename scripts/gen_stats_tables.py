@@ -34,7 +34,7 @@ OUT = ROOT / "ShrinkingEval" / "appendix_stats.tex"
 WL_NAMES = {"bst": "BST", "rbt": "RBT", "stlc": "STLC", "fsub": "$F_{<:}$"}
 FAM_NAMES = {
     "vanilla": "Type-based generators",
-    "qbe": "Generation-by-execution generators",
+    "qbe": "API-based generators",
     "cbc": "Correct-by-construction generators",
 }
 METRIC_NAMES = {

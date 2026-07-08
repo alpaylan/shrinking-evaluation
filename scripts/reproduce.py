@@ -163,17 +163,17 @@ def _bugfind_lines(wl, families):
 # ============================ CLAIM HANDLERS ============================
 
 def C1():
-    print("C1  Task counts per workload (paper §4.1: BST 53, RBT 58, STLC 20, F<: 36)")
+    print("C1  Task counts per workload (paper §3.1: BST 53, RBT 58, STLC 20, F<: 36)")
     for wl in WORKLOADS:
         tasks = {(r["property"], r["mutation"]) for r in load_csv(wl, status=None)}
         print(f"  {wl:5s}: {len(tasks)} tasks")
 
 
 def C2():
-    print("C2  Shrinking reduction in TED-to-GT (paper §4.2.2: type-based 3-10 per workload,")
-    print("    GbE 41-44, CBC 18-106 -- median across per-(task,library) trial-medians)")
+    print("C2  Shrinking reduction in TED-to-GT (paper §3.2.2: type-based 3-9 per workload,")
+    print("    API-based 41-42, CBC 18-98 -- median across per-(task,library) trial-medians)")
     families = [("type-based", lambda wl: VANILLA, WORKLOADS),
-                ("GbE",        lambda wl: QBE,     ["bst", "rbt"]),
+                ("API-based",  lambda wl: QBE,     ["bst", "rbt"]),
                 ("CBC",        cbc_libs,           WORKLOADS)]
     for label, libsfn, wls in families:
         cells = []
@@ -196,28 +196,28 @@ def C2():
 
 
 def C3():
-    print("C3  BST bug-finding (paper §4.2.1: type-based & GbE significant p<0.001, CBC indistinguishable)")
-    _bugfind_lines("bst", [("vanilla", VANILLA), ("GbE", QBE), ("CBC", cbc_libs("bst"))])
+    print("C3  BST bug-finding (paper §3.2.1: type-based & API-based significant p<0.001, CBC indistinguishable)")
+    _bugfind_lines("bst", [("type-based", VANILLA), ("API-based", QBE), ("CBC", cbc_libs("bst"))])
 
 
 def C4():
-    print("C4  RBT bug-finding (paper §4.2.1: all 3 families significant p<0.001;")
-    print("    QC < HH/Falsify everywhere; Falsify vs HH GbE n.s. after Holm)")
-    _bugfind_lines("rbt", [("vanilla", VANILLA), ("GbE", QBE), ("CBC", cbc_libs("rbt"))])
+    print("C4  RBT bug-finding (paper §3.2.1: all 3 families significant p<0.001;")
+    print("    QC < HH/Falsify everywhere; Falsify vs HH API-based n.s. after Holm)")
+    _bugfind_lines("rbt", [("type-based", VANILLA), ("API-based", QBE), ("CBC", cbc_libs("rbt"))])
 
 
 def C5():
-    print("C5  STLC bug-finding (paper §4.2.1: type-based n.s., CBC p<0.001; HH≈Falsify after Holm)")
-    _bugfind_lines("stlc", [("vanilla", VANILLA), ("CBC", cbc_libs("stlc"))])
+    print("C5  STLC bug-finding (paper §3.2.1: type-based n.s., CBC p<0.001; HH≈Falsify after Holm)")
+    _bugfind_lines("stlc", [("type-based", VANILLA), ("CBC", cbc_libs("stlc"))])
 
 
 def C6():
-    print("C6  F<: bug-finding (paper §4.2.1: type-based p<0.001 with QC<Falsify<HH; CBC same shape)")
-    _bugfind_lines("fsub", [("vanilla", VANILLA), ("CBC", cbc_libs("fsub"))])
+    print("C6  F<: bug-finding (paper §3.2.1: type-based p<0.001 with QC<Falsify<HH; CBC same shape)")
+    _bugfind_lines("fsub", [("type-based", VANILLA), ("CBC", cbc_libs("fsub"))])
 
 
 def C7():
-    print("C7  CBC shrinking effectiveness (TED-to-GT) ranking per workload (paper §4.2.2)")
+    print("C7  CBC shrinking effectiveness (TED-to-GT) ranking per workload (paper §3.2.2)")
     print("    expected: BST/RBT QuickCBC closest; STLC FalsifyCBC closest; F<: QuickCBC < FalsifyCBC < HedgehogCBC")
     for wl in WORKLOADS:
         res = friedman(load_csv(wl), cbc_libs(wl), v_ted)
@@ -230,7 +230,7 @@ def C7():
 
 
 def C8():
-    print("C8  RBT GbE TED-to-GT statistically indistinguishable (paper §4.2.2: appendix χ²=1.8, p=0.415)")
+    print("C8  RBT API-based TED-to-GT statistically indistinguishable (paper §3.2.2: appendix χ²=1.8, p=0.415)")
     rows = load_csv("rbt")
     res = friedman(rows, QBE, v_ted)
     if res is None:
@@ -243,7 +243,7 @@ def C8():
 
 
 def C9():
-    print("C9  RBT ground-truth task split (paper §4.2.2 footnote: 34 with GT, 24 too deep, 58 total)")
+    print("C9  RBT ground-truth task split (paper §3.2.2 footnote: 34 with GT, 24 too deep, 58 total)")
     gt = set()
     for ln in (ROOT / "store.rbt.det.jsonl").read_text().splitlines():
         if not ln.strip():
@@ -260,7 +260,7 @@ def C9():
 
 
 def C10():
-    print("C10 Type-based shrink time (paper §4.2.3: QC≈Hedgehog, Falsify consistently slower with long tail)")
+    print("C10 Type-based shrink time (paper §3.2.2: QC≈Hedgehog, Falsify consistently slower with long tail)")
     for wl in WORKLOADS:
         rows = load_csv(wl)
         m = {s: med([v_time(r) for r in rows if r["strategy"] == s and v_time(r) is not None])
@@ -272,7 +272,7 @@ def C10():
 
 
 def C11():
-    print("C11 Falsify long tail: peak per-task slowdown -- paper §4.2.3 'several orders of magnitude'")
+    print("C11 Falsify long tail: peak per-task slowdown -- paper §3.2.2 'several orders of magnitude'")
     worst = 0.0
     for wl in WORKLOADS:
         common, m = per_task_medians(load_csv(wl), VANILLA, v_time)
@@ -285,7 +285,7 @@ def C11():
 
 
 def C12():
-    print("C12 Shrink-budget semantics (paper §4.2.3: QC=total executions, HH/Falsify=failing executions)")
+    print("C12 Shrink-budget semantics (paper §3.2.2: QC=total executions, HH/Falsify=failing executions)")
     print("    QuickCheck  maxShrinks         -> caps ALL shrink executions (pass + fail + discard)")
     print("    Hedgehog    withShrinks        -> caps accepted (failing) shrinks")
     print("    Falsify     overrideMaxShrinks -> caps accepted shrink steps (failing chain)")
@@ -293,7 +293,7 @@ def C12():
 
 
 def C13():
-    print("C13 budget=0 vs budget=default bug-finding rates (paper §4.2.3: 'no-shrinking lets us check the bug-finding overhead')")
+    print("C13 budget=0 vs budget=default bug-finding rates (paper §3.2.2: 'no-shrinking lets us check the bug-finding overhead')")
     for wl in WORKLOADS:
         for mode, label in [("none", "budget=0"), ("default", "budget=default")]:
             rows = load_csv(wl, mode=mode, status=None) if mode != "none" or wl != "fsub" else None
@@ -319,7 +319,7 @@ def C13():
 
 
 def C14():
-    print("C14 budget=100 fails to standardize effort across libraries (paper §4.2.3, BST illustration)")
+    print("C14 budget=100 fails to standardize effort across libraries (paper §3.2.2, BST illustration)")
     rows_all = {m: load_csv("bst", mode=m) for m in ("fixed-100", "default")}
     for s in VANILLA:
         line = f"  {s:9s}: "
@@ -347,13 +347,13 @@ def _shrink_time_friedman(wl, label, libs):
 
 
 def C15():
-    print("C15 CBC shrink time order (paper §4.2.3: BST QC fastest; RBT QC≈HH < Falsify; STLC/F<: QC<HH<Falsify)")
+    print("C15 CBC shrink time order (paper §3.2.2: BST QC fastest; RBT QC≈HH < Falsify; STLC/F<: QC<HH<Falsify)")
     for wl in WORKLOADS:
         _shrink_time_friedman(wl, "cbc", cbc_libs(wl))
 
 
 def C16():
-    print("C16 Per-edit ms order consistent w/ absolute time for QuickCheck & Hedgehog (paper §4.2.3)")
+    print("C16 Per-edit ms order consistent w/ absolute time for QuickCheck & Hedgehog (paper §3.2.2)")
     for wl in WORKLOADS:
         rows = load_csv(wl)
         rt = friedman(rows, VANILLA, v_time)
@@ -365,7 +365,7 @@ def C16():
 
 
 def C17():
-    print("C17 Falsify GbE pre-shrink TED ≈ 150 vs 15-20 for QuickCheck/Hedgehog (paper §4.2.3)")
+    print("C17 Falsify API-based pre-shrink TED ≈ 150 vs 13-18 for QuickCheck/Hedgehog (paper §3.2.2)")
     for wl in ("bst", "rbt"):
         rows = load_csv(wl)
         for s in QBE:
@@ -374,7 +374,7 @@ def C17():
 
 
 def C18():
-    print("C18 Per-edit collapses Falsify/Quick GbE gap: 49x/96x (time) -> 6.2x/2.4x (ms/edit) (paper §4.2.3)")
+    print("C18 Per-edit collapses Falsify/Quick API-based gap: 49x/95x (time) -> 6.2x/2.4x (ms/edit) (paper §3.2.2)")
     for wl in ("bst", "rbt"):
         rows = load_csv(wl)
         def m(s, fn):
@@ -386,7 +386,7 @@ def C18():
 
 
 def C19():
-    print("C19 CBC per-trial failure rate during shrinking (paper §4.3: HH 26-56%, QC 5-12%, Falsify 2-3%)")
+    print("C19 CBC per-trial failure rate during shrinking (paper §3.3: HH 26-56%, QC 5-12%, Falsify 2-3%)")
     for wl in WORKLOADS:
         rows = load_csv(wl)
         for s in cbc_libs(wl):
